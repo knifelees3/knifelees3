@@ -1,0 +1,664 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+
+    
+
+    
+    <title>APS用RevTex投稿全记录 | KnifeLee&#39;s Personal</title>
+    
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    
+    <meta name="keywords" content="Latex,学术" />
+    
+    <meta name="description" content="本笔记详细技术了如何用latex写一篇论文并投稿。在准备论文的时候，需要用到的软件有  Texlive ，用来编译Latex。 RevTex，APS官方写作包，对于Texlive，一般都会默认安装有Texlive，只是不是最新版的。 Latex编辑器，我比较推荐Sublime或者Vs code等。 文献管理软件，我比较推荐Endnote以及Mendeley,文献管理软件很多，找一个适合自己的，我自">
+<meta name="keywords" content="Latex,学术">
+<meta property="og:type" content="article">
+<meta property="og:title" content="APS用RevTex投稿全记录">
+<meta property="og:url" content="https:&#x2F;&#x2F;knifelees3.github.io&#x2F;2019&#x2F;07&#x2F;02&#x2F;APS%E7%94%A8RevTex%E6%8A%95%E7%A8%BF%E5%85%A8%E8%AE%B0%E5%BD%95&#x2F;index.html">
+<meta property="og:site_name" content="KnifeLee&#39;s Personal">
+<meta property="og:description" content="本笔记详细技术了如何用latex写一篇论文并投稿。在准备论文的时候，需要用到的软件有  Texlive ，用来编译Latex。 RevTex，APS官方写作包，对于Texlive，一般都会默认安装有Texlive，只是不是最新版的。 Latex编辑器，我比较推荐Sublime或者Vs code等。 文献管理软件，我比较推荐Endnote以及Mendeley,文献管理软件很多，找一个适合自己的，我自">
+<meta property="og:locale" content="en">
+<meta property="og:updated_time" content="2019-10-08T10:11:17.000Z">
+<meta name="twitter:card" content="summary">
+    
+
+    
+        <link rel="alternate" href="/" title="KnifeLee&#39;s Personal" type="application/atom+xml" />
+    
+
+    
+
+    <link rel="stylesheet" href="/libs/font-awesome/css/font-awesome.min.css">
+    <link rel="stylesheet" href="/libs/titillium-web/styles.css">
+    <link rel="stylesheet" href="/libs/source-code-pro/styles.css">
+
+    <link rel="stylesheet" href="/css/style.css">
+
+    <script src="/libs/jquery/3.4.1/jquery.min.js"></script>
+    
+    
+        <link rel="stylesheet" href="/libs/lightgallery/css/lightgallery.min.css">
+    
+    
+        <link rel="stylesheet" href="/libs/justified-gallery/justifiedGallery.min.css">
+    
+    
+    
+
+
+</head>
+
+<body>
+    <div id="wrap">
+        <header id="header">
+    <div id="header-outer" class="outer">
+        <div class="container">
+            <div class="container-inner">
+                <div id="header-title">
+                    <h1 class="logo-wrap">
+                        <a href="/" class="logo"></a>
+                    </h1>
+                    
+                        <h2 class="subtitle-wrap">
+                            <p class="subtitle">Harmonic osicllator is everything</p>
+                        </h2>
+                    
+                </div>
+                <div id="header-inner" class="nav-container">
+                    <a id="main-nav-toggle" class="nav-icon fa fa-bars"></a>
+                    <div class="nav-container-inner">
+                        <ul id="main-nav">
+                            
+                                <li class="main-nav-list-item" >
+                                    <a class="main-nav-list-link" href="/">Home</a>
+                                </li>
+                            
+                                        <ul class="main-nav-list"><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/%E6%8A%80%E6%9C%AF/">技术</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/%E9%9A%8F%E7%AC%94/">随笔</a></li></ul>
+                                    
+                                <li class="main-nav-list-item" >
+                                    <a class="main-nav-list-link" href="/about/index.html">About</a>
+                                </li>
+                            
+                        </ul>
+                        <nav id="sub-nav">
+                            <div id="search-form-wrap">
+
+    <form class="search-form">
+        <input type="text" class="ins-search-input search-form-input" placeholder="Search" />
+        <button type="submit" class="search-form-submit"></button>
+    </form>
+    <div class="ins-search">
+    <div class="ins-search-mask"></div>
+    <div class="ins-search-container">
+        <div class="ins-input-wrapper">
+            <input type="text" class="ins-search-input" placeholder="Type something..." />
+            <span class="ins-close ins-selectable"><i class="fa fa-times-circle"></i></span>
+        </div>
+        <div class="ins-section-wrapper">
+            <div class="ins-section-container"></div>
+        </div>
+    </div>
+</div>
+<script>
+(function (window) {
+    var INSIGHT_CONFIG = {
+        TRANSLATION: {
+            POSTS: 'Posts',
+            PAGES: 'Pages',
+            CATEGORIES: 'Categories',
+            TAGS: 'Tags',
+            UNTITLED: '(Untitled)',
+        },
+        ROOT_URL: '/',
+        CONTENT_URL: '/content.json',
+    };
+    window.INSIGHT_CONFIG = INSIGHT_CONFIG;
+})(window);
+</script>
+<script src="/js/insight.js"></script>
+
+</div>
+                        </nav>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</header>
+        <div class="container">
+            <div class="main-body container-inner">
+                <div class="main-body-inner">
+                    <section id="main">
+                        <div class="main-body-header">
+    <h1 class="header">
+    
+    <a class="page-title-link" href="/categories/%E6%8A%80%E6%9C%AF/">技术</a>
+    </h1>
+</div>
+
+                        <div class="main-body-content">
+                            <article id="post-APS用RevTex投稿全记录" class="article article-single article-type-post" itemscope itemprop="blogPost">
+    <div class="article-inner">
+        
+            <header class="article-header">
+                
+    
+        <h1 class="article-title" itemprop="name">
+        APS用RevTex投稿全记录
+        </h1>
+    
+
+            </header>
+        
+        
+            <div class="article-meta">
+                
+    <div class="article-date">
+      <i class="fa fa-calendar"></i>
+      <a href="/2019/07/02/APS%E7%94%A8RevTex%E6%8A%95%E7%A8%BF%E5%85%A8%E8%AE%B0%E5%BD%95/" class="article-date">
+         <time datetime="2019-07-02T07:39:32.000Z" itemprop="datePublished">2019-07-02</time>
+      </a>
+    </div>
+
+
+                
+
+                
+    <div class="article-tag">
+        <i class="fa fa-tag"></i>
+        <a class="tag-link" href="/tags/Latex/" rel="tag">Latex</a>, <a class="tag-link" href="/tags/%E5%AD%A6%E6%9C%AF/" rel="tag">学术</a>
+    </div>
+
+                
+   <span id="/2019/07/02/APS%E7%94%A8RevTex%E6%8A%95%E7%A8%BF%E5%85%A8%E8%AE%B0%E5%BD%95/" class="leancloud-visitors" data-flag-title="APS用RevTex投稿全记录">
+   <i class="fa fa-eye"></i>
+   <span class="post-meta-item-text">Views: </span>
+   <i class="leancloud-visitors-count">1000000</i>
+   </span>
+
+
+                
+   <div class="article-counter">
+      <i class="fa fa-file-word-o"></i>
+      <span class="post-count-item-text">Symbols count in article: </span>
+      <span class="post-count">1.5k</span>
+      <i class="fa fa-clock-o"></i>
+      <span class="post-time-item-text">Reading time: </span>
+      <span class="post-count">6 mins. </span>
+   </div>
+
+
+            </div>
+        
+        
+        <div class="article-entry" itemprop="articleBody">
+            <p>本笔记详细技术了如何用latex写一篇论文并投稿。在准备论文的时候，需要用到的软件有</p>
+<ul>
+<li><a href="https://www.tug.org/texlive/" target="_blank" rel="noopener">Texlive</a> ，用来编译Latex。</li>
+<li><a href="https://journals.aps.org/revtex" target="_blank" rel="noopener">RevTex</a>，APS官方写作包，对于Texlive，一般都会默认安装有Texlive，只是不是最新版的。</li>
+<li>Latex编辑器，我比较推荐Sublime或者Vs code等。</li>
+<li>文献管理软件，我比较推荐Endnote以及Mendeley,文献管理软件很多，找一个适合自己的，我自己用的是Endnote。</li>
+</ul>
+<p>当然，实际准备论文时候，还需要准备论文绘图，绘制数据图的时候，我使用了MATLAB和python一起来绘制的，二者都不能完全相互替代。绘制示意图时，用到了Corel draw绘制二维矢量图，Blender绘制三维图。</p>
+<h2 id="准备阶段"><a href="#准备阶段" class="headerlink" title="准备阶段"></a>准备阶段</h2><p>在准备阶段，需要安装一系列软件。每个人用的软件可能会有区别，比如写latex我喜欢用sublime来书写，其在插入文献的时候有其他软件无法比拟的功能。我在此以我用的软件为例，写一下准备一篇文章需要经过哪些步骤。</p>
+<p>安装texlive2018： 用来编译latex文件</p>
+<p>安装sublime并且配置好相关的插件： 用来书写文章，安装插件后，有很多补全功能。</p>
+<p>安装Endnote： 用来管理文献、插入文献</p>
+<h2 id="用Endenote建立自己的文献库"><a href="#用Endenote建立自己的文献库" class="headerlink" title="用Endenote建立自己的文献库"></a>用Endenote建立自己的文献库</h2><p>我们需要用Endnote来将自己阅读的文献进行整理、分类、命名，这样自己平时阅读的时候 比较方便，需要用到的时候，也可以快速的提取到。具体Endnote使用，可以参见我的另外一个博客：</p>
+<p>最终确定要插入哪些文献以后，需要将要插入的文献，导出为bibtex格式，具体做法为，选择“output style”为”export bibtex”,然后带格式的复制对应的参考文献，新建一个名为“reference.bib”的文件，粘贴复制的内容到该文件即可，其文件的内容一般如下：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span></pre></td><td class="code"><pre><span class="line">@article&#123;RN24,</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">2</span></pre></td><td class="code"><pre><span class="line">   author &#x3D; &#123;Bradford, Matthew and Shen, Jung-Tsung&#125;,</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">3</span></pre></td><td class="code"><pre><span class="line">   title &#x3D; &#123;Single-photon frequency conversion by exploiting quantum interference&#125;,</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">4</span></pre></td><td class="code"><pre><span class="line">   journal &#x3D; &#123;Physical Review A&#125;,</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">5</span></pre></td><td class="code"><pre><span class="line">   volume &#x3D; &#123;85&#125;,</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">6</span></pre></td><td class="code"><pre><span class="line">   number &#x3D; &#123;4&#125;,</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">7</span></pre></td><td class="code"><pre><span class="line">   ISSN &#x3D; &#123;1050-2947</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">8</span></pre></td><td class="code"><pre><span class="line">1094-1622&#125;,</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">9</span></pre></td><td class="code"><pre><span class="line">   DOI &#x3D; &#123;10.1103&#x2F;PhysRevA.85.043814&#125;,</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">10</span></pre></td><td class="code"><pre><span class="line">   year &#x3D; &#123;2012&#125;,</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">11</span></pre></td><td class="code"><pre><span class="line">   type &#x3D; &#123;Journal Article&#125;</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">12</span></pre></td><td class="code"><pre><span class="line">&#125;</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">13</span></pre></td><td class="code"><pre><span class="line"></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">14</span></pre></td><td class="code"><pre><span class="line">@article&#123;RN25,</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">15</span></pre></td><td class="code"><pre><span class="line">   author &#x3D; &#123;Bradford, Matthew and Shen, Jung-Tsung&#125;,</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">16</span></pre></td><td class="code"><pre><span class="line">   title &#x3D; &#123;Spontaneous emission in cavity QED with a terminated waveguide&#125;,</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">17</span></pre></td><td class="code"><pre><span class="line">   journal &#x3D; &#123;Physical Review A&#125;,</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">18</span></pre></td><td class="code"><pre><span class="line">   volume &#x3D; &#123;87&#125;,</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">19</span></pre></td><td class="code"><pre><span class="line">   number &#x3D; &#123;6&#125;,</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">20</span></pre></td><td class="code"><pre><span class="line">   ISSN &#x3D; &#123;1050-2947</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">21</span></pre></td><td class="code"><pre><span class="line">1094-1622&#125;,</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">22</span></pre></td><td class="code"><pre><span class="line">   DOI &#x3D; &#123;10.1103&#x2F;PhysRevA.87.063830&#125;,</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">23</span></pre></td><td class="code"><pre><span class="line">   year &#x3D; &#123;2013&#125;,</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">24</span></pre></td><td class="code"><pre><span class="line">   type &#x3D; &#123;Journal Article&#125;</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">25</span></pre></td><td class="code"><pre><span class="line">&#125;</span></pre></td></tr></table></figure>
+
+<p>内容包含了作者、杂志、期刊号等，是一些基本的格式。</p>
+<h2 id="使用sublime来写手稿"><a href="#使用sublime来写手稿" class="headerlink" title="使用sublime来写手稿"></a>使用sublime来写手稿</h2><p>投稿时，需要用到APS的官方revtex的包，我们安装的texlive默认就安装了该包，不用再额外的安装了。我们一般的文章的一个例子如下：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span></pre></td><td class="code"><pre><span class="line">%\documentclass[aps,prl,reprint,superscriptaddress,showpacs]&#123;revtex4-1&#125;</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">2</span></pre></td><td class="code"><pre><span class="line">\documentclass[%</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">3</span></pre></td><td class="code"><pre><span class="line">reprint, %preprint, twocolumn% 其中reprint提供双栏最接近出版论文的格式，preprint显示的字体和行距则相对大一些，是方便审稿人将论文打印出来仔细阅读的，twocolumn选项与此类似。</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">4</span></pre></td><td class="code"><pre><span class="line">superscriptaddress, %groupedaddress,% 现在通用是前一种作者名录格式，这样在显示多个作者或者一个作者从属于多个机构时比较紧凑方便。</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">5</span></pre></td><td class="code"><pre><span class="line">showpacs,% 显示PACS代码</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">6</span></pre></td><td class="code"><pre><span class="line">amsmath, amssymb, %都是用于显示数学公式环境</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">7</span></pre></td><td class="code"><pre><span class="line">aps, %这个是指APS风格，另一个可选项应该是AIP</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">8</span></pre></td><td class="code"><pre><span class="line">prl,%pra, prb, rmp, % 这里是对不同期刊的选择</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">9</span></pre></td><td class="code"><pre><span class="line">]&#123;revtex4-1&#125;% 这个格式就是APS对应的latex文档格式</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">10</span></pre></td><td class="code"><pre><span class="line">\usepackage&#123;graphicx&#125;% Include figure files</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">11</span></pre></td><td class="code"><pre><span class="line">\usepackage&#123;dcolumn&#125;% Align table columns on decimal point</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">12</span></pre></td><td class="code"><pre><span class="line">\usepackage&#123;bm&#125;% bold math</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">13</span></pre></td><td class="code"><pre><span class="line">\usepackage&#123;natbib&#125;%to cite</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">14</span></pre></td><td class="code"><pre><span class="line">\usepackage&#123;hyperref&#125;% add hypertext capabilities</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">15</span></pre></td><td class="code"><pre><span class="line">\usepackage&#123;float&#125;</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">16</span></pre></td><td class="code"><pre><span class="line">%\usepackage&#123;stix&#125;</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">17</span></pre></td><td class="code"><pre><span class="line">\usepackage&#123;mathrsfs&#125;%花体的插入方法</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">18</span></pre></td><td class="code"><pre><span class="line">\hypersetup&#123;colorlinks&#x3D;true, citecolor&#x3D;blue, urlcolor&#x3D;blue, linkcolor&#x3D;blue&#125;</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">19</span></pre></td><td class="code"><pre><span class="line">\bibliographystyle&#123;apsrev4-1.bst&#125;% 注意这个.bst风格文件是需要从官网单独下载的，可以控制文章末尾参考文献的现实风格。下载之后放到工作目录下即可(即.tex文档所在的目录)</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">20</span></pre></td><td class="code"><pre><span class="line">\begin&#123;document&#125;</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">21</span></pre></td><td class="code"><pre><span class="line">\title&#123;Quantum Photonic Node for On-Chip State Transfer&#125;% Force line breaks with \\</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">22</span></pre></td><td class="code"><pre><span class="line">%\thanks&#123;A footnote to the article title&#125;%</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">23</span></pre></td><td class="code"><pre><span class="line">\author&#123;Youself&#125;% You, the writer of this paper. 第一作者</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">24</span></pre></td><td class="code"><pre><span class="line">%\noaltaffiliation</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">25</span></pre></td><td class="code"><pre><span class="line">%\altaffiliation&#123;School of Physics, Huazhong University of Science and Technology, Luoyu Road 1037, Wuhan, 430074, People’s Republic of China&#125;</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">26</span></pre></td><td class="code"><pre><span class="line"></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">27</span></pre></td><td class="code"><pre><span class="line">\author&#123;Xiao Ming&#125;% Boss with communication email 通讯作者，注意这里的Email一定要放在通讯作者后的第一个位置，这样邮箱地址的链接才会正确显示。</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">28</span></pre></td><td class="code"><pre><span class="line">\email&#123;12345678@gmail.com&#125;</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">29</span></pre></td><td class="code"><pre><span class="line">%\affiliation&#123;School of Physics, Huazhong University of Science and Technology, Luoyu Road 1037, Wuhan, 430074, People’s Republic of China&#125;</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">30</span></pre></td><td class="code"><pre><span class="line">\author&#123;Leehoom Wang&#125; % Boss with communication email 通讯作者，注意这里的Email一定要放在通讯作者后的第一个位置，这样邮箱地址的链接才会正确显示。</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">31</span></pre></td><td class="code"><pre><span class="line">\email&#123;Leehoom_wang@gmail.com&#125;	</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">32</span></pre></td><td class="code"><pre><span class="line">%\homepage&#123;http:&#x2F;&#x2F;www.Second.institution.edu&#x2F;~Charlie.Author&#125;</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">33</span></pre></td><td class="code"><pre><span class="line">\affiliation&#123;School of Physics, Huazhong University of Science and Technology, Luoyu Road 1037, Wuhan, 430074, People’s Republic of China&#125;%</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">34</span></pre></td><td class="code"><pre><span class="line"></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">35</span></pre></td><td class="code"><pre><span class="line">\date&#123;\today&#125;%This date can be changed.</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">36</span></pre></td><td class="code"><pre><span class="line">\begin&#123;abstract&#125;% 摘要</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">37</span></pre></td><td class="code"><pre><span class="line">This is abstract This is abstract This is abstract This is abstract This is abstractThis is abstract This is abstract  </span></pre></td></tr><tr><td class="gutter"><pre><span class="line">38</span></pre></td><td class="code"><pre><span class="line">\end&#123;abstract&#125;</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">39</span></pre></td><td class="code"><pre><span class="line">\pacs&#123;42.50.Ct, 42.50.Ex, 42.50.Pq, 42.79.Gn&#125;% PACS, the Physics and Astronomy</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">40</span></pre></td><td class="code"><pre><span class="line">%\keywords&#123;Suggested keywords&#125;% Not always required.</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">41</span></pre></td><td class="code"><pre><span class="line">\maketitle</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">42</span></pre></td><td class="code"><pre><span class="line"></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">43</span></pre></td><td class="code"><pre><span class="line"></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">44</span></pre></td><td class="code"><pre><span class="line">\begin&#123;acknowledgments&#125;</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">45</span></pre></td><td class="code"><pre><span class="line">This is acknowledgments This is acknowledgments This is acknowledgments This is acknowledgments This is acknowledgments This is acknowledgments This is acknowledgments </span></pre></td></tr><tr><td class="gutter"><pre><span class="line">46</span></pre></td><td class="code"><pre><span class="line">\end&#123;acknowledgments&#125;</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">47</span></pre></td><td class="code"><pre><span class="line"></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">48</span></pre></td><td class="code"><pre><span class="line">\bibliographystyle&#123;apsrev4-1&#125;</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">49</span></pre></td><td class="code"><pre><span class="line">\bibliography&#123;reference.bib&#125; % The reference file name</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">50</span></pre></td><td class="code"><pre><span class="line">\end&#123;document&#125;</span></pre></td></tr></table></figure>
+
+<h2 id="如何插入文献"><a href="#如何插入文献" class="headerlink" title="如何插入文献"></a>如何插入文献</h2><p>写文章非常重要的一个部分就是插入文献。在word中插入文献，只需要安装好endnote之后，即可一</p>
+
+        </div>
+        <footer class="article-footer">
+            
+
+
+
+    <a data-url="https://knifelees3.github.io/2019/07/02/APS%E7%94%A8RevTex%E6%8A%95%E7%A8%BF%E5%85%A8%E8%AE%B0%E5%BD%95/" data-id="ck45uums20000v4tv5ifrgkgo" class="article-share-link"><i class="fa fa-share"></i>Share</a>
+<script>
+    (function ($) {
+        $('body').on('click', function() {
+            $('.article-share-box.on').removeClass('on');
+        }).on('click', '.article-share-link', function(e) {
+            e.stopPropagation();
+
+            var $this = $(this),
+                url = $this.attr('data-url'),
+                encodedUrl = encodeURIComponent(url),
+                id = 'article-share-box-' + $this.attr('data-id'),
+                offset = $this.offset(),
+                box;
+
+            if ($('#' + id).length) {
+                box = $('#' + id);
+
+                if (box.hasClass('on')){
+                    box.removeClass('on');
+                    return;
+                }
+            } else {
+                var html = [
+                    '<div id="' + id + '" class="article-share-box">',
+                        '<input class="article-share-input" value="' + url + '">',
+                        '<div class="article-share-links">',
+                            '<a href="https://twitter.com/intent/tweet?url=' + encodedUrl + '" class="article-share-twitter" target="_blank" title="Twitter"></a>',
+                            '<a href="https://www.facebook.com/sharer.php?u=' + encodedUrl + '" class="article-share-facebook" target="_blank" title="Facebook"></a>',
+                            '<a href="http://pinterest.com/pin/create/button/?url=' + encodedUrl + '" class="article-share-pinterest" target="_blank" title="Pinterest"></a>',
+                            '<a href="https://plus.google.com/share?url=' + encodedUrl + '" class="article-share-google" target="_blank" title="Google+"></a>',
+                        '</div>',
+                    '</div>'
+                ].join('');
+
+              box = $(html);
+
+              $('body').append(box);
+            }
+
+            $('.article-share-box.on').hide();
+
+            box.css({
+                top: offset.top + 25,
+                left: offset.left
+            }).addClass('on');
+
+        }).on('click', '.article-share-box', function (e) {
+            e.stopPropagation();
+        }).on('click', '.article-share-box-input', function () {
+            $(this).select();
+        }).on('click', '.article-share-box-link', function (e) {
+            e.preventDefault();
+            e.stopPropagation();
+
+            window.open(this.href, 'article-share-box-window-' + Date.now(), 'width=500,height=450');
+        });
+    })(jQuery);
+</script>
+
+        </footer>
+    </div>
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "BlogPosting",
+        "author": {
+            "@type": "Person",
+            "name": "Knifelee"
+        },
+        "headline": "APS用RevTex投稿全记录",
+        "image": "/https:/knifelees3.github.io",
+        "keywords": "Latex 学术",
+        "genre": "技术",
+        "datePublished": "2019-07-02",
+        "dateCreated": "2019-07-02",
+        "dateModified": "2019-10-08",
+        "url": "/https:/knifelees3.github.io/2019/07/02/APS%E7%94%A8RevTex%E6%8A%95%E7%A8%BF%E5%85%A8%E8%AE%B0%E5%BD%95/",
+        "description": "本笔记详细技术了如何用latex写一篇论文并投稿。在准备论文的时候，需要用到的软件有
+
+Texlive ，用来编译Latex。
+RevTex，APS官方写作包，对于Texlive，一般都会默认安装有Texlive，只是不是最新版的。
+Latex编辑器，我比较推荐Sublime或者Vs code等。
+文献管理软件，我比较推荐Endnote以及Mendeley,文献管理软件很多，找一个适合自己的，我自",
+        "wordCount": 638
+    }
+</script>
+
+</article>
+
+    <section id="comments">
+    
+        
+    <div id="disqus_thread">
+        <noscript>Please enable JavaScript to view the <a href="//disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+    </div>
+
+
+    
+    </section>
+
+
+
+                        </div>
+                    </section>
+                    <aside id="sidebar">
+    <a class="sidebar-toggle" title="Expand Sidebar"><i class="toggle icon"></i></a>
+    <div class="sidebar-top">
+        <p>follow:</p>
+        <ul class="social-links">
+            
+                
+                <li>
+                    <a class="social-tooltip" title="twitter" href="/" target="_blank" rel="noopener">
+                        <i class="icon fa fa-twitter"></i>
+                    </a>
+                </li>
+                
+            
+                
+                <li>
+                    <a class="social-tooltip" title="facebook" href="/" target="_blank" rel="noopener">
+                        <i class="icon fa fa-facebook"></i>
+                    </a>
+                </li>
+                
+            
+                
+                <li>
+                    <a class="social-tooltip" title="stack-overflow" href="/" target="_blank" rel="noopener">
+                        <i class="icon fa fa-stack-overflow"></i>
+                    </a>
+                </li>
+                
+            
+                
+                <li>
+                    <a class="social-tooltip" title="github" href="https://github.com/ppoffice/hexo-theme-hueman" target="_blank" rel="noopener">
+                        <i class="icon fa fa-github"></i>
+                    </a>
+                </li>
+                
+            
+                
+                <li>
+                    <a class="social-tooltip" title="weibo" href="/" target="_blank" rel="noopener">
+                        <i class="icon fa fa-weibo"></i>
+                    </a>
+                </li>
+                
+            
+                
+                <li>
+                    <a class="social-tooltip" title="rss" href="/" target="_blank" rel="noopener">
+                        <i class="icon fa fa-rss"></i>
+                    </a>
+                </li>
+                
+            
+        </ul>
+    </div>
+    
+        
+<nav id="article-nav">
+    
+        <a href="/2019/07/06/How-to-use-COMSOL-LiveLink-With-MATLAB/" id="article-nav-newer" class="article-nav-link-wrap">
+        <strong class="article-nav-caption">newer</strong>
+        <p class="article-nav-title">
+        
+            How to use COMSOL, MATLAB and COMSOL livelink with MATLAB on Server
+        
+        </p>
+        <i class="icon fa fa-chevron-right" id="icon-chevron-right"></i>
+    </a>
+    
+    
+        <a href="/2019/06/28/Ubuntu%E7%94%A8%E6%88%B7%E6%9D%83%E9%99%90%E7%AE%A1%E7%90%86/" id="article-nav-older" class="article-nav-link-wrap">
+        <strong class="article-nav-caption">older</strong>
+        <p class="article-nav-title">Ubuntu用户及其权限管理</p>
+        <i class="icon fa fa-chevron-left" id="icon-chevron-left"></i>
+        </a>
+    
+</nav>
+
+    
+    <div class="widgets-container">
+        
+            
+                
+
+            
+                
+    <div class="widget-wrap">
+        <h3 class="widget-title">recents</h3>
+        <div class="widget">
+            <ul id="recent-post" class="">
+                
+                    <li>
+                        
+                        <div class="item-thumbnail">
+                            <a href="/2019/12/02/Installing-Software-On-Ubuntu/" class="thumbnail">
+    
+    
+        <span class="thumbnail-image thumbnail-none"></span>
+    
+    
+</a>
+
+                        </div>
+                        
+                        <div class="item-inner">
+                            <p class="item-category"><a class="article-category-link" href="/categories/%E6%8A%80%E6%9C%AF/">技术</a></p>
+                            <p class="item-title"><a href="/2019/12/02/Installing-Software-On-Ubuntu/" class="title">Ubuntu软件安装以及使用注意事项</a></p>
+                            <p class="item-date"><time datetime="2019-12-02T15:34:52.432Z" itemprop="datePublished">2019-12-02</time></p>
+                        </div>
+                    </li>
+                
+                    <li>
+                        
+                        <div class="item-thumbnail">
+                            <a href="/2019/12/02/Install-Python-on-Windows/" class="thumbnail">
+    
+    
+        <span class="thumbnail-image thumbnail-none"></span>
+    
+    
+</a>
+
+                        </div>
+                        
+                        <div class="item-inner">
+                            <p class="item-category"><a class="article-category-link" href="/categories/%E6%8A%80%E6%9C%AF/">技术</a></p>
+                            <p class="item-title"><a href="/2019/12/02/Install-Python-on-Windows/" class="title">Windows python 环境配置</a></p>
+                            <p class="item-date"><time datetime="2019-12-02T15:34:52.415Z" itemprop="datePublished">2019-12-02</time></p>
+                        </div>
+                    </li>
+                
+                    <li>
+                        
+                        <div class="item-thumbnail">
+                            <a href="/2019/12/02/MATLAB-Code-Frequenctly-Used/" class="thumbnail">
+    
+    
+        <span class="thumbnail-image thumbnail-none"></span>
+    
+    
+</a>
+
+                        </div>
+                        
+                        <div class="item-inner">
+                            <p class="item-category"><a class="article-category-link" href="/categories/%E6%8A%80%E6%9C%AF/">技术</a></p>
+                            <p class="item-title"><a href="/2019/12/02/MATLAB-Code-Frequenctly-Used/" class="title">MATLAB 常见命令</a></p>
+                            <p class="item-date"><time datetime="2019-12-02T15:34:52.376Z" itemprop="datePublished">2019-12-02</time></p>
+                        </div>
+                    </li>
+                
+                    <li>
+                        
+                        <div class="item-thumbnail">
+                            <a href="/2019/12/01/hello-world/" class="thumbnail">
+    
+    
+        <span class="thumbnail-image thumbnail-none"></span>
+    
+    
+</a>
+
+                        </div>
+                        
+                        <div class="item-inner">
+                            <p class="item-category"></p>
+                            <p class="item-title"><a href="/2019/12/01/hello-world/" class="title">Hello World</a></p>
+                            <p class="item-date"><time datetime="2019-12-01T07:47:52.313Z" itemprop="datePublished">2019-12-01</time></p>
+                        </div>
+                    </li>
+                
+                    <li>
+                        
+                        <div class="item-thumbnail">
+                            <a href="/2019/12/01/MATLAB%E8%BF%9C%E7%A8%8B%E6%A1%8C%E9%9D%A2%E6%97%A0%E6%B3%95%E4%BD%BF%E7%94%A8%E7%9A%84%E9%97%AE%E9%A2%98/" class="thumbnail">
+    
+    
+        <span class="thumbnail-image thumbnail-none"></span>
+    
+    
+</a>
+
+                        </div>
+                        
+                        <div class="item-inner">
+                            <p class="item-category"><a class="article-category-link" href="/categories/%E6%8A%80%E6%9C%AF/">技术</a></p>
+                            <p class="item-title"><a href="/2019/12/01/MATLAB%E8%BF%9C%E7%A8%8B%E6%A1%8C%E9%9D%A2%E6%97%A0%E6%B3%95%E4%BD%BF%E7%94%A8%E7%9A%84%E9%97%AE%E9%A2%98/" class="title">MATLAB远程桌面使用时报错的问题</a></p>
+                            <p class="item-date"><time datetime="2019-12-01T07:15:30.000Z" itemprop="datePublished">2019-12-01</time></p>
+                        </div>
+                    </li>
+                
+            </ul>
+        </div>
+    </div>
+
+            
+                
+    <div class="widget-wrap widget-list">
+        <h3 class="widget-title">categories</h3>
+        <div class="widget">
+            <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/%E6%8A%80%E6%9C%AF/">技术</a><span class="category-list-count">27</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E9%9A%8F%E7%AC%94/">随笔</a><span class="category-list-count">1</span></li></ul>
+        </div>
+    </div>
+
+
+            
+                
+    <div class="widget-wrap widget-list">
+        <h3 class="widget-title">archives</h3>
+        <div class="widget">
+            <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/12/">December 2019</a><span class="archive-list-count">5</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/11/">November 2019</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/10/">October 2019</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/08/">August 2019</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/07/">July 2019</a><span class="archive-list-count">4</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/06/">June 2019</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/05/">May 2019</a><span class="archive-list-count">3</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/04/">April 2019</a><span class="archive-list-count">4</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/03/">March 2019</a><span class="archive-list-count">7</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/02/">February 2019</a><span class="archive-list-count">1</span></li></ul>
+        </div>
+    </div>
+
+
+            
+                
+    <div class="widget-wrap widget-list">
+        <h3 class="widget-title">tags</h3>
+        <div class="widget">
+            <ul class="tag-list" itemprop="keywords"><li class="tag-list-item"><a class="tag-list-link" href="/tags/COMSOL/" rel="tag">COMSOL</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/EndNote/" rel="tag">EndNote</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/FTP/" rel="tag">FTP</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Git/" rel="tag">Git</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Latex/" rel="tag">Latex</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Linux/" rel="tag">Linux</a><span class="tag-list-count">5</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/MATLAB/" rel="tag">MATLAB</a><span class="tag-list-count">7</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Python/" rel="tag">Python</a><span class="tag-list-count">7</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/SSH/" rel="tag">SSH</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Ubuntu/" rel="tag">Ubuntu</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/gnuplot/" rel="tag">gnuplot</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/plot/" rel="tag">plot</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%AD%A6%E6%9C%AF/" rel="tag">学术</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%B9%B6%E8%A1%8C%E8%AE%A1%E7%AE%97/" rel="tag">并行计算</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E6%8A%80%E6%9C%AF/" rel="tag">技术</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E6%96%87%E7%8C%AE%E7%AE%A1%E7%90%86/" rel="tag">文献管理</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E6%A2%AF%E5%AD%90/" rel="tag">梯子</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E7%94%9F%E6%B4%BB%E8%AE%B0%E5%BD%95/" rel="tag">生活记录</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E7%A7%91%E5%AD%A6%E7%BB%98%E5%9B%BE/" rel="tag">科学绘图</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E7%BB%98%E5%9B%BE/" rel="tag">绘图</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E8%BD%AF%E4%BB%B6/" rel="tag">软件</a><span class="tag-list-count">1</span></li></ul>
+        </div>
+    </div>
+
+
+            
+                
+    <div class="widget-wrap widget-float">
+        <h3 class="widget-title">tag cloud</h3>
+        <div class="widget tagcloud">
+            <a href="/tags/COMSOL/" style="font-size: 13.33px;">COMSOL</a> <a href="/tags/EndNote/" style="font-size: 10px;">EndNote</a> <a href="/tags/FTP/" style="font-size: 10px;">FTP</a> <a href="/tags/Git/" style="font-size: 10px;">Git</a> <a href="/tags/Latex/" style="font-size: 10px;">Latex</a> <a href="/tags/Linux/" style="font-size: 16.67px;">Linux</a> <a href="/tags/MATLAB/" style="font-size: 20px;">MATLAB</a> <a href="/tags/Python/" style="font-size: 20px;">Python</a> <a href="/tags/SSH/" style="font-size: 10px;">SSH</a> <a href="/tags/Ubuntu/" style="font-size: 10px;">Ubuntu</a> <a href="/tags/gnuplot/" style="font-size: 10px;">gnuplot</a> <a href="/tags/plot/" style="font-size: 13.33px;">plot</a> <a href="/tags/%E5%AD%A6%E6%9C%AF/" style="font-size: 13.33px;">学术</a> <a href="/tags/%E5%B9%B6%E8%A1%8C%E8%AE%A1%E7%AE%97/" style="font-size: 10px;">并行计算</a> <a href="/tags/%E6%8A%80%E6%9C%AF/" style="font-size: 10px;">技术</a> <a href="/tags/%E6%96%87%E7%8C%AE%E7%AE%A1%E7%90%86/" style="font-size: 10px;">文献管理</a> <a href="/tags/%E6%A2%AF%E5%AD%90/" style="font-size: 10px;">梯子</a> <a href="/tags/%E7%94%9F%E6%B4%BB%E8%AE%B0%E5%BD%95/" style="font-size: 10px;">生活记录</a> <a href="/tags/%E7%A7%91%E5%AD%A6%E7%BB%98%E5%9B%BE/" style="font-size: 13.33px;">科学绘图</a> <a href="/tags/%E7%BB%98%E5%9B%BE/" style="font-size: 10px;">绘图</a> <a href="/tags/%E8%BD%AF%E4%BB%B6/" style="font-size: 10px;">软件</a>
+        </div>
+    </div>
+
+
+            
+                
+    <div class="widget-wrap widget-list">
+        <h3 class="widget-title">links</h3>
+        <div class="widget">
+            <ul>
+                
+                    <li>
+                        <a href="http://hexo.io" target="_blank" rel="noopener">Hexo</a>
+                    </li>
+                
+            </ul>
+        </div>
+    </div>
+
+
+            
+        
+    </div>
+</aside>
+
+                </div>
+            </div>
+        </div>
+        <footer id="footer">
+    <div class="container">
+        <div class="container-inner">
+            <a id="back-to-top" href="javascript:;" target="_blank" rel="noopener"><i class="icon fa fa-angle-up"></i></a>
+            <div class="credit">
+                <h1 class="logo-wrap">
+                    <a href="/" class="logo"></a>
+                </h1>
+                <p>&copy; 2019 Knifelee</p>
+                
+                <p>Powered by <a href="https://hexo.io/" target="_blank">Hexo</a>. Theme by <a href="https://github.com/ppoffice" target="_blank">PPOffice</a></p>
+                
+            </div>
+            <div class="footer-plugins">
+              
+    
+
+
+            </div>
+        </div>
+    </div>
+</footer>
+
+        
+    
+    <script>
+    var disqus_shortname = 'hexo-theme-hueman';
+    
+    
+    var disqus_url = 'https://knifelees3.github.io/2019/07/02/APS%E7%94%A8RevTex%E6%8A%95%E7%A8%BF%E5%85%A8%E8%AE%B0%E5%BD%95/';
+    
+    (function() {
+    var dsq = document.createElement('script');
+    dsq.type = 'text/javascript';
+    dsq.async = true;
+    dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+    (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    })();
+    </script>
+
+
+
+
+
+    
+        <script src="/libs/lightgallery/js/lightgallery.min.js"></script>
+        <script src="/libs/lightgallery/js/lg-thumbnail.min.js"></script>
+        <script src="/libs/lightgallery/js/lg-pager.min.js"></script>
+        <script src="/libs/lightgallery/js/lg-autoplay.min.js"></script>
+        <script src="/libs/lightgallery/js/lg-fullscreen.min.js"></script>
+        <script src="/libs/lightgallery/js/lg-zoom.min.js"></script>
+        <script src="/libs/lightgallery/js/lg-hash.min.js"></script>
+        <script src="/libs/lightgallery/js/lg-share.min.js"></script>
+        <script src="/libs/lightgallery/js/lg-video.min.js"></script>
+    
+    
+        <script src="/libs/justified-gallery/jquery.justifiedGallery.min.js"></script>
+    
+    
+        <script type="text/x-mathjax-config">
+            MathJax.Hub.Config({ tex2jax: { inlineMath: [['$','$'], ['\\(','\\)']] } });
+        </script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-MML-AM_CHTML"></script>
+    
+
+    
+
+
+
+<!-- Custom Scripts -->
+<script src="/js/main.js"></script>
+
+    </div>
+</body>
+</html>

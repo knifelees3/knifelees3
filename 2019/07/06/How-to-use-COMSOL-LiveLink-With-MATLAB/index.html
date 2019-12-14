@@ -1,0 +1,702 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+
+    
+
+    
+    <title>How to use COMSOL, MATLAB and COMSOL livelink with MATLAB on Server | KnifeLee&#39;s Personal</title>
+    
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    
+    <meta name="keywords" content="MATLAB,COMSOL" />
+    
+    <meta name="description" content="This note is to show the way of using MATLAB, COMSOL,COMSOL Livelink With MATLAB on our server   (ubuntu). We hope that we can run them with bash code in backgorund and after we logout or exit the ser">
+<meta name="keywords" content="MATLAB,COMSOL">
+<meta property="og:type" content="article">
+<meta property="og:title" content="How to use COMSOL, MATLAB and COMSOL livelink with MATLAB on Server">
+<meta property="og:url" content="https:&#x2F;&#x2F;knifelees3.github.io&#x2F;2019&#x2F;07&#x2F;06&#x2F;How-to-use-COMSOL-LiveLink-With-MATLAB&#x2F;index.html">
+<meta property="og:site_name" content="KnifeLee&#39;s Personal">
+<meta property="og:description" content="This note is to show the way of using MATLAB, COMSOL,COMSOL Livelink With MATLAB on our server   (ubuntu). We hope that we can run them with bash code in backgorund and after we logout or exit the ser">
+<meta property="og:locale" content="en">
+<meta property="og:updated_time" content="2019-08-12T03:29:49.000Z">
+<meta name="twitter:card" content="summary">
+    
+
+    
+        <link rel="alternate" href="/" title="KnifeLee&#39;s Personal" type="application/atom+xml" />
+    
+
+    
+
+    <link rel="stylesheet" href="/libs/font-awesome/css/font-awesome.min.css">
+    <link rel="stylesheet" href="/libs/titillium-web/styles.css">
+    <link rel="stylesheet" href="/libs/source-code-pro/styles.css">
+
+    <link rel="stylesheet" href="/css/style.css">
+
+    <script src="/libs/jquery/3.4.1/jquery.min.js"></script>
+    
+    
+        <link rel="stylesheet" href="/libs/lightgallery/css/lightgallery.min.css">
+    
+    
+        <link rel="stylesheet" href="/libs/justified-gallery/justifiedGallery.min.css">
+    
+    
+    
+
+
+</head>
+
+<body>
+    <div id="wrap">
+        <header id="header">
+    <div id="header-outer" class="outer">
+        <div class="container">
+            <div class="container-inner">
+                <div id="header-title">
+                    <h1 class="logo-wrap">
+                        <a href="/" class="logo"></a>
+                    </h1>
+                    
+                        <h2 class="subtitle-wrap">
+                            <p class="subtitle">Harmonic osicllator is everything</p>
+                        </h2>
+                    
+                </div>
+                <div id="header-inner" class="nav-container">
+                    <a id="main-nav-toggle" class="nav-icon fa fa-bars"></a>
+                    <div class="nav-container-inner">
+                        <ul id="main-nav">
+                            
+                                <li class="main-nav-list-item" >
+                                    <a class="main-nav-list-link" href="/">Home</a>
+                                </li>
+                            
+                                        <ul class="main-nav-list"><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/%E6%8A%80%E6%9C%AF/">技术</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/%E9%9A%8F%E7%AC%94/">随笔</a></li></ul>
+                                    
+                                <li class="main-nav-list-item" >
+                                    <a class="main-nav-list-link" href="/about/index.html">About</a>
+                                </li>
+                            
+                        </ul>
+                        <nav id="sub-nav">
+                            <div id="search-form-wrap">
+
+    <form class="search-form">
+        <input type="text" class="ins-search-input search-form-input" placeholder="Search" />
+        <button type="submit" class="search-form-submit"></button>
+    </form>
+    <div class="ins-search">
+    <div class="ins-search-mask"></div>
+    <div class="ins-search-container">
+        <div class="ins-input-wrapper">
+            <input type="text" class="ins-search-input" placeholder="Type something..." />
+            <span class="ins-close ins-selectable"><i class="fa fa-times-circle"></i></span>
+        </div>
+        <div class="ins-section-wrapper">
+            <div class="ins-section-container"></div>
+        </div>
+    </div>
+</div>
+<script>
+(function (window) {
+    var INSIGHT_CONFIG = {
+        TRANSLATION: {
+            POSTS: 'Posts',
+            PAGES: 'Pages',
+            CATEGORIES: 'Categories',
+            TAGS: 'Tags',
+            UNTITLED: '(Untitled)',
+        },
+        ROOT_URL: '/',
+        CONTENT_URL: '/content.json',
+    };
+    window.INSIGHT_CONFIG = INSIGHT_CONFIG;
+})(window);
+</script>
+<script src="/js/insight.js"></script>
+
+</div>
+                        </nav>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</header>
+        <div class="container">
+            <div class="main-body container-inner">
+                <div class="main-body-inner">
+                    <section id="main">
+                        <div class="main-body-header">
+    <h1 class="header">
+    
+    <a class="page-title-link" href="/categories/%E6%8A%80%E6%9C%AF/">技术</a>
+    </h1>
+</div>
+
+                        <div class="main-body-content">
+                            <article id="Test the layoout-How-to-use-COMSOL-LiveLink-With-MATLAB" class="article article-single article-type-Test the layoout" itemscope itemprop="blogPost">
+    <div class="article-inner">
+        
+            <header class="article-header">
+                
+    
+        <h1 class="article-title" itemprop="name">
+        How to use COMSOL, MATLAB and COMSOL livelink with MATLAB on Server
+        </h1>
+    
+
+            </header>
+        
+        
+            <div class="article-meta">
+                
+    <div class="article-date">
+      <i class="fa fa-calendar"></i>
+      <a href="/2019/07/06/How-to-use-COMSOL-LiveLink-With-MATLAB/" class="article-date">
+         <time datetime="2019-07-06T09:17:32.000Z" itemprop="datePublished">2019-07-06</time>
+      </a>
+    </div>
+
+
+                
+
+                
+    <div class="article-tag">
+        <i class="fa fa-tag"></i>
+        <a class="tag-link" href="/tags/COMSOL/" rel="tag">COMSOL</a>, <a class="tag-link" href="/tags/MATLAB/" rel="tag">MATLAB</a>
+    </div>
+
+                
+   <span id="/2019/07/06/How-to-use-COMSOL-LiveLink-With-MATLAB/" class="leancloud-visitors" data-flag-title="How to use COMSOL, MATLAB and COMSOL livelink with MATLAB on Server">
+   <i class="fa fa-eye"></i>
+   <span class="post-meta-item-text">Views: </span>
+   <i class="leancloud-visitors-count">1000000</i>
+   </span>
+
+
+                
+   <div class="article-counter">
+      <i class="fa fa-file-word-o"></i>
+      <span class="post-count-item-text">Symbols count in article: </span>
+      <span class="post-count">1.2k</span>
+      <i class="fa fa-clock-o"></i>
+      <span class="post-time-item-text">Reading time: </span>
+      <span class="post-count">7 mins. </span>
+   </div>
+
+
+            </div>
+        
+        
+        <div class="article-entry" itemprop="articleBody">
+            <p>This note is to show the way of using MATLAB, COMSOL,COMSOL Livelink With MATLAB on our server   (ubuntu). We hope that we can run them with bash code in backgorund and after we logout or exit the server the simulations will continue. We also need to know the simulation progress from a log file. These needs can all be satisfied only if you write proper bash code.</p>
+<h2 id="Run-COMSOL-on-server"><a href="#Run-COMSOL-on-server" class="headerlink" title="Run COMSOL on server"></a>Run COMSOL on server</h2><p>If you want to run COMSOL on server, you can use the command of the following form</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span></pre></td><td class="code"><pre><span class="line">nohup comsol batch -inputfile &lt;inputfilename&gt; -outputfile &lt;outputfilename&gt; -batchlog &lt;logfilename&gt; -np &lt;number of cores&gt; &amp;</span></pre></td></tr></table></figure>
+
+<p>above command shows the smallest example and  the “&lt; &gt;” isn’t included in the actual terminal command. The form <code>nohup &lt;command&gt; &amp;</code> is used to execute the command in the background even if we logout from the server. To avoid confusion, I give a more specific example, If we want to simulate the file “test.mph”, then the command should be as follows</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span></pre></td><td class="code"><pre><span class="line">nohup comsol batch -inputfile test.mph -outputfile test_out.mph -batchlog test.log -np 30 &amp;</span></pre></td></tr></table></figure>
+
+<p>In above example we  use 30 cores (set with “-np 30”)to simulate our mph file. If we have many mph files to simulate, we can write a bash code to arrange our simulation works. We create a file with the name “comsolscript.sh” with the following content</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span></pre></td><td class="code"><pre><span class="line"><span class="meta">#! /bin/bash</span></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">2</span></pre></td><td class="code"><pre><span class="line">nohup comsol batch -inputfile test1.mph -outputfile test1_out.mph -batchlog test1.log -np 30 &amp;&amp;</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">3</span></pre></td><td class="code"><pre><span class="line">nohup comsol batch -inputfile test2.mph -outputfile test2_out.mph -batchlog test2.log -np 30 &amp;&amp;</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">4</span></pre></td><td class="code"><pre><span class="line">nohup comsol batch -inputfile test3.mph -outputfile test3_out.mph -batchlog test3.log -np 30 &amp;</span></pre></td></tr></table></figure>
+
+<p>Above code will simulate the file “test1.mph”, “test2.mph”, “test3.mph” respectively. The “&amp;&amp;” at the end of the line will let the server to execute the next command only when this command complete. if you use “&amp;” then all the mission will simultaneously execute. You need upload the “comsolscript.sh” file to the correct folder and make it executable</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span></pre></td><td class="code"><pre><span class="line">chmod +x ./comsolscript.sh</span></pre></td></tr></table></figure>
+
+<p>then in the corresponding folder type</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span></pre></td><td class="code"><pre><span class="line">./comsolscript.sh</span></pre></td></tr></table></figure>
+
+<p>The simulation will begin and you can see the progress from the log file by typing <code>vi test.log</code>.</p>
+<p>If you write the bash code on windows then upload the file to the server, when you try to run the bash file there may be error: “<code>/bin/bash^M:bad interpreter:No such file or directory</code>“, this is because of the difference of coding in Unix and Windows. You can use the following command in the corresponding folder to fix it</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span></pre></td><td class="code"><pre><span class="line">sed -i -e <span class="string">'s/\r$//'</span> ./comsolscrpt.sh</span></pre></td></tr></table></figure>
+
+<p>if you use vi on the server to create the bash file, this error can also be avoided.</p>
+<h2 id="Run-MATLAB-on-server"><a href="#Run-MATLAB-on-server" class="headerlink" title="Run MATLAB on server"></a>Run MATLAB on server</h2><p>Before using the MATLAB on server, you need make sure that the matlab is in the system enviroment path. The method of adding the MATLAB path to the system enviroemnt can be found from my another note “Ubuntu软件安装以及使用注意事项”.</p>
+<p>If you want to run matlab without displaying the desktop, you can type</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span></pre></td><td class="code"><pre><span class="line">matlab -nodekstop -nosplash -nojvm</span></pre></td></tr></table></figure>
+
+<p>If you want to run a file in the background, you can type the following command</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span></pre></td><td class="code"><pre><span class="line">nohup matlab -nodesktop -nosplash -nojvm &lt;test.m&gt; progress.txt &amp;</span></pre></td></tr></table></figure>
+
+<p>above code run the  “test.m” in the background and save the screen display into the file “progress.txt”, so we can know the progress from the file. “-nojvm” is used to hide the plot progress if you don’t want to see the plot during the simulation. When the simulation meets some problems, there will be a “nohup.out”  file to show the error information.</p>
+<p>A better choice is to use a bash file “matlabscript.sh” to run the corresponding MATLAB file.</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span></pre></td><td class="code"><pre><span class="line"><span class="meta">#! /bin/bash</span></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">2</span></pre></td><td class="code"><pre><span class="line">matlab -nodesktop -nosplash -nojvm &lt;test1.m;test2.test3.m;<span class="built_in">exit</span>;&gt; progress.txt</span></pre></td></tr></table></figure>
+
+<p>Above bash file doesn’t use the “nohup command &amp;” and it will not run in the background. If you want to run in the background, you can type</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span></pre></td><td class="code"><pre><span class="line">nohup ./matlabscript.sh &amp;</span></pre></td></tr></table></figure>
+
+<p>The “exit” is important and if not after the simulation the MATLAB will be still alive in the background, then you need kill the MATLAB by typing <code>kill &lt;pid of MATLAB progress&gt;</code>.</p>
+<h2 id="Run-COMSOL-live-link-with-MATLAB-on-server"><a href="#Run-COMSOL-live-link-with-MATLAB-on-server" class="headerlink" title="Run COMSOL live link with MATLAB on server"></a>Run COMSOL live link with MATLAB on server</h2><p>The usage of COMSOL live link with MATLAB can be found on the installation folder of COMSOL, the detailed usage is in the file “LiveLinkForMATLABUsersGuide.pdf”.</p>
+<p>If you can use the graphics window, then you can run a MATLAB file “test.m” to run a COMSOL file by typing</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span></pre></td><td class="code"><pre><span class="line">comsol mphserver matlab <span class="built_in">test</span></span></pre></td></tr></table></figure>
+
+<p>You can also run the script in batch without the MATLAB desktop and the MATLAB splash screen. Enter this command:</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span></pre></td><td class="code"><pre><span class="line">comsol mphserver matlab <span class="built_in">test</span> -nodesktop -mlnosplash</span></pre></td></tr></table></figure>
+
+<p>However, if you want to run the script in the background, you can not just simply add a “nohup+command+&amp;”, I don’t know the reason. From the “LiveLinkForMATLABUsersGuide.pdf”, we can see the following words</p>
+<blockquote>
+<p>To connect COMSOL with a MATLAB terminal requires that xterm is installed on the machine. If this is not the case as it might be for a computation COMSOL server, a workaround is to connect manually MATLAB to a COMSOL server with the function <em>mphstart</em>.</p>
+</blockquote>
+<p>After trying for a while I finally know how to run the COMSOL livelink with MATLAB in the background on server. We need to create four files named “matlab_exe.m”,”test.m”,”comsolscript.sh”,”test.mph”.</p>
+<ul>
+<li>“test.mph” is the COMSOL file you want to simulate.</li>
+<li>“test.m” is the file to run “test.mph” from MATLAB.</li>
+<li>“matlab_exe.m” is used to link the MATLAB with COMSOL mphserver and run the “test.m” file and finally exit MATLAB.</li>
+<li>“comsolscript.sh” is the bash code to open the COMSOL mphserver and run the file “matlab_exe.m”<br>the following is the detailed code.</li>
+</ul>
+<p><strong>For “matlab_exe.m”</strong></p>
+<figure class="highlight matlab"><table><tr><td class="gutter"><pre><span class="line">1</span></pre></td><td class="code"><pre><span class="line"><span class="comment">% This code is to connect to the COMSOL livelink with MATLAB server</span></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">2</span></pre></td><td class="code"><pre><span class="line"></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">3</span></pre></td><td class="code"><pre><span class="line"><span class="comment">% add the livelink path to the server for comsol5.4</span></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">4</span></pre></td><td class="code"><pre><span class="line">addpath(<span class="string">'/usr/local/comsol54/multiphysics/mli/'</span>); </span></pre></td></tr><tr><td class="gutter"><pre><span class="line">5</span></pre></td><td class="code"><pre><span class="line"></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">6</span></pre></td><td class="code"><pre><span class="line"><span class="comment">% connect to the server, the default port number is 2036 and then 2037 ...</span></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">7</span></pre></td><td class="code"><pre><span class="line">mphstart(<span class="number">2036</span>)</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">8</span></pre></td><td class="code"><pre><span class="line"></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">9</span></pre></td><td class="code"><pre><span class="line"><span class="comment">% the MATLAB file you want to run</span></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">10</span></pre></td><td class="code"><pre><span class="line">test;</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">11</span></pre></td><td class="code"><pre><span class="line"></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">12</span></pre></td><td class="code"><pre><span class="line"><span class="comment">% exit the program</span></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">13</span></pre></td><td class="code"><pre><span class="line">exit;</span></pre></td></tr></table></figure>
+
+<p><strong>For “comsolscript.sh”</strong></p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span></pre></td><td class="code"><pre><span class="line"><span class="meta">#! /bin/bash</span></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">2</span></pre></td><td class="code"><pre><span class="line"><span class="comment"># if the run the file and getting the error "/bin/bash^M:bad interpreter:No such file or directory",you can use </span></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">3</span></pre></td><td class="code"><pre><span class="line"><span class="comment"># the following command in the corresponding cluster to fix it</span></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">4</span></pre></td><td class="code"><pre><span class="line"><span class="comment"># sed -i -e 's/\r$//' scriptname.sh</span></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">5</span></pre></td><td class="code"><pre><span class="line"></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">6</span></pre></td><td class="code"><pre><span class="line"></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">7</span></pre></td><td class="code"><pre><span class="line"><span class="comment"># this is to run the MATLAB file in script</span></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">8</span></pre></td><td class="code"><pre><span class="line"><span class="comment"># First start the COMSOL livelink with MATLAB for 5.4</span></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">9</span></pre></td><td class="code"><pre><span class="line"><span class="comment"># use "np" to define the number of cores you will use</span></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">10</span></pre></td><td class="code"><pre><span class="line">comsol54 mphserver -np 28 -silent &amp;</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">11</span></pre></td><td class="code"><pre><span class="line"></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">12</span></pre></td><td class="code"><pre><span class="line"><span class="comment"># run the MATLAB file</span></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">13</span></pre></td><td class="code"><pre><span class="line"><span class="comment"># The "screenout.txt" will store the screen output for MATLAB</span></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">14</span></pre></td><td class="code"><pre><span class="line">matlab -nodesktop -nosplash  &lt;matlab_exe.m&gt; screenout.txt</span></pre></td></tr></table></figure>
+
+<p><strong>For “test.m”</strong></p>
+<figure class="highlight matlab"><table><tr><td class="gutter"><pre><span class="line">1</span></pre></td><td class="code"><pre><span class="line"><span class="comment">% save the COMSOLcprogress file as "COMSOL_Progress.txt" during simulations</span></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">2</span></pre></td><td class="code"><pre><span class="line">clear;clc;</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">3</span></pre></td><td class="code"><pre><span class="line">import com.comsol.model.*</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">4</span></pre></td><td class="code"><pre><span class="line">import com.comsol.model.util.*</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">5</span></pre></td><td class="code"><pre><span class="line">ModelUtil.showProgress(<span class="string">'COMSOL_Progress.txt'</span>);</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">6</span></pre></td><td class="code"><pre><span class="line"></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">7</span></pre></td><td class="code"><pre><span class="line"><span class="comment">% other command</span></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">8</span></pre></td><td class="code"><pre><span class="line"><span class="comment">%........</span></span></pre></td></tr></table></figure>
+
+<p>The note ends here. Thanks for your reading, if you have any questions please contact me<br><a href="mailto:knifelees3@gmail.com" target="_blank" rel="noopener">knifelees3@gmail.com</a></p>
+
+        </div>
+        <footer class="article-footer">
+            
+
+
+
+    <a data-url="https://knifelees3.github.io/2019/07/06/How-to-use-COMSOL-LiveLink-With-MATLAB/" data-id="ck45uumsv0006v4tvh3ouepkl" class="article-share-link"><i class="fa fa-share"></i>Share</a>
+<script>
+    (function ($) {
+        $('body').on('click', function() {
+            $('.article-share-box.on').removeClass('on');
+        }).on('click', '.article-share-link', function(e) {
+            e.stopPropagation();
+
+            var $this = $(this),
+                url = $this.attr('data-url'),
+                encodedUrl = encodeURIComponent(url),
+                id = 'article-share-box-' + $this.attr('data-id'),
+                offset = $this.offset(),
+                box;
+
+            if ($('#' + id).length) {
+                box = $('#' + id);
+
+                if (box.hasClass('on')){
+                    box.removeClass('on');
+                    return;
+                }
+            } else {
+                var html = [
+                    '<div id="' + id + '" class="article-share-box">',
+                        '<input class="article-share-input" value="' + url + '">',
+                        '<div class="article-share-links">',
+                            '<a href="https://twitter.com/intent/tweet?url=' + encodedUrl + '" class="article-share-twitter" target="_blank" title="Twitter"></a>',
+                            '<a href="https://www.facebook.com/sharer.php?u=' + encodedUrl + '" class="article-share-facebook" target="_blank" title="Facebook"></a>',
+                            '<a href="http://pinterest.com/pin/create/button/?url=' + encodedUrl + '" class="article-share-pinterest" target="_blank" title="Pinterest"></a>',
+                            '<a href="https://plus.google.com/share?url=' + encodedUrl + '" class="article-share-google" target="_blank" title="Google+"></a>',
+                        '</div>',
+                    '</div>'
+                ].join('');
+
+              box = $(html);
+
+              $('body').append(box);
+            }
+
+            $('.article-share-box.on').hide();
+
+            box.css({
+                top: offset.top + 25,
+                left: offset.left
+            }).addClass('on');
+
+        }).on('click', '.article-share-box', function (e) {
+            e.stopPropagation();
+        }).on('click', '.article-share-box-input', function () {
+            $(this).select();
+        }).on('click', '.article-share-box-link', function (e) {
+            e.preventDefault();
+            e.stopPropagation();
+
+            window.open(this.href, 'article-share-box-window-' + Date.now(), 'width=500,height=450');
+        });
+    })(jQuery);
+</script>
+
+        </footer>
+    </div>
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "BlogPosting",
+        "author": {
+            "@type": "Person",
+            "name": "Knifelee"
+        },
+        "headline": "How to use COMSOL, MATLAB and COMSOL livelink with MATLAB on Server",
+        "image": "/https:/knifelees3.github.io",
+        "keywords": "MATLAB COMSOL",
+        "genre": "技术",
+        "datePublished": "2019-07-06",
+        "dateCreated": "2019-07-06",
+        "dateModified": "2019-08-12",
+        "url": "/https:/knifelees3.github.io/2019/07/06/How-to-use-COMSOL-LiveLink-With-MATLAB/",
+        "description": "This note is to show the way of using MATLAB, COMSOL,COMSOL Livelink With MATLAB on our server   (ubuntu). We hope that we can run them with bash code in backgorund and after we logout or exit the ser",
+        "wordCount": 1319
+    }
+</script>
+
+</article>
+
+    <section id="comments">
+    
+        
+    <div id="disqus_thread">
+        <noscript>Please enable JavaScript to view the <a href="//disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+    </div>
+
+
+    
+    </section>
+
+
+
+                        </div>
+                    </section>
+                    <aside id="sidebar">
+    <a class="sidebar-toggle" title="Expand Sidebar"><i class="toggle icon"></i></a>
+    <div class="sidebar-top">
+        <p>follow:</p>
+        <ul class="social-links">
+            
+                
+                <li>
+                    <a class="social-tooltip" title="twitter" href="/" target="_blank" rel="noopener">
+                        <i class="icon fa fa-twitter"></i>
+                    </a>
+                </li>
+                
+            
+                
+                <li>
+                    <a class="social-tooltip" title="facebook" href="/" target="_blank" rel="noopener">
+                        <i class="icon fa fa-facebook"></i>
+                    </a>
+                </li>
+                
+            
+                
+                <li>
+                    <a class="social-tooltip" title="stack-overflow" href="/" target="_blank" rel="noopener">
+                        <i class="icon fa fa-stack-overflow"></i>
+                    </a>
+                </li>
+                
+            
+                
+                <li>
+                    <a class="social-tooltip" title="github" href="https://github.com/ppoffice/hexo-theme-hueman" target="_blank" rel="noopener">
+                        <i class="icon fa fa-github"></i>
+                    </a>
+                </li>
+                
+            
+                
+                <li>
+                    <a class="social-tooltip" title="weibo" href="/" target="_blank" rel="noopener">
+                        <i class="icon fa fa-weibo"></i>
+                    </a>
+                </li>
+                
+            
+                
+                <li>
+                    <a class="social-tooltip" title="rss" href="/" target="_blank" rel="noopener">
+                        <i class="icon fa fa-rss"></i>
+                    </a>
+                </li>
+                
+            
+        </ul>
+    </div>
+    
+        
+<nav id="article-nav">
+    
+        <a href="/2019/07/10/windows%E8%AE%BE%E7%BD%AE%E4%BD%9C%E4%B8%BAftp%E4%BB%A5%E5%8F%8Assh/" id="article-nav-newer" class="article-nav-link-wrap">
+        <strong class="article-nav-caption">newer</strong>
+        <p class="article-nav-title">
+        
+            windows设置作为ftp server以及ssh服务器
+        
+        </p>
+        <i class="icon fa fa-chevron-right" id="icon-chevron-right"></i>
+    </a>
+    
+    
+        <a href="/2019/07/02/APS%E7%94%A8RevTex%E6%8A%95%E7%A8%BF%E5%85%A8%E8%AE%B0%E5%BD%95/" id="article-nav-older" class="article-nav-link-wrap">
+        <strong class="article-nav-caption">older</strong>
+        <p class="article-nav-title">APS用RevTex投稿全记录</p>
+        <i class="icon fa fa-chevron-left" id="icon-chevron-left"></i>
+        </a>
+    
+</nav>
+
+    
+    <div class="widgets-container">
+        
+            
+                
+
+            
+                
+    <div class="widget-wrap">
+        <h3 class="widget-title">recents</h3>
+        <div class="widget">
+            <ul id="recent-post" class="">
+                
+                    <li>
+                        
+                        <div class="item-thumbnail">
+                            <a href="/2019/12/02/Installing-Software-On-Ubuntu/" class="thumbnail">
+    
+    
+        <span class="thumbnail-image thumbnail-none"></span>
+    
+    
+</a>
+
+                        </div>
+                        
+                        <div class="item-inner">
+                            <p class="item-category"><a class="article-category-link" href="/categories/%E6%8A%80%E6%9C%AF/">技术</a></p>
+                            <p class="item-title"><a href="/2019/12/02/Installing-Software-On-Ubuntu/" class="title">Ubuntu软件安装以及使用注意事项</a></p>
+                            <p class="item-date"><time datetime="2019-12-02T15:34:52.432Z" itemprop="datePublished">2019-12-02</time></p>
+                        </div>
+                    </li>
+                
+                    <li>
+                        
+                        <div class="item-thumbnail">
+                            <a href="/2019/12/02/Install-Python-on-Windows/" class="thumbnail">
+    
+    
+        <span class="thumbnail-image thumbnail-none"></span>
+    
+    
+</a>
+
+                        </div>
+                        
+                        <div class="item-inner">
+                            <p class="item-category"><a class="article-category-link" href="/categories/%E6%8A%80%E6%9C%AF/">技术</a></p>
+                            <p class="item-title"><a href="/2019/12/02/Install-Python-on-Windows/" class="title">Windows python 环境配置</a></p>
+                            <p class="item-date"><time datetime="2019-12-02T15:34:52.415Z" itemprop="datePublished">2019-12-02</time></p>
+                        </div>
+                    </li>
+                
+                    <li>
+                        
+                        <div class="item-thumbnail">
+                            <a href="/2019/12/02/MATLAB-Code-Frequenctly-Used/" class="thumbnail">
+    
+    
+        <span class="thumbnail-image thumbnail-none"></span>
+    
+    
+</a>
+
+                        </div>
+                        
+                        <div class="item-inner">
+                            <p class="item-category"><a class="article-category-link" href="/categories/%E6%8A%80%E6%9C%AF/">技术</a></p>
+                            <p class="item-title"><a href="/2019/12/02/MATLAB-Code-Frequenctly-Used/" class="title">MATLAB 常见命令</a></p>
+                            <p class="item-date"><time datetime="2019-12-02T15:34:52.376Z" itemprop="datePublished">2019-12-02</time></p>
+                        </div>
+                    </li>
+                
+                    <li>
+                        
+                        <div class="item-thumbnail">
+                            <a href="/2019/12/01/hello-world/" class="thumbnail">
+    
+    
+        <span class="thumbnail-image thumbnail-none"></span>
+    
+    
+</a>
+
+                        </div>
+                        
+                        <div class="item-inner">
+                            <p class="item-category"></p>
+                            <p class="item-title"><a href="/2019/12/01/hello-world/" class="title">Hello World</a></p>
+                            <p class="item-date"><time datetime="2019-12-01T07:47:52.313Z" itemprop="datePublished">2019-12-01</time></p>
+                        </div>
+                    </li>
+                
+                    <li>
+                        
+                        <div class="item-thumbnail">
+                            <a href="/2019/12/01/MATLAB%E8%BF%9C%E7%A8%8B%E6%A1%8C%E9%9D%A2%E6%97%A0%E6%B3%95%E4%BD%BF%E7%94%A8%E7%9A%84%E9%97%AE%E9%A2%98/" class="thumbnail">
+    
+    
+        <span class="thumbnail-image thumbnail-none"></span>
+    
+    
+</a>
+
+                        </div>
+                        
+                        <div class="item-inner">
+                            <p class="item-category"><a class="article-category-link" href="/categories/%E6%8A%80%E6%9C%AF/">技术</a></p>
+                            <p class="item-title"><a href="/2019/12/01/MATLAB%E8%BF%9C%E7%A8%8B%E6%A1%8C%E9%9D%A2%E6%97%A0%E6%B3%95%E4%BD%BF%E7%94%A8%E7%9A%84%E9%97%AE%E9%A2%98/" class="title">MATLAB远程桌面使用时报错的问题</a></p>
+                            <p class="item-date"><time datetime="2019-12-01T07:15:30.000Z" itemprop="datePublished">2019-12-01</time></p>
+                        </div>
+                    </li>
+                
+            </ul>
+        </div>
+    </div>
+
+            
+                
+    <div class="widget-wrap widget-list">
+        <h3 class="widget-title">categories</h3>
+        <div class="widget">
+            <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/%E6%8A%80%E6%9C%AF/">技术</a><span class="category-list-count">27</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E9%9A%8F%E7%AC%94/">随笔</a><span class="category-list-count">1</span></li></ul>
+        </div>
+    </div>
+
+
+            
+                
+    <div class="widget-wrap widget-list">
+        <h3 class="widget-title">archives</h3>
+        <div class="widget">
+            <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/12/">December 2019</a><span class="archive-list-count">5</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/11/">November 2019</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/10/">October 2019</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/08/">August 2019</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/07/">July 2019</a><span class="archive-list-count">4</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/06/">June 2019</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/05/">May 2019</a><span class="archive-list-count">3</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/04/">April 2019</a><span class="archive-list-count">4</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/03/">March 2019</a><span class="archive-list-count">7</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/02/">February 2019</a><span class="archive-list-count">1</span></li></ul>
+        </div>
+    </div>
+
+
+            
+                
+    <div class="widget-wrap widget-list">
+        <h3 class="widget-title">tags</h3>
+        <div class="widget">
+            <ul class="tag-list" itemprop="keywords"><li class="tag-list-item"><a class="tag-list-link" href="/tags/COMSOL/" rel="tag">COMSOL</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/EndNote/" rel="tag">EndNote</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/FTP/" rel="tag">FTP</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Git/" rel="tag">Git</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Latex/" rel="tag">Latex</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Linux/" rel="tag">Linux</a><span class="tag-list-count">5</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/MATLAB/" rel="tag">MATLAB</a><span class="tag-list-count">7</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Python/" rel="tag">Python</a><span class="tag-list-count">7</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/SSH/" rel="tag">SSH</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Ubuntu/" rel="tag">Ubuntu</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/gnuplot/" rel="tag">gnuplot</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/plot/" rel="tag">plot</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%AD%A6%E6%9C%AF/" rel="tag">学术</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%B9%B6%E8%A1%8C%E8%AE%A1%E7%AE%97/" rel="tag">并行计算</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E6%8A%80%E6%9C%AF/" rel="tag">技术</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E6%96%87%E7%8C%AE%E7%AE%A1%E7%90%86/" rel="tag">文献管理</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E6%A2%AF%E5%AD%90/" rel="tag">梯子</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E7%94%9F%E6%B4%BB%E8%AE%B0%E5%BD%95/" rel="tag">生活记录</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E7%A7%91%E5%AD%A6%E7%BB%98%E5%9B%BE/" rel="tag">科学绘图</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E7%BB%98%E5%9B%BE/" rel="tag">绘图</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E8%BD%AF%E4%BB%B6/" rel="tag">软件</a><span class="tag-list-count">1</span></li></ul>
+        </div>
+    </div>
+
+
+            
+                
+    <div class="widget-wrap widget-float">
+        <h3 class="widget-title">tag cloud</h3>
+        <div class="widget tagcloud">
+            <a href="/tags/COMSOL/" style="font-size: 13.33px;">COMSOL</a> <a href="/tags/EndNote/" style="font-size: 10px;">EndNote</a> <a href="/tags/FTP/" style="font-size: 10px;">FTP</a> <a href="/tags/Git/" style="font-size: 10px;">Git</a> <a href="/tags/Latex/" style="font-size: 10px;">Latex</a> <a href="/tags/Linux/" style="font-size: 16.67px;">Linux</a> <a href="/tags/MATLAB/" style="font-size: 20px;">MATLAB</a> <a href="/tags/Python/" style="font-size: 20px;">Python</a> <a href="/tags/SSH/" style="font-size: 10px;">SSH</a> <a href="/tags/Ubuntu/" style="font-size: 10px;">Ubuntu</a> <a href="/tags/gnuplot/" style="font-size: 10px;">gnuplot</a> <a href="/tags/plot/" style="font-size: 13.33px;">plot</a> <a href="/tags/%E5%AD%A6%E6%9C%AF/" style="font-size: 13.33px;">学术</a> <a href="/tags/%E5%B9%B6%E8%A1%8C%E8%AE%A1%E7%AE%97/" style="font-size: 10px;">并行计算</a> <a href="/tags/%E6%8A%80%E6%9C%AF/" style="font-size: 10px;">技术</a> <a href="/tags/%E6%96%87%E7%8C%AE%E7%AE%A1%E7%90%86/" style="font-size: 10px;">文献管理</a> <a href="/tags/%E6%A2%AF%E5%AD%90/" style="font-size: 10px;">梯子</a> <a href="/tags/%E7%94%9F%E6%B4%BB%E8%AE%B0%E5%BD%95/" style="font-size: 10px;">生活记录</a> <a href="/tags/%E7%A7%91%E5%AD%A6%E7%BB%98%E5%9B%BE/" style="font-size: 13.33px;">科学绘图</a> <a href="/tags/%E7%BB%98%E5%9B%BE/" style="font-size: 10px;">绘图</a> <a href="/tags/%E8%BD%AF%E4%BB%B6/" style="font-size: 10px;">软件</a>
+        </div>
+    </div>
+
+
+            
+                
+    <div class="widget-wrap widget-list">
+        <h3 class="widget-title">links</h3>
+        <div class="widget">
+            <ul>
+                
+                    <li>
+                        <a href="http://hexo.io" target="_blank" rel="noopener">Hexo</a>
+                    </li>
+                
+            </ul>
+        </div>
+    </div>
+
+
+            
+        
+    </div>
+</aside>
+
+                </div>
+            </div>
+        </div>
+        <footer id="footer">
+    <div class="container">
+        <div class="container-inner">
+            <a id="back-to-top" href="javascript:;" target="_blank" rel="noopener"><i class="icon fa fa-angle-up"></i></a>
+            <div class="credit">
+                <h1 class="logo-wrap">
+                    <a href="/" class="logo"></a>
+                </h1>
+                <p>&copy; 2019 Knifelee</p>
+                
+                <p>Powered by <a href="https://hexo.io/" target="_blank">Hexo</a>. Theme by <a href="https://github.com/ppoffice" target="_blank">PPOffice</a></p>
+                
+            </div>
+            <div class="footer-plugins">
+              
+    
+
+
+            </div>
+        </div>
+    </div>
+</footer>
+
+        
+    
+    <script>
+    var disqus_shortname = 'hexo-theme-hueman';
+    
+    
+    var disqus_url = 'https://knifelees3.github.io/2019/07/06/How-to-use-COMSOL-LiveLink-With-MATLAB/';
+    
+    (function() {
+    var dsq = document.createElement('script');
+    dsq.type = 'text/javascript';
+    dsq.async = true;
+    dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+    (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    })();
+    </script>
+
+
+
+
+
+    
+        <script src="/libs/lightgallery/js/lightgallery.min.js"></script>
+        <script src="/libs/lightgallery/js/lg-thumbnail.min.js"></script>
+        <script src="/libs/lightgallery/js/lg-pager.min.js"></script>
+        <script src="/libs/lightgallery/js/lg-autoplay.min.js"></script>
+        <script src="/libs/lightgallery/js/lg-fullscreen.min.js"></script>
+        <script src="/libs/lightgallery/js/lg-zoom.min.js"></script>
+        <script src="/libs/lightgallery/js/lg-hash.min.js"></script>
+        <script src="/libs/lightgallery/js/lg-share.min.js"></script>
+        <script src="/libs/lightgallery/js/lg-video.min.js"></script>
+    
+    
+        <script src="/libs/justified-gallery/jquery.justifiedGallery.min.js"></script>
+    
+    
+        <script type="text/x-mathjax-config">
+            MathJax.Hub.Config({ tex2jax: { inlineMath: [['$','$'], ['\\(','\\)']] } });
+        </script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-MML-AM_CHTML"></script>
+    
+
+    
+
+
+
+<!-- Custom Scripts -->
+<script src="/js/main.js"></script>
+
+    </div>
+</body>
+</html>

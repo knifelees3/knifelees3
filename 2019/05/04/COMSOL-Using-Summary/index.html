@@ -1,0 +1,715 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+
+    
+
+    
+    <title>COMSOL Using Summary | KnifeLee&#39;s Personal</title>
+    
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    
+    <meta name="keywords" content="COMSOL" />
+    
+    <meta name="description" content="常见问题及解决办法 RF 模型与 Wave Optics 模型的设置是不一样的，前者默认的是设置的介电常数等，后者默认的是要自己设置折射率。注意二者之间的转换。另外有时候会把材料的电导率 (Electrical conductivity) 写成了 1，一般应该取 0. 在 COMSOL 中，如果是为了增加损耗，应该在介电常数前面加相应的负的虚部. 如果是正虚部，就是引入了增益而不是损耗，这与电磁波">
+<meta name="keywords" content="COMSOL">
+<meta property="og:type" content="article">
+<meta property="og:title" content="COMSOL Using Summary">
+<meta property="og:url" content="https:&#x2F;&#x2F;knifelees3.github.io&#x2F;2019&#x2F;05&#x2F;04&#x2F;COMSOL-Using-Summary&#x2F;index.html">
+<meta property="og:site_name" content="KnifeLee&#39;s Personal">
+<meta property="og:description" content="常见问题及解决办法 RF 模型与 Wave Optics 模型的设置是不一样的，前者默认的是设置的介电常数等，后者默认的是要自己设置折射率。注意二者之间的转换。另外有时候会把材料的电导率 (Electrical conductivity) 写成了 1，一般应该取 0. 在 COMSOL 中，如果是为了增加损耗，应该在介电常数前面加相应的负的虚部. 如果是正虚部，就是引入了增益而不是损耗，这与电磁波">
+<meta property="og:locale" content="en">
+<meta property="og:updated_time" content="2019-07-11T08:53:38.000Z">
+<meta name="twitter:card" content="summary">
+    
+
+    
+        <link rel="alternate" href="/" title="KnifeLee&#39;s Personal" type="application/atom+xml" />
+    
+
+    
+
+    <link rel="stylesheet" href="/libs/font-awesome/css/font-awesome.min.css">
+    <link rel="stylesheet" href="/libs/titillium-web/styles.css">
+    <link rel="stylesheet" href="/libs/source-code-pro/styles.css">
+
+    <link rel="stylesheet" href="/css/style.css">
+
+    <script src="/libs/jquery/3.4.1/jquery.min.js"></script>
+    
+    
+        <link rel="stylesheet" href="/libs/lightgallery/css/lightgallery.min.css">
+    
+    
+        <link rel="stylesheet" href="/libs/justified-gallery/justifiedGallery.min.css">
+    
+    
+    
+
+
+</head>
+
+<body>
+    <div id="wrap">
+        <header id="header">
+    <div id="header-outer" class="outer">
+        <div class="container">
+            <div class="container-inner">
+                <div id="header-title">
+                    <h1 class="logo-wrap">
+                        <a href="/" class="logo"></a>
+                    </h1>
+                    
+                        <h2 class="subtitle-wrap">
+                            <p class="subtitle">Harmonic osicllator is everything</p>
+                        </h2>
+                    
+                </div>
+                <div id="header-inner" class="nav-container">
+                    <a id="main-nav-toggle" class="nav-icon fa fa-bars"></a>
+                    <div class="nav-container-inner">
+                        <ul id="main-nav">
+                            
+                                <li class="main-nav-list-item" >
+                                    <a class="main-nav-list-link" href="/">Home</a>
+                                </li>
+                            
+                                        <ul class="main-nav-list"><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/%E6%8A%80%E6%9C%AF/">技术</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/%E9%9A%8F%E7%AC%94/">随笔</a></li></ul>
+                                    
+                                <li class="main-nav-list-item" >
+                                    <a class="main-nav-list-link" href="/about/index.html">About</a>
+                                </li>
+                            
+                        </ul>
+                        <nav id="sub-nav">
+                            <div id="search-form-wrap">
+
+    <form class="search-form">
+        <input type="text" class="ins-search-input search-form-input" placeholder="Search" />
+        <button type="submit" class="search-form-submit"></button>
+    </form>
+    <div class="ins-search">
+    <div class="ins-search-mask"></div>
+    <div class="ins-search-container">
+        <div class="ins-input-wrapper">
+            <input type="text" class="ins-search-input" placeholder="Type something..." />
+            <span class="ins-close ins-selectable"><i class="fa fa-times-circle"></i></span>
+        </div>
+        <div class="ins-section-wrapper">
+            <div class="ins-section-container"></div>
+        </div>
+    </div>
+</div>
+<script>
+(function (window) {
+    var INSIGHT_CONFIG = {
+        TRANSLATION: {
+            POSTS: 'Posts',
+            PAGES: 'Pages',
+            CATEGORIES: 'Categories',
+            TAGS: 'Tags',
+            UNTITLED: '(Untitled)',
+        },
+        ROOT_URL: '/',
+        CONTENT_URL: '/content.json',
+    };
+    window.INSIGHT_CONFIG = INSIGHT_CONFIG;
+})(window);
+</script>
+<script src="/js/insight.js"></script>
+
+</div>
+                        </nav>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</header>
+        <div class="container">
+            <div class="main-body container-inner">
+                <div class="main-body-inner">
+                    <section id="main">
+                        <div class="main-body-header">
+    <h1 class="header">
+    
+    <a class="page-title-link" href="/categories/%E6%8A%80%E6%9C%AF/">技术</a>
+    </h1>
+</div>
+
+                        <div class="main-body-content">
+                            <article id="post-COMSOL-Using-Summary" class="article article-single article-type-post" itemscope itemprop="blogPost">
+    <div class="article-inner">
+        
+            <header class="article-header">
+                
+    
+        <h1 class="article-title" itemprop="name">
+        COMSOL Using Summary
+        </h1>
+    
+
+            </header>
+        
+        
+            <div class="article-meta">
+                
+    <div class="article-date">
+      <i class="fa fa-calendar"></i>
+      <a href="/2019/05/04/COMSOL-Using-Summary/" class="article-date">
+         <time datetime="2019-05-04T07:30:50.000Z" itemprop="datePublished">2019-05-04</time>
+      </a>
+    </div>
+
+
+                
+
+                
+    <div class="article-tag">
+        <i class="fa fa-tag"></i>
+        <a class="tag-link" href="/tags/COMSOL/" rel="tag">COMSOL</a>
+    </div>
+
+                
+   <span id="/2019/05/04/COMSOL-Using-Summary/" class="leancloud-visitors" data-flag-title="COMSOL Using Summary">
+   <i class="fa fa-eye"></i>
+   <span class="post-meta-item-text">Views: </span>
+   <i class="leancloud-visitors-count">1000000</i>
+   </span>
+
+
+                
+   <div class="article-counter">
+      <i class="fa fa-file-word-o"></i>
+      <span class="post-count-item-text">Symbols count in article: </span>
+      <span class="post-count">2.1k</span>
+      <i class="fa fa-clock-o"></i>
+      <span class="post-time-item-text">Reading time: </span>
+      <span class="post-count">7 mins. </span>
+   </div>
+
+
+            </div>
+        
+        
+        <div class="article-entry" itemprop="articleBody">
+            <h2 id="常见问题及解决办法"><a href="#常见问题及解决办法" class="headerlink" title="常见问题及解决办法"></a>常见问题及解决办法</h2><ol>
+<li>RF 模型与 Wave Optics 模型的设置是不一样的，前者默认的是设置的介电常数等，后者默认的是要自己设置折射率。注意二者之间的转换。另外有时候会把材料的电导率 (Electrical conductivity) 写成了 1，一般应该取 0.</li>
+<li>在 COMSOL 中，如果是为了增加损耗，应该在介电常数前面加相应的负的虚部. 如果是正虚部，就是引入了增益而不是损耗，这与电磁波的写法有关。我们物理学科一般写为 $e^{ikx-i\omega t}$ , 但是工科一般写为 $e^{-ikx+i\omega t}$ .</li>
+<li>PML 的作用是让向外辐射的场衰减而不会反射，利用的是介电常数的一些性质，但是仅仅是针对介电常数为正的材料，如果是负的，那么COMSOL默认的PML就不能很好的吸收，特别是遇到无穷长的金属需要深入到PML里面时，需要用另外一种UPML。</li>
+<li>在对偶极子进行设计的时候，应该从偶极子开始，由内到外，画多个球体，设置不同的 mesh 大小，一步步的逐渐减少 mesh 的精度，设计多个层数进行变化，这样计算的精度会好很多。</li>
+<li>一般来说，计算的时候，不需要自己去选择 Solver, 软件会根据实际的问题自己选择最优的 Solver, 不过需要注意的是，对于一些有谐振存在的情况，我们需要手动选择 direct 的 solver, 不然最后结果就会有问题。直接计算的求解器比迭代求解器在三维的情况下，所需要的 mesh 要稀疏，但是需要更大的内存来计算，并且速度较慢。</li>
+<li>在采用本征值求解器计算模式时候，理论上采用的是边界置零的条件，但是在有些模式束缚的特别不好的时候，需要将边界扩大。保证结果的准确性。目前时边界置零还是需要PML，还很难说。。。后期搞清楚了再更新。</li>
+<li>参数化扫描的时候生成的 table 没有值，处理办法：将所有的 table 删除，然后在probe 里面讲所需要得到的结果如 power 进行“update”，此时 table 会自动生成一个新的 probe table, 这时候手动建立一个 table, 然后再“parametersweep”里面选择刚才的 table 就行了，而且可以让 table 即保存，也输出到文件里面。</li>
+<li>记录一个很傻逼的错误。1E4=10000，而不是 1000</li>
+<li>为了使得结果准确，在计算之前，一定要再三确认结果是不是正确的！从参数设置、几何结构、材料、边界条件、mesh等慢慢的检查。不要讲速度，而是要讲效率！</li>
+<li>变量名字不要设置为”lambda”，因为会和系统内部的命名空间冲突</li>
+<li>针对7的一个补充说明，出现问题7的本质原因在于不同的probe都需要有一个table以及plot window.当本来就存在一些table,又增加了一些probe时，如果不特殊设置，这些probe往往会自动用同一个table，这种冲突导致最终table根本没有结果。为了解决这个问题，需要首先删除所有的table，然后一个个的给probe通过new指定table（将table设置为new之后，点击update）。只是table也还不够，plot window也需要同样的处理。</li>
+<li>关于direct与iteration求解器的选择。在谐振比较明显的情况下，最好用Directsolver来计算，这样会比较准确。最近（20190612）在计算一个金属球附近有一个dipole的结构，需要计算的是偶极子的辐射功率，有两种方法计算，<br>$\frac{dW}{dt}=\int_{S}\langle S \rangle \cdot n dS=\frac{\omega}{2}Im{d^{*}\cdot E(r_0)}$,一种需要积分，一种只需要dipole那一点的场的数据，根据理论这两个结果应该是一样的。不过用迭代求解器计算的结果是不一样的。</li>
+<li>在使用mpheval或者mphevalpoint去提取某些区域的数据时，可以通过输入这些区域的数值（如point:18）来指定具体是哪一个几何区域，这种方法有一个坏处，在进行参数扫描且空间位置正在变化的时候，这些数值有可能会变，导致最后不是提取的自己想要的数据点。这是可以采用definition里面的“selection”选项。</li>
+</ol>
+<h2 id="使用技巧"><a href="#使用技巧" class="headerlink" title="使用技巧"></a>使用技巧</h2><h3 id="dipole源设置"><a href="#dipole源设置" class="headerlink" title="dipole源设置"></a>dipole源设置</h3><ol>
+<li>为了保证结果的准确性，应该在用一个较小的多层的球面包裹住偶极子，由内至外半径分别为1nm,5nm,50nm,因为偶极子是一个很小的点，必须得加这样一个过渡进来。这样设置的球面也可以用来计算辐射功率。</li>
+<li>在采用对称性结构时，灵活运用PEC和PMC,当我们对空间进行切割的时候，验证偶极子方向切割要用PMC，垂直则用PEC.</li>
+</ol>
+<h3 id="COMSOL相关数学处理"><a href="#COMSOL相关数学处理" class="headerlink" title="COMSOL相关数学处理"></a>COMSOL相关数学处理</h3><p>。</p>
+<ol>
+<li><p>COMSOL内部可以进行大部分的数学运算。非到万不得已不要在matlab里面调用，因为费时费力。</p>
+</li>
+<li><p>当需要在一个模型中调用另外一个模型的数据的时候，可以用里面的Linear extrution功能（具体的后面再补充）</p>
+</li>
+</ol>
+<h3 id="服务器运算的基本语法"><a href="#服务器运算的基本语法" class="headerlink" title="服务器运算的基本语法"></a>服务器运算的基本语法</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span></pre></td><td class="code"><pre><span class="line"><span class="meta">#!/bin/bash</span></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">2</span></pre></td><td class="code"><pre><span class="line"></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">3</span></pre></td><td class="code"><pre><span class="line">nohup comsol batch  -inputfile dug_hAn150_hAlN300.mph -outputfile dug_hAn150_hAlN300_out.mph -study std1 -batchlog dug_hAn150_hAlN300.log -np 18 &amp;&amp;</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">4</span></pre></td><td class="code"><pre><span class="line">nohup comsol batch  -inputfile dug_hAn200_hAlN300.mph -outputfile dug_hAn200_hAlN300_out.mph -study std1  -batchlog dug_hAn200_hAlN300.log -np 18 &amp;&amp;</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">5</span></pre></td><td class="code"><pre><span class="line">nohup comsol batch  -inputfile dug_hAn250_hAlN300.mph -outputfile dug_hAn250_hAlN300_out.mph -study std1 -batchlog dug_hAn250_hAlN300.log -np 18</span></pre></td></tr></table></figure>
+
+<p>上面是用comsol在batch模式下计算的脚本文件的示例，一般基本表达式为</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span></pre></td><td class="code"><pre><span class="line">nohup comsol batch -inputfile inputfilename -outputfile outputfilename -study std1(一般不用写这一段) -batchlog logfilename -np npnumber &amp;</span></pre></td></tr></table></figure>
+
+<p>一般只计算一个文件就直接输入一条命令就可以了，不用写脚本文件。</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span></pre></td><td class="code"><pre><span class="line">nohup +code +&amp;</span></pre></td></tr></table></figure>
+
+<p>代表可以直接计算而不管输入的端口是否关闭，即输入完之后即使关掉自己的电脑，集群还是会接着算.<br>不同的命令之间用 &amp; 连接。可以让计算机一次次的执行命令，前一条命令执行成功再算下一条。这对于算多个文件很有用。不用一次次输入。</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span></pre></td><td class="code"><pre><span class="line">-study std1</span></pre></td></tr></table></figure>
+
+<p>是指定运算那个study,一般默认为study1  </p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span></pre></td><td class="code"><pre><span class="line">-bathclog logfilename</span></pre></td></tr></table></figure>
+
+<p>表示存储的log文件，这个比较重要，可以实时了解计算到哪一步了  </p>
+<h3 id="如何在服务器使用COMSOL-Livelink-With-Matlab"><a href="#如何在服务器使用COMSOL-Livelink-With-Matlab" class="headerlink" title="如何在服务器使用COMSOL  Livelink With Matlab"></a>如何在服务器使用COMSOL  Livelink With Matlab</h3><p><em>Zhaohua Tian 2018 05 31</em></p>
+<h4 id="非后台运行"><a href="#非后台运行" class="headerlink" title="非后台运行"></a>非后台运行</h4><p><a href="https://cn.comsol.com/forum/thread/9299/tip-batch-calculations-with-matlab-comsol-4-0a?last=2018-03-20T14:49:44Z" target="_blank" rel="noopener">https://cn.comsol.com/forum/thread/9299/tip-batch-calculations-with-matlab-comsol-4-0a?last=2018-03-20T14:49:44Z</a></p>
+<p>即首先需要在远端启动server</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span></pre></td><td class="code"><pre><span class="line">comsol mphserver</span></pre></td></tr></table></figure>
+
+<p>记住此时连接的端口，比如2038,，这时候再开一个窗口，命令行模式下启动matlab</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span></pre></td><td class="code"><pre><span class="line">matlab -nodesktop  -nosplash</span></pre></td></tr></table></figure>
+
+<p>然后进去之后手动将comsol的有关路径加入</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span></pre></td><td class="code"><pre><span class="line">addpath(<span class="string">'/usr/local/comsol52a/multiphysics/mli'</span>)</span></pre></td></tr></table></figure>
+
+<p>然后手动启动</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span></pre></td><td class="code"><pre><span class="line">mphstart(2038)</span></pre></td></tr></table></figure>
+
+<p>这里启动对的端口很重要，不然会报错，这之后就可以运行对应的文件了。<br>用COMSOL Livelink with MATLAB的时候，发现不能用多核计算。查阅相关的文件之后，尝试将对应的study加入一个batch工作，不过该方法没有成功。最后无意中了解到正确的做法是在打开Livelink server的时候，就该指定核的多少</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span></pre></td><td class="code"><pre><span class="line">comsol mphserver -np 18</span></pre></td></tr></table></figure>
+
+<p>比较重要的函数</p>
+<ol>
+<li>mphglobal</li>
+<li>mphinterp</li>
+<li>mphevalpoint</li>
+</ol>
+<h4 id="后台运行"><a href="#后台运行" class="headerlink" title="后台运行"></a>后台运行</h4><p>前面的方法只能一直开着MATLAB的窗口来计算，如果连接掉线，计算也会停掉。为了避免这种问题，我们可以将所有问题都脚本化，需要两个额外的文件来实现，一个是MATLAB文件，文件名加入为“matlab_exe.m”</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span></pre></td><td class="code"><pre><span class="line">addpath(<span class="string">'/usr/local/comsol51/multiphysics/mli'</span>);%添加特定文件到path</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">2</span></pre></td><td class="code"><pre><span class="line">mphstart(2036);%打开对应的port</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">3</span></pre></td><td class="code"><pre><span class="line">Sweep_YZ_Pos_OneBall_PAu;%你要运行的MATLAB文件</span></pre></td></tr></table></figure>
+
+<p>以上就是需要在MATLAB里面执行的步骤。然后需要运行该文件，写一个脚本文件,文件名比如为“comsolscript.sh”,</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span></pre></td><td class="code"><pre><span class="line"><span class="comment">#！ /bin/bash/</span></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">2</span></pre></td><td class="code"><pre><span class="line">comsol mphserver &lt;/dev/null&gt; /dev/null -np 18 &amp; <span class="comment">#指定核心数</span></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">3</span></pre></td><td class="code"><pre><span class="line">/opt/matlab/bin/matlab -nodesktop -nosplash -r matlab_exe</span></pre></td></tr></table></figure>
+
+<p>给文件可执行权限</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span></pre></td><td class="code"><pre><span class="line">chmode +x ./comsolscript.sh</span></pre></td></tr></table></figure>
+
+<p>运行该脚本</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span></pre></td><td class="code"><pre><span class="line">nohup ./comsolscript.sh &amp;</span></pre></td></tr></table></figure>
+
+        </div>
+        <footer class="article-footer">
+            
+
+
+
+    <a data-url="https://knifelees3.github.io/2019/05/04/COMSOL-Using-Summary/" data-id="ck45uumxg003av4tv7sfnfkwr" class="article-share-link"><i class="fa fa-share"></i>Share</a>
+<script>
+    (function ($) {
+        $('body').on('click', function() {
+            $('.article-share-box.on').removeClass('on');
+        }).on('click', '.article-share-link', function(e) {
+            e.stopPropagation();
+
+            var $this = $(this),
+                url = $this.attr('data-url'),
+                encodedUrl = encodeURIComponent(url),
+                id = 'article-share-box-' + $this.attr('data-id'),
+                offset = $this.offset(),
+                box;
+
+            if ($('#' + id).length) {
+                box = $('#' + id);
+
+                if (box.hasClass('on')){
+                    box.removeClass('on');
+                    return;
+                }
+            } else {
+                var html = [
+                    '<div id="' + id + '" class="article-share-box">',
+                        '<input class="article-share-input" value="' + url + '">',
+                        '<div class="article-share-links">',
+                            '<a href="https://twitter.com/intent/tweet?url=' + encodedUrl + '" class="article-share-twitter" target="_blank" title="Twitter"></a>',
+                            '<a href="https://www.facebook.com/sharer.php?u=' + encodedUrl + '" class="article-share-facebook" target="_blank" title="Facebook"></a>',
+                            '<a href="http://pinterest.com/pin/create/button/?url=' + encodedUrl + '" class="article-share-pinterest" target="_blank" title="Pinterest"></a>',
+                            '<a href="https://plus.google.com/share?url=' + encodedUrl + '" class="article-share-google" target="_blank" title="Google+"></a>',
+                        '</div>',
+                    '</div>'
+                ].join('');
+
+              box = $(html);
+
+              $('body').append(box);
+            }
+
+            $('.article-share-box.on').hide();
+
+            box.css({
+                top: offset.top + 25,
+                left: offset.left
+            }).addClass('on');
+
+        }).on('click', '.article-share-box', function (e) {
+            e.stopPropagation();
+        }).on('click', '.article-share-box-input', function () {
+            $(this).select();
+        }).on('click', '.article-share-box-link', function (e) {
+            e.preventDefault();
+            e.stopPropagation();
+
+            window.open(this.href, 'article-share-box-window-' + Date.now(), 'width=500,height=450');
+        });
+    })(jQuery);
+</script>
+
+        </footer>
+    </div>
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "BlogPosting",
+        "author": {
+            "@type": "Person",
+            "name": "Knifelee"
+        },
+        "headline": "COMSOL Using Summary",
+        "image": "/https:/knifelees3.github.io",
+        "keywords": "COMSOL",
+        "genre": "技术",
+        "datePublished": "2019-05-04",
+        "dateCreated": "2019-05-04",
+        "dateModified": "2019-07-11",
+        "url": "/https:/knifelees3.github.io/2019/05/04/COMSOL-Using-Summary/",
+        "description": "常见问题及解决办法
+RF 模型与 Wave Optics 模型的设置是不一样的，前者默认的是设置的介电常数等，后者默认的是要自己设置折射率。注意二者之间的转换。另外有时候会把材料的电导率 (Electrical conductivity) 写成了 1，一般应该取 0.
+在 COMSOL 中，如果是为了增加损耗，应该在介电常数前面加相应的负的虚部. 如果是正虚部，就是引入了增益而不是损耗，这与电磁波",
+        "wordCount": 323
+    }
+</script>
+
+</article>
+
+    <section id="comments">
+    
+        
+    <div id="disqus_thread">
+        <noscript>Please enable JavaScript to view the <a href="//disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+    </div>
+
+
+    
+    </section>
+
+
+
+                        </div>
+                    </section>
+                    <aside id="sidebar">
+    <a class="sidebar-toggle" title="Expand Sidebar"><i class="toggle icon"></i></a>
+    <div class="sidebar-top">
+        <p>follow:</p>
+        <ul class="social-links">
+            
+                
+                <li>
+                    <a class="social-tooltip" title="twitter" href="/" target="_blank" rel="noopener">
+                        <i class="icon fa fa-twitter"></i>
+                    </a>
+                </li>
+                
+            
+                
+                <li>
+                    <a class="social-tooltip" title="facebook" href="/" target="_blank" rel="noopener">
+                        <i class="icon fa fa-facebook"></i>
+                    </a>
+                </li>
+                
+            
+                
+                <li>
+                    <a class="social-tooltip" title="stack-overflow" href="/" target="_blank" rel="noopener">
+                        <i class="icon fa fa-stack-overflow"></i>
+                    </a>
+                </li>
+                
+            
+                
+                <li>
+                    <a class="social-tooltip" title="github" href="https://github.com/ppoffice/hexo-theme-hueman" target="_blank" rel="noopener">
+                        <i class="icon fa fa-github"></i>
+                    </a>
+                </li>
+                
+            
+                
+                <li>
+                    <a class="social-tooltip" title="weibo" href="/" target="_blank" rel="noopener">
+                        <i class="icon fa fa-weibo"></i>
+                    </a>
+                </li>
+                
+            
+                
+                <li>
+                    <a class="social-tooltip" title="rss" href="/" target="_blank" rel="noopener">
+                        <i class="icon fa fa-rss"></i>
+                    </a>
+                </li>
+                
+            
+        </ul>
+    </div>
+    
+        
+<nav id="article-nav">
+    
+        <a href="/2019/05/14/Python3DPlotSummary/" id="article-nav-newer" class="article-nav-link-wrap">
+        <strong class="article-nav-caption">newer</strong>
+        <p class="article-nav-title">
+        
+            Python绘图的相关总结
+        
+        </p>
+        <i class="icon fa fa-chevron-right" id="icon-chevron-right"></i>
+    </a>
+    
+    
+        <a href="/2019/04/25/Python%E6%95%B0%E6%8D%AE%E7%9A%84%E4%BF%9D%E5%AD%98%E6%96%87%E4%BB%B6%E7%B1%BB%E5%9E%8B/" id="article-nav-older" class="article-nav-link-wrap">
+        <strong class="article-nav-caption">older</strong>
+        <p class="article-nav-title">Python数据的保存文件类型</p>
+        <i class="icon fa fa-chevron-left" id="icon-chevron-left"></i>
+        </a>
+    
+</nav>
+
+    
+    <div class="widgets-container">
+        
+            
+                
+
+            
+                
+    <div class="widget-wrap">
+        <h3 class="widget-title">recents</h3>
+        <div class="widget">
+            <ul id="recent-post" class="">
+                
+                    <li>
+                        
+                        <div class="item-thumbnail">
+                            <a href="/2019/12/02/Installing-Software-On-Ubuntu/" class="thumbnail">
+    
+    
+        <span class="thumbnail-image thumbnail-none"></span>
+    
+    
+</a>
+
+                        </div>
+                        
+                        <div class="item-inner">
+                            <p class="item-category"><a class="article-category-link" href="/categories/%E6%8A%80%E6%9C%AF/">技术</a></p>
+                            <p class="item-title"><a href="/2019/12/02/Installing-Software-On-Ubuntu/" class="title">Ubuntu软件安装以及使用注意事项</a></p>
+                            <p class="item-date"><time datetime="2019-12-02T15:34:52.432Z" itemprop="datePublished">2019-12-02</time></p>
+                        </div>
+                    </li>
+                
+                    <li>
+                        
+                        <div class="item-thumbnail">
+                            <a href="/2019/12/02/Install-Python-on-Windows/" class="thumbnail">
+    
+    
+        <span class="thumbnail-image thumbnail-none"></span>
+    
+    
+</a>
+
+                        </div>
+                        
+                        <div class="item-inner">
+                            <p class="item-category"><a class="article-category-link" href="/categories/%E6%8A%80%E6%9C%AF/">技术</a></p>
+                            <p class="item-title"><a href="/2019/12/02/Install-Python-on-Windows/" class="title">Windows python 环境配置</a></p>
+                            <p class="item-date"><time datetime="2019-12-02T15:34:52.415Z" itemprop="datePublished">2019-12-02</time></p>
+                        </div>
+                    </li>
+                
+                    <li>
+                        
+                        <div class="item-thumbnail">
+                            <a href="/2019/12/02/MATLAB-Code-Frequenctly-Used/" class="thumbnail">
+    
+    
+        <span class="thumbnail-image thumbnail-none"></span>
+    
+    
+</a>
+
+                        </div>
+                        
+                        <div class="item-inner">
+                            <p class="item-category"><a class="article-category-link" href="/categories/%E6%8A%80%E6%9C%AF/">技术</a></p>
+                            <p class="item-title"><a href="/2019/12/02/MATLAB-Code-Frequenctly-Used/" class="title">MATLAB 常见命令</a></p>
+                            <p class="item-date"><time datetime="2019-12-02T15:34:52.376Z" itemprop="datePublished">2019-12-02</time></p>
+                        </div>
+                    </li>
+                
+                    <li>
+                        
+                        <div class="item-thumbnail">
+                            <a href="/2019/12/01/hello-world/" class="thumbnail">
+    
+    
+        <span class="thumbnail-image thumbnail-none"></span>
+    
+    
+</a>
+
+                        </div>
+                        
+                        <div class="item-inner">
+                            <p class="item-category"></p>
+                            <p class="item-title"><a href="/2019/12/01/hello-world/" class="title">Hello World</a></p>
+                            <p class="item-date"><time datetime="2019-12-01T07:47:52.313Z" itemprop="datePublished">2019-12-01</time></p>
+                        </div>
+                    </li>
+                
+                    <li>
+                        
+                        <div class="item-thumbnail">
+                            <a href="/2019/12/01/MATLAB%E8%BF%9C%E7%A8%8B%E6%A1%8C%E9%9D%A2%E6%97%A0%E6%B3%95%E4%BD%BF%E7%94%A8%E7%9A%84%E9%97%AE%E9%A2%98/" class="thumbnail">
+    
+    
+        <span class="thumbnail-image thumbnail-none"></span>
+    
+    
+</a>
+
+                        </div>
+                        
+                        <div class="item-inner">
+                            <p class="item-category"><a class="article-category-link" href="/categories/%E6%8A%80%E6%9C%AF/">技术</a></p>
+                            <p class="item-title"><a href="/2019/12/01/MATLAB%E8%BF%9C%E7%A8%8B%E6%A1%8C%E9%9D%A2%E6%97%A0%E6%B3%95%E4%BD%BF%E7%94%A8%E7%9A%84%E9%97%AE%E9%A2%98/" class="title">MATLAB远程桌面使用时报错的问题</a></p>
+                            <p class="item-date"><time datetime="2019-12-01T07:15:30.000Z" itemprop="datePublished">2019-12-01</time></p>
+                        </div>
+                    </li>
+                
+            </ul>
+        </div>
+    </div>
+
+            
+                
+    <div class="widget-wrap widget-list">
+        <h3 class="widget-title">categories</h3>
+        <div class="widget">
+            <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/%E6%8A%80%E6%9C%AF/">技术</a><span class="category-list-count">27</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E9%9A%8F%E7%AC%94/">随笔</a><span class="category-list-count">1</span></li></ul>
+        </div>
+    </div>
+
+
+            
+                
+    <div class="widget-wrap widget-list">
+        <h3 class="widget-title">archives</h3>
+        <div class="widget">
+            <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/12/">December 2019</a><span class="archive-list-count">5</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/11/">November 2019</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/10/">October 2019</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/08/">August 2019</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/07/">July 2019</a><span class="archive-list-count">4</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/06/">June 2019</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/05/">May 2019</a><span class="archive-list-count">3</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/04/">April 2019</a><span class="archive-list-count">4</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/03/">March 2019</a><span class="archive-list-count">7</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/02/">February 2019</a><span class="archive-list-count">1</span></li></ul>
+        </div>
+    </div>
+
+
+            
+                
+    <div class="widget-wrap widget-list">
+        <h3 class="widget-title">tags</h3>
+        <div class="widget">
+            <ul class="tag-list" itemprop="keywords"><li class="tag-list-item"><a class="tag-list-link" href="/tags/COMSOL/" rel="tag">COMSOL</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/EndNote/" rel="tag">EndNote</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/FTP/" rel="tag">FTP</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Git/" rel="tag">Git</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Latex/" rel="tag">Latex</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Linux/" rel="tag">Linux</a><span class="tag-list-count">5</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/MATLAB/" rel="tag">MATLAB</a><span class="tag-list-count">7</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Python/" rel="tag">Python</a><span class="tag-list-count">7</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/SSH/" rel="tag">SSH</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Ubuntu/" rel="tag">Ubuntu</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/gnuplot/" rel="tag">gnuplot</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/plot/" rel="tag">plot</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%AD%A6%E6%9C%AF/" rel="tag">学术</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%B9%B6%E8%A1%8C%E8%AE%A1%E7%AE%97/" rel="tag">并行计算</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E6%8A%80%E6%9C%AF/" rel="tag">技术</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E6%96%87%E7%8C%AE%E7%AE%A1%E7%90%86/" rel="tag">文献管理</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E6%A2%AF%E5%AD%90/" rel="tag">梯子</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E7%94%9F%E6%B4%BB%E8%AE%B0%E5%BD%95/" rel="tag">生活记录</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E7%A7%91%E5%AD%A6%E7%BB%98%E5%9B%BE/" rel="tag">科学绘图</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E7%BB%98%E5%9B%BE/" rel="tag">绘图</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E8%BD%AF%E4%BB%B6/" rel="tag">软件</a><span class="tag-list-count">1</span></li></ul>
+        </div>
+    </div>
+
+
+            
+                
+    <div class="widget-wrap widget-float">
+        <h3 class="widget-title">tag cloud</h3>
+        <div class="widget tagcloud">
+            <a href="/tags/COMSOL/" style="font-size: 13.33px;">COMSOL</a> <a href="/tags/EndNote/" style="font-size: 10px;">EndNote</a> <a href="/tags/FTP/" style="font-size: 10px;">FTP</a> <a href="/tags/Git/" style="font-size: 10px;">Git</a> <a href="/tags/Latex/" style="font-size: 10px;">Latex</a> <a href="/tags/Linux/" style="font-size: 16.67px;">Linux</a> <a href="/tags/MATLAB/" style="font-size: 20px;">MATLAB</a> <a href="/tags/Python/" style="font-size: 20px;">Python</a> <a href="/tags/SSH/" style="font-size: 10px;">SSH</a> <a href="/tags/Ubuntu/" style="font-size: 10px;">Ubuntu</a> <a href="/tags/gnuplot/" style="font-size: 10px;">gnuplot</a> <a href="/tags/plot/" style="font-size: 13.33px;">plot</a> <a href="/tags/%E5%AD%A6%E6%9C%AF/" style="font-size: 13.33px;">学术</a> <a href="/tags/%E5%B9%B6%E8%A1%8C%E8%AE%A1%E7%AE%97/" style="font-size: 10px;">并行计算</a> <a href="/tags/%E6%8A%80%E6%9C%AF/" style="font-size: 10px;">技术</a> <a href="/tags/%E6%96%87%E7%8C%AE%E7%AE%A1%E7%90%86/" style="font-size: 10px;">文献管理</a> <a href="/tags/%E6%A2%AF%E5%AD%90/" style="font-size: 10px;">梯子</a> <a href="/tags/%E7%94%9F%E6%B4%BB%E8%AE%B0%E5%BD%95/" style="font-size: 10px;">生活记录</a> <a href="/tags/%E7%A7%91%E5%AD%A6%E7%BB%98%E5%9B%BE/" style="font-size: 13.33px;">科学绘图</a> <a href="/tags/%E7%BB%98%E5%9B%BE/" style="font-size: 10px;">绘图</a> <a href="/tags/%E8%BD%AF%E4%BB%B6/" style="font-size: 10px;">软件</a>
+        </div>
+    </div>
+
+
+            
+                
+    <div class="widget-wrap widget-list">
+        <h3 class="widget-title">links</h3>
+        <div class="widget">
+            <ul>
+                
+                    <li>
+                        <a href="http://hexo.io" target="_blank" rel="noopener">Hexo</a>
+                    </li>
+                
+            </ul>
+        </div>
+    </div>
+
+
+            
+        
+    </div>
+</aside>
+
+                </div>
+            </div>
+        </div>
+        <footer id="footer">
+    <div class="container">
+        <div class="container-inner">
+            <a id="back-to-top" href="javascript:;" target="_blank" rel="noopener"><i class="icon fa fa-angle-up"></i></a>
+            <div class="credit">
+                <h1 class="logo-wrap">
+                    <a href="/" class="logo"></a>
+                </h1>
+                <p>&copy; 2019 Knifelee</p>
+                
+                <p>Powered by <a href="https://hexo.io/" target="_blank">Hexo</a>. Theme by <a href="https://github.com/ppoffice" target="_blank">PPOffice</a></p>
+                
+            </div>
+            <div class="footer-plugins">
+              
+    
+
+
+            </div>
+        </div>
+    </div>
+</footer>
+
+        
+    
+    <script>
+    var disqus_shortname = 'hexo-theme-hueman';
+    
+    
+    var disqus_url = 'https://knifelees3.github.io/2019/05/04/COMSOL-Using-Summary/';
+    
+    (function() {
+    var dsq = document.createElement('script');
+    dsq.type = 'text/javascript';
+    dsq.async = true;
+    dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+    (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    })();
+    </script>
+
+
+
+
+
+    
+        <script src="/libs/lightgallery/js/lightgallery.min.js"></script>
+        <script src="/libs/lightgallery/js/lg-thumbnail.min.js"></script>
+        <script src="/libs/lightgallery/js/lg-pager.min.js"></script>
+        <script src="/libs/lightgallery/js/lg-autoplay.min.js"></script>
+        <script src="/libs/lightgallery/js/lg-fullscreen.min.js"></script>
+        <script src="/libs/lightgallery/js/lg-zoom.min.js"></script>
+        <script src="/libs/lightgallery/js/lg-hash.min.js"></script>
+        <script src="/libs/lightgallery/js/lg-share.min.js"></script>
+        <script src="/libs/lightgallery/js/lg-video.min.js"></script>
+    
+    
+        <script src="/libs/justified-gallery/jquery.justifiedGallery.min.js"></script>
+    
+    
+        <script type="text/x-mathjax-config">
+            MathJax.Hub.Config({ tex2jax: { inlineMath: [['$','$'], ['\\(','\\)']] } });
+        </script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-MML-AM_CHTML"></script>
+    
+
+    
+
+
+
+<!-- Custom Scripts -->
+<script src="/js/main.js"></script>
+
+    </div>
+</body>
+</html>
