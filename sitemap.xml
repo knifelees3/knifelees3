@@ -2,9 +2,23 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>https://knifelees3.github.io/tags/index.html</loc>
+    
+    <lastmod>2019-12-15T16:30:23.163Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://knifelees3.github.io/categories/index.html</loc>
+    
+    <lastmod>2019-12-15T16:29:57.749Z</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>https://knifelees3.github.io/about/index.html</loc>
     
-    <lastmod>2019-12-15T16:08:57.242Z</lastmod>
+    <lastmod>2019-12-15T16:29:24.091Z</lastmod>
     
   </url>
   
@@ -222,20 +236,6 @@
     <loc>https://knifelees3.github.io/2019/03/14/windows%E5%A5%BD%E7%94%A8%E8%BD%AF%E4%BB%B6%E6%94%B6%E9%9B%86/</loc>
     
     <lastmod>2019-05-22T01:34:28.000Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>https://knifelees3.github.io/tags/index.html</loc>
-    
-    <lastmod>2019-02-28T16:59:31.000Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>https://knifelees3.github.io/categories/index.html</loc>
-    
-    <lastmod>2019-02-28T16:59:07.000Z</lastmod>
     
   </url>
   
