@@ -4,6 +4,19 @@
   
     
     <entry>
+      <title>将博客搬至CSDN</title>
+      <link href="/2019/12/17/%E5%B0%86%E5%8D%9A%E5%AE%A2%E6%90%AC%E8%87%B3CSDN/"/>
+      <url>/2019/12/17/%E5%B0%86%E5%8D%9A%E5%AE%A2%E6%90%AC%E8%87%B3CSDN/</url>
+      
+        <content type="html"><![CDATA[]]></content>
+      
+      
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>Linux服务器常见命令</title>
       <link href="/2019/12/16/Linux%E6%9C%8D%E5%8A%A1%E5%99%A8%E7%AE%A1%E7%90%86%E5%B8%B8%E8%A7%81%E5%91%BD%E4%BB%A4/"/>
       <url>/2019/12/16/Linux%E6%9C%8D%E5%8A%A1%E5%99%A8%E7%AE%A1%E7%90%86%E5%B8%B8%E8%A7%81%E5%91%BD%E4%BB%A4/</url>
@@ -551,9 +564,9 @@
       
         <tags>
             
-            <tag> Python </tag>
-            
             <tag> MATLAB </tag>
+            
+            <tag> Python </tag>
             
         </tags>
       
