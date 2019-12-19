@@ -1,25 +1,40 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
-    <loc>https://knifelees3.github.io/2019/12/19/%E5%85%B3%E4%BA%8E%E7%BD%91%E7%AB%99%E8%AE%B0%E5%BD%95(3)/</loc>
+    <loc>https://knifelees3.github.io/2019/04/17/A_En_ParallelComputingSummary/</loc>
     <lastmod>2019-12-19</lastmod>
   </url>  <url>
-    <loc>https://knifelees3.github.io/2019/02/28/%E5%85%B3%E4%BA%8E%E7%BD%91%E7%AB%99%E8%AE%B0%E5%BD%95(1)/</loc>
+    <loc>https://knifelees3.github.io/2019/07/06/A_En_How-to-use-COMSOL-LiveLink-With-MATLAB/</loc>
     <lastmod>2019-12-19</lastmod>
   </url>  <url>
-    <loc>https://knifelees3.github.io/2019/08/04/PythonPlotStudy2_ThreeOrthogonalVectors/</loc>
-    <lastmod>2019-12-16</lastmod>
+    <loc>https://knifelees3.github.io/2019/10/17/A_En_How-To-Delete-Ubuntu-In-Windows/</loc>
+    <lastmod>2019-12-19</lastmod>
   </url>  <url>
-    <loc>https://knifelees3.github.io/2019/07/23/PythonPlotStudy1_SemiCircle_OscilatorApprox/</loc>
-    <lastmod>2019-12-16</lastmod>
+    <loc>https://knifelees3.github.io/2019/08/04/A_En_PythonPlotStudy2_ThreeOrthogonalVectors/</loc>
+    <lastmod>2019-12-19</lastmod>
+  </url>  <url>
+    <loc>https://knifelees3.github.io/2019/07/23/A_En_PythonPlotStudy1_SemiCircle_OscilatorApprox/</loc>
+    <lastmod>2019-12-19</lastmod>
+  </url>  <url>
+    <loc>https://knifelees3.github.io/2019/03/03/MATLAB-parfor-progress/</loc>
+    <lastmod>2019-12-19</lastmod>
+  </url>  <url>
+    <loc>https://knifelees3.github.io/2019/04/07/A_En_MATLAB-File-Operation-Summary/</loc>
+    <lastmod>2019-12-19</lastmod>
+  </url>  <url>
+    <loc>https://knifelees3.github.io/2019/12/02/MATLAB-Code-Frequenctly-Used/</loc>
+    <lastmod>2019-12-19</lastmod>
+  </url>  <url>
+    <loc>https://knifelees3.github.io/2019/12/19/B_%E9%9A%8F%E7%AC%94_%E5%85%B3%E4%BA%8E%E7%BD%91%E7%AB%99%E8%AE%B0%E5%BD%95(3)/</loc>
+    <lastmod>2019-12-19</lastmod>
+  </url>  <url>
+    <loc>https://knifelees3.github.io/2019/02/28/B_%E9%9A%8F%E7%AC%94_%E5%85%B3%E4%BA%8E%E7%BD%91%E7%AB%99%E8%AE%B0%E5%BD%95(1)/</loc>
+    <lastmod>2019-12-19</lastmod>
   </url>  <url>
     <loc>https://knifelees3.github.io/2019/12/16/Linux%E6%9C%8D%E5%8A%A1%E5%99%A8%E7%AE%A1%E7%90%86%E5%B8%B8%E8%A7%81%E5%91%BD%E4%BB%A4/</loc>
     <lastmod>2019-12-16</lastmod>
   </url>  <url>
-    <loc>https://knifelees3.github.io/2019/07/06/How-to-use-COMSOL-LiveLink-With-MATLAB/</loc>
-    <lastmod>2019-12-15</lastmod>
-  </url>  <url>
-    <loc>https://knifelees3.github.io/2019/12/15/%E5%85%B3%E4%BA%8E%E7%BD%91%E7%AB%99%E8%AE%B0%E5%BD%95(2)/</loc>
+    <loc>https://knifelees3.github.io/2019/12/15/B_%E9%9A%8F%E7%AC%94_%E5%85%B3%E4%BA%8E%E7%BD%91%E7%AB%99%E8%AE%B0%E5%BD%95(2)/</loc>
     <lastmod>2019-12-15</lastmod>
   </url>  <url>
     <loc>https://knifelees3.github.io/2019/12/01/MATLAB%E8%BF%9C%E7%A8%8B%E6%A1%8C%E9%9D%A2%E6%97%A0%E6%B3%95%E4%BD%BF%E7%94%A8%E7%9A%84%E9%97%AE%E9%A2%98/</loc>
@@ -34,13 +49,7 @@
     <loc>https://knifelees3.github.io/2019/11/18/Useful_Python_Web/</loc>
     <lastmod>2019-11-18</lastmod>
   </url>  <url>
-    <loc>https://knifelees3.github.io/2019/10/17/How-To-Delete-Ubuntu-In-Windows/</loc>
-    <lastmod>2019-11-02</lastmod>
-  </url>  <url>
-    <loc>https://knifelees3.github.io/2019/04/17/ParallelComputingSummary/</loc>
-    <lastmod>2019-10-31</lastmod>
-  </url>  <url>
-    <loc>https://knifelees3.github.io/2019/07/02/APS%E7%94%A8RevTex%E6%8A%95%E7%A8%BF%E5%85%A8%E8%AE%B0%E5%BD%95/</loc>
+    <loc>https://knifelees3.github.io/2019/07/02/%E7%94%A8RevTex%E6%8A%95%E7%A8%BFAPS%E5%85%A8%E8%AE%B0%E5%BD%95/</loc>
     <lastmod>2019-10-08</lastmod>
   </url>  <url>
     <loc>https://knifelees3.github.io/2019/04/25/Python%E6%95%B0%E6%8D%AE%E7%9A%84%E4%BF%9D%E5%AD%98%E6%96%87%E4%BB%B6%E7%B1%BB%E5%9E%8B/</loc>
@@ -76,16 +85,7 @@
     <loc>https://knifelees3.github.io/2019/03/06/gnuplot%E7%BB%98%E5%88%B6gif%E5%8A%A8%E5%9B%BE/</loc>
     <lastmod>2019-07-08</lastmod>
   </url>  <url>
-    <loc>https://knifelees3.github.io/2019/12/02/Installing-Software-On-Ubuntu/</loc>
-    <lastmod>2019-07-05</lastmod>
-  </url>  <url>
-    <loc>https://knifelees3.github.io/2019/04/07/MATLAB-File-Operation-Summary/</loc>
-    <lastmod>2019-07-05</lastmod>
-  </url>  <url>
-    <loc>https://knifelees3.github.io/2019/03/03/MATLAB-parfor-progress/</loc>
-    <lastmod>2019-07-05</lastmod>
-  </url>  <url>
-    <loc>https://knifelees3.github.io/2019/12/02/MATLAB-Code-Frequenctly-Used/</loc>
+    <loc>https://knifelees3.github.io/2019/12/02/Install-Software-On-Ubuntu/</loc>
     <lastmod>2019-07-05</lastmod>
   </url>  <url>
     <loc>https://knifelees3.github.io/2019/06/26/Linux%E8%BF%9C%E7%A8%8B%E6%A1%8C%E9%9D%A2%E8%BF%9E%E6%8E%A5/</loc>
