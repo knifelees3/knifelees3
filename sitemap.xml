@@ -2,6 +2,13 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>https://knifelees3.github.io/about/index.html</loc>
+    
+    <lastmod>2019-12-20T01:21:01.037Z</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>https://knifelees3.github.io/2019/03/01/C_%E6%95%99%E7%A8%8B_%E7%94%A8Hexo%E6%90%AD%E5%BB%BA%E4%B8%AA%E4%BA%BA%E5%8D%9A%E5%AE%A2/</loc>
     
     <lastmod>2019-12-20T01:01:52.398Z</lastmod>
@@ -124,13 +131,6 @@
     <loc>https://knifelees3.github.io/categories/index.html</loc>
     
     <lastmod>2019-12-15T16:29:57.749Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>https://knifelees3.github.io/about/index.html</loc>
-    
-    <lastmod>2019-12-15T16:29:24.091Z</lastmod>
     
   </url>
   
