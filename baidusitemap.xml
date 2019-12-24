@@ -1,6 +1,15 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
+    <loc>https://knifelees3.github.io/2019/07/23/A_En_PythonPlotStudy1_SemiCircle_OscilatorApprox/</loc>
+    <lastmod>2019-12-24</lastmod>
+  </url>  <url>
+    <loc>https://knifelees3.github.io/2019/10/17/A_En_How-To-Delete-Ubuntu-In-Windows/</loc>
+    <lastmod>2019-12-24</lastmod>
+  </url>  <url>
+    <loc>https://knifelees3.github.io/2019/04/07/A_En_MATLAB-File-Operation-Summary/</loc>
+    <lastmod>2019-12-24</lastmod>
+  </url>  <url>
     <loc>https://knifelees3.github.io/2019/11/18/A_En_Useful_Python_Web/</loc>
     <lastmod>2019-12-24</lastmod>
   </url>  <url>
@@ -34,19 +43,10 @@
     <loc>https://knifelees3.github.io/2019/07/06/A_En_How-to-use-COMSOL-LiveLink-With-MATLAB/</loc>
     <lastmod>2019-12-19</lastmod>
   </url>  <url>
-    <loc>https://knifelees3.github.io/2019/10/17/A_En_How-To-Delete-Ubuntu-In-Windows/</loc>
-    <lastmod>2019-12-19</lastmod>
-  </url>  <url>
     <loc>https://knifelees3.github.io/2019/08/04/A_En_PythonPlotStudy2_ThreeOrthogonalVectors/</loc>
     <lastmod>2019-12-19</lastmod>
   </url>  <url>
-    <loc>https://knifelees3.github.io/2019/07/23/A_En_PythonPlotStudy1_SemiCircle_OscilatorApprox/</loc>
-    <lastmod>2019-12-19</lastmod>
-  </url>  <url>
     <loc>https://knifelees3.github.io/2019/03/03/C_%E6%95%99%E7%A8%8B_MATLAB-parfor-progress/</loc>
-    <lastmod>2019-12-19</lastmod>
-  </url>  <url>
-    <loc>https://knifelees3.github.io/2019/04/07/A_En_MATLAB-File-Operation-Summary/</loc>
     <lastmod>2019-12-19</lastmod>
   </url>  <url>
     <loc>https://knifelees3.github.io/2019/12/02/C_%E6%95%99%E7%A8%8B_MATLAB-Code-Frequenctly-Used/</loc>
