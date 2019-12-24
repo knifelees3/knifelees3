@@ -1,6 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
+    <loc>https://knifelees3.github.io/2019/11/18/A_En_Useful_Python_Web/</loc>
+    <lastmod>2019-12-24</lastmod>
+  </url>  <url>
+    <loc>https://knifelees3.github.io/2019/03/14/D_%E6%94%B6%E9%9B%86_Windows%E5%90%84%E7%B1%BB%E4%BC%98%E8%B4%A8%E8%BD%AF%E4%BB%B6%E6%B1%87%E6%80%BB/</loc>
+    <lastmod>2019-12-24</lastmod>
+  </url>  <url>
     <loc>https://knifelees3.github.io/2019/12/23/B-%E9%9A%8F%E7%AC%94-%E5%85%B3%E4%BA%8E%E7%BD%91%E7%AB%99%E8%AE%B0%E5%BD%95(4)/</loc>
     <lastmod>2019-12-23</lastmod>
   </url>  <url>
@@ -20,9 +26,6 @@
     <lastmod>2019-12-20</lastmod>
   </url>  <url>
     <loc>https://knifelees3.github.io/2019/12/19/B_%E9%9A%8F%E7%AC%94_%E5%85%B3%E4%BA%8E%E7%BD%91%E7%AB%99%E8%AE%B0%E5%BD%95(3)/</loc>
-    <lastmod>2019-12-20</lastmod>
-  </url>  <url>
-    <loc>https://knifelees3.github.io/2019/11/18/A_En_Useful_Python_Web/</loc>
     <lastmod>2019-12-20</lastmod>
   </url>  <url>
     <loc>https://knifelees3.github.io/2019/04/17/A_En_ParallelComputingSummary/</loc>
@@ -84,8 +87,5 @@
   </url>  <url>
     <loc>https://knifelees3.github.io/2019/05/16/C_%E6%95%99%E7%A8%8B_EndNote%E6%96%87%E7%8C%AE%E7%AE%A1%E7%90%86%E6%80%BB%E7%BB%93/</loc>
     <lastmod>2019-07-02</lastmod>
-  </url>  <url>
-    <loc>https://knifelees3.github.io/2019/03/14/D_%E6%94%B6%E9%9B%86_Windows%E5%90%84%E7%B1%BB%E4%BC%98%E8%B4%A8%E8%BD%AF%E4%BB%B6%E6%B1%87%E6%80%BB/</loc>
-    <lastmod>2019-05-22</lastmod>
   </url>
 </urlset>
