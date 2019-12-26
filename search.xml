@@ -60,31 +60,6 @@
     
     
     <entry>
-      <title>关于网站记录四</title>
-      <link href="/2019/12/23/B-%E9%9A%8F%E7%AC%94-%E5%85%B3%E4%BA%8E%E7%BD%91%E7%AB%99%E8%AE%B0%E5%BD%95(4)/"/>
-      <url>/2019/12/23/B-%E9%9A%8F%E7%AC%94-%E5%85%B3%E4%BA%8E%E7%BD%91%E7%AB%99%E8%AE%B0%E5%BD%95(4)/</url>
-      
-        <content type="html"><![CDATA[<p>关于单光子、双光子的定义有些迷糊，来写一篇随笔放松下。。</p><p>目前博客写的比较随意，想记什么就记什么。比如安装软件，一股脑的把COMSOL,MATLAB,FDTD的全写了，其实对于其他人来说，这些软件可能只需要其中的一个。为了便于别人从标题搜索，还是应该分开来写。应该将不同软件的安装、使用、注意事项分开来写，这样比较有章法。</p><p>百度的push应该是可以用了，下面是百度统计的结果<br><img alt="百度统计结果" data-src="https://raw.githubusercontent.com/knifelees3/my_pictures/master/picgoup/Snipaste_2019-12-23_21-04-56.png" class="lazyload"></p><p>再附一张Google统计的结果<br><img alt="Google统计结果" data-src="https://raw.githubusercontent.com/knifelees3/my_pictures/master/picgoup/Snipaste_2019-12-23_21-00-15.png" class="lazyload"></p><p>利用闲暇时间，赶快完善好吧~</p>]]></content>
-      
-      
-      <categories>
-          
-          <category> 随笔 </category>
-          
-      </categories>
-      
-      
-        <tags>
-            
-            <tag> 博客 </tag>
-            
-        </tags>
-      
-    </entry>
-    
-    
-    
-    <entry>
       <title>inkscape安装插件textext出错的解决办法</title>
       <link href="/2019/12/21/C_%E6%95%99%E7%A8%8B_inkscape%E5%AE%89%E8%A3%85%E6%8F%92%E4%BB%B6textext%E5%87%BA%E9%94%99%E7%9A%84%E8%A7%A3%E5%86%B3%E5%8A%9E%E6%B3%95/"/>
       <url>/2019/12/21/C_%E6%95%99%E7%A8%8B_inkscape%E5%AE%89%E8%A3%85%E6%8F%92%E4%BB%B6textext%E5%87%BA%E9%94%99%E7%9A%84%E8%A7%A3%E5%86%B3%E5%8A%9E%E6%B3%95/</url>
@@ -96,31 +71,6 @@
         <tags>
             
             <tag> inkscape </tag>
-            
-        </tags>
-      
-    </entry>
-    
-    
-    
-    <entry>
-      <title>关于网站记录三</title>
-      <link href="/2019/12/19/B_%E9%9A%8F%E7%AC%94_%E5%85%B3%E4%BA%8E%E7%BD%91%E7%AB%99%E8%AE%B0%E5%BD%95(3)/"/>
-      <url>/2019/12/19/B_%E9%9A%8F%E7%AC%94_%E5%85%B3%E4%BA%8E%E7%BD%91%E7%AB%99%E8%AE%B0%E5%BD%95(3)/</url>
-      
-        <content type="html"><![CDATA[<p>写于2019年12月19日。<br>最近几日一直在捣鼓自己的个人博客，科研上都有点分心了，为了可以顺利毕业，以后需要减少在这些方面的投入。当然，也需要对未来的博客形式有一个规划。</p><h2 id="写博客的初衷"><a href="#写博客的初衷" class="headerlink" title="写博客的初衷"></a>写博客的初衷</h2><ol><li>练技能，并获得成就感。最开始要建立博客是觉得很炫酷，通过一些设置就可以拥有自己的个人小站。这样做完是相当有成就感。</li><li>记录一些经验。在学习工作中会有各种各样的事情需要我们取处理，科研中、生活中时常因为一些软件的安装、配置，或者某个算法的实现，花了很久的时间，第二次再遇到同样的问题的时候又得重新开始百度、谷歌，非常浪费时间。写个人博客，记录经验，可以提高效率。</li><li>训练自己的表达。只有自己写博客才知道，要将一件事情的精华提炼并且总计，讲清楚，讲的完整，是非常难的。通过写博客，可以如自己的逻辑表达能力增强。</li><li>训练英语的表达。其实要提高自己的英语能力，可以通过写一些英文的文档来提高。我后续希望自己的网站分为英文和中文两个板块。以中文为主，英文也需要时常更新。</li><li>记录生活。以前写过一些新浪博客，从以前的一些文字，可以窥见当时的那个自己，尽管缺点一大堆，思维稚嫩，可还是会无比怀恋过去的自己，过去的旧时光啊。</li></ol><h2 id="接下里博客需要解决的问题"><a href="#接下里博客需要解决的问题" class="headerlink" title="接下里博客需要解决的问题"></a>接下里博客需要解决的问题</h2><ol><li>确定好图床。现在用的是github作为图床，但是github有容量限制。考虑过买个服务器，然后自己搭建，目前精力不多的前提下，还是先用一些免费的图床工具吧，比如朋友推荐的sm.ms.</li><li>关于国内的部署。自己当然是希望自己的博客可以被百度检索到，这样需要将自己的网站上传到国内的服务器，这也是一个大工程，需要购买国内服务器，目前还是算了，等过年在家的时候再弄吧。</li><li>关于CSDN。我发现CSDN可以爬取github的博客，必须是md文件，也可以自动更新，考虑在建一个文件夹，只存放md文件，并且同步更新。</li><li>关于网站中英板块。目前的板块比较简单，后续希望可以将英文、中文的博客通过页面单独展示。</li><li>关于网站的笔记清理。看了别人的网站以后，才发现自己写的太垃圾了。以后写东西要注重质量，少在网络上生成垃圾吧。将杂乱的标签重新整理，重复的笔记删除，无意义的删除。</li></ol><p>后续还希望将自己的一些健身数据等实时上传，希望自己可以做到吧。</p><p>keep trying.</p>]]></content>
-      
-      
-      <categories>
-          
-          <category> 随笔 </category>
-          
-      </categories>
-      
-      
-        <tags>
-            
-            <tag> 杂文 </tag>
             
         </tags>
       
@@ -146,31 +96,6 @@
         <tags>
             
             <tag> Linux </tag>
-            
-        </tags>
-      
-    </entry>
-    
-    
-    
-    <entry>
-      <title>关于网站记录二</title>
-      <link href="/2019/12/15/B_%E9%9A%8F%E7%AC%94_%E5%85%B3%E4%BA%8E%E7%BD%91%E7%AB%99%E8%AE%B0%E5%BD%95(2)/"/>
-      <url>/2019/12/15/B_%E9%9A%8F%E7%AC%94_%E5%85%B3%E4%BA%8E%E7%BD%91%E7%AB%99%E8%AE%B0%E5%BD%95(2)/</url>
-      
-        <content type="html"><![CDATA[<p>Date: 2019 12 15</p><p>又花了一个下午将博客的主题换成了butterfly,感觉更加的炫酷一点，在保留以前博客阅读数据的基础上，更新了一波配置。</p><p>最重要的成就是解决了站内搜索的问题，现在终于可以在自己的博客搜索想要的东西了，非常方便。</p><p>但是真的够折腾，研究了一下午还是没办法被百度搜索到，所以要让自己的博客被百度搜索，还是只能取CSDN之内的发了。</p><p>捣鼓博客容易上瘾，还是回归博客本身，多谢一些有意义的总结、笔记、教程吧~</p><p>That’s ALL.s</p>]]></content>
-      
-      
-      <categories>
-          
-          <category> 随笔 </category>
-          
-      </categories>
-      
-      
-        <tags>
-            
-            <tag> Life </tag>
             
         </tags>
       
@@ -790,11 +715,11 @@
     
     
     <entry>
-      <title>关于网站记录一</title>
-      <link href="/2019/02/28/B_%E9%9A%8F%E7%AC%94_%E5%85%B3%E4%BA%8E%E7%BD%91%E7%AB%99%E8%AE%B0%E5%BD%95(1)/"/>
-      <url>/2019/02/28/B_%E9%9A%8F%E7%AC%94_%E5%85%B3%E4%BA%8E%E7%BD%91%E7%AB%99%E8%AE%B0%E5%BD%95(1)/</url>
+      <title>记录关于网站的点滴</title>
+      <link href="/2019/02/28/B_%E9%9A%8F%E7%AC%94_%E8%AE%B0%E5%BD%95%E5%85%B3%E4%BA%8E%E7%BD%91%E7%AB%99%E7%9A%84%E7%82%B9%E6%BB%B4/"/>
+      <url>/2019/02/28/B_%E9%9A%8F%E7%AC%94_%E8%AE%B0%E5%BD%95%E5%85%B3%E4%BA%8E%E7%BD%91%E7%AB%99%E7%9A%84%E7%82%B9%E6%BB%B4/</url>
       
-        <content type="html"><![CDATA[<p>这是我的第一个正常的做的成功的个人博客网站，以前很早就学习了，一直不成功，遇到各种蛋疼的问题，最开始用jkelly做，想用漂亮的主题的时候总是会出问题。<br>放弃了好久之后，终于又有热情了，又开始捣鼓，一开始想用python做，最后笔记本安装所需插件时发现需要蛮多配置，也需要c++环境，不想再笔记本装那么大的c++编译器，所以放弃了。<br>看到一篇非常好的知乎文章，介绍了关于怎么用Hexo搭建博客，非常详细<br><a href="https://zhuanlan.zhihu.com/p/26625249" target="_blank" rel="noopener">https://zhuanlan.zhihu.com/p/26625249</a><br>按照步骤来，终于成功了，修改了原网站的图片，换成了自己喜欢的人物，哈哈，真爽。以后慢慢的更新一些教程、随笔，心得~<br>目前还有一个问题，那就是插入图片功能太弱了。。。需要后续解决。<br>这是我的第一篇随笔<del>记录下，以后一定坚持写博客</del>技术、文学通吃~<br>以后再慢慢的完善细节，加入说明，链接<del>嘻嘻<br>Nice的一天</del></p><p>This is my first successful personal website. I am really excited to see its posting online. I have tried this two years ago and with a lot of errors and troubles, I gave up.</p><p>In the new year in 2019 I have time to rest and then I try to do the personal blog again. </p>]]></content>
+        <content type="html"><![CDATA[<h2 id="2019年-2月28日"><a href="#2019年-2月28日" class="headerlink" title="2019年 2月28日"></a>2019年 2月28日</h2><p>​    这是我的第一个正常的做的成功的个人博客网站，以前很早就学习了，一直不成功，遇到各种蛋疼的问题，最开始用jkelly做，想用漂亮的主题的时候总是会出问题。<br>放弃了好久之后，终于又有热情了，又开始捣鼓，一开始想用python做，最后笔记本安装所需插件时发现需要蛮多配置，也需要c++环境，不想再笔记本装那么大的c++编译器，所以放弃了。<br>看到一篇非常好的知乎文章，介绍了关于怎么用Hexo搭建博客，非常详细<br><a href="https://zhuanlan.zhihu.com/p/26625249" target="_blank" rel="noopener">https://zhuanlan.zhihu.com/p/26625249</a><br>按照步骤来，终于成功了，修改了原网站的图片，换成了自己喜欢的人物，哈哈，真爽。以后慢慢的更新一些教程、随笔，心得~<br>目前还有一个问题，那就是插入图片功能太弱了。。。需要后续解决。<br>这是我的第一篇随笔<del>记录下，以后一定坚持写博客</del>技术、文学通吃~<br>以后再慢慢的完善细节，加入说明，链接<del>嘻嘻<br>Nice的一天</del></p><p>This is my first successful personal website. I am really excited to see its posting online. I have tried this two years ago and with a lot of errors and troubles, I gave up.</p><p>In the new year in 2019 I have time to rest and then I try to do the personal blog again. </p><h2 id="2019年-12月-15日"><a href="#2019年-12月-15日" class="headerlink" title="2019年 12月 15日"></a>2019年 12月 15日</h2><p>又花了一个下午将博客的主题换成了butterfly,感觉更加的炫酷一点，在保留以前博客阅读数据的基础上，更新了一波配置。</p><p>最重要的成就是解决了站内搜索的问题，现在终于可以在自己的博客搜索想要的东西了，非常方便。</p><p>但是真的够折腾，研究了一下午还是没办法被百度搜索到，所以要让自己的博客被百度搜索，还是只能取CSDN之内的发了。</p><p>捣鼓博客容易上瘾，还是回归博客本身，多谢一些有意义的总结、笔记、教程吧~</p><p>That’s ALL.s</p><h2 id="2019年-12月-19日"><a href="#2019年-12月-19日" class="headerlink" title="2019年 12月 19日"></a>2019年 12月 19日</h2><p>写于2019年12月19日。<br>最近几日一直在捣鼓自己的个人博客，科研上都有点分心了，为了可以顺利毕业，以后需要减少在这些方面的投入。当然，也需要对未来的博客形式有一个规划。</p><h3 id="写博客的初衷"><a href="#写博客的初衷" class="headerlink" title="写博客的初衷"></a>写博客的初衷</h3><ol><li>练技能，并获得成就感。最开始要建立博客是觉得很炫酷，通过一些设置就可以拥有自己的个人小站。这样做完是相当有成就感。</li><li>记录一些经验。在学习工作中会有各种各样的事情需要我们取处理，科研中、生活中时常因为一些软件的安装、配置，或者某个算法的实现，花了很久的时间，第二次再遇到同样的问题的时候又得重新开始百度、谷歌，非常浪费时间。写个人博客，记录经验，可以提高效率。</li><li>训练自己的表达。只有自己写博客才知道，要将一件事情的精华提炼并且总计，讲清楚，讲的完整，是非常难的。通过写博客，可以如自己的逻辑表达能力增强。</li><li>训练英语的表达。其实要提高自己的英语能力，可以通过写一些英文的文档来提高。我后续希望自己的网站分为英文和中文两个板块。以中文为主，英文也需要时常更新。</li><li>记录生活。以前写过一些新浪博客，从以前的一些文字，可以窥见当时的那个自己，尽管缺点一大堆，思维稚嫩，可还是会无比怀恋过去的自己，过去的旧时光啊。</li></ol><h3 id="接下里博客需要解决的问题"><a href="#接下里博客需要解决的问题" class="headerlink" title="接下里博客需要解决的问题"></a>接下里博客需要解决的问题</h3><ol><li>确定好图床。现在用的是github作为图床，但是github有容量限制。考虑过买个服务器，然后自己搭建，目前精力不多的前提下，还是先用一些免费的图床工具吧，比如朋友推荐的sm.ms.</li><li>关于国内的部署。自己当然是希望自己的博客可以被百度检索到，这样需要将自己的网站上传到国内的服务器，这也是一个大工程，需要购买国内服务器，目前还是算了，等过年在家的时候再弄吧。</li><li>关于CSDN。我发现CSDN可以爬取github的博客，必须是md文件，也可以自动更新，考虑在建一个文件夹，只存放md文件，并且同步更新。</li><li>关于网站中英板块。目前的板块比较简单，后续希望可以将英文、中文的博客通过页面单独展示。</li><li>关于网站的笔记清理。看了别人的网站以后，才发现自己写的太垃圾了。以后写东西要注重质量，少在网络上生成垃圾吧。将杂乱的标签重新整理，重复的笔记删除，无意义的删除。</li></ol><p>后续还希望将自己的一些健身数据等实时上传，希望自己可以做到吧。</p><p>keep trying.</p><h3 id="2019年-12月-23-日"><a href="#2019年-12月-23-日" class="headerlink" title="2019年 12月 23 日"></a>2019年 12月 23 日</h3><p>关于单光子、双光子的定义有些迷糊，来写一篇随笔放松下。。</p><p>目前博客写的比较随意，想记什么就记什么。比如安装软件，一股脑的把COMSOL,MATLAB,FDTD的全写了，其实对于其他人来说，这些软件可能只需要其中的一个。为了便于别人从标题搜索，还是应该分开来写。应该将不同软件的安装、使用、注意事项分开来写，这样比较有章法。</p><p>百度的push应该是可以用了，下面是百度统计的结果<br><img alt="百度统计结果" data-src="https://raw.githubusercontent.com/knifelees3/my_pictures/master/picgoup/Snipaste_2019-12-23_21-04-56.png" class="lazyload"></p><p>再附一张Google统计的结果<br><img alt="Google统计结果" data-src="https://raw.githubusercontent.com/knifelees3/my_pictures/master/picgoup/Snipaste_2019-12-23_21-00-15.png" class="lazyload"></p><p>利用闲暇时间，赶快完善好吧~</p>]]></content>
       
       
       <categories>
