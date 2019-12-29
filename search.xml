@@ -4,6 +4,35 @@
   
     
     <entry>
+      <title>A rotated 3D contour plot via Mayavi</title>
+      <link href="/2019/12/30/A_En_PythonPlotStudy4_RotatedContour3dPlots/"/>
+      <url>/2019/12/30/A_En_PythonPlotStudy4_RotatedContour3dPlots/</url>
+      
+        <content type="html"><![CDATA[<p><img alt="Rotated 3D Plots" data-src="https://raw.githubusercontent.com/knifelees3/my_pictures/master/picgoup/test_contour_3d.gif" class="lazyload"></p><p>This figure is the Fig2 of my <a href="https://arxiv.org/abs/1908.03683" target="_blank" rel="noopener">research work</a> and I let it rotated.</p><p>This time I try o plot the 3d animated distribution via python package <a href="http://docs.enthought.com/mayavi/mayavi/" target="_blank" rel="noopener">Mayavi</a></p><p>Different from the animated operation via using the Matplotlib, This 3d data visualization is more powerful.</p><p>I only upload the figure this time and I will write a complete note latterly.</p>]]></content>
+      
+      
+      <categories>
+          
+          <category> 技术 </category>
+          
+          <category> EnglishNotes </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> Python </tag>
+            
+            <tag> Plot </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>Sublime的安装及使用究极总结</title>
       <link href="/2019/12/28/C-%E6%95%99%E7%A8%8B-Sublime%E7%9A%84%E5%AE%89%E8%A3%85%E5%8F%8A%E4%BD%BF%E7%94%A8%E7%A9%B6%E6%9E%81%E6%80%BB%E7%BB%93/"/>
       <url>/2019/12/28/C-%E6%95%99%E7%A8%8B-Sublime%E7%9A%84%E5%AE%89%E8%A3%85%E5%8F%8A%E4%BD%BF%E7%94%A8%E7%A9%B6%E6%9E%81%E6%80%BB%E7%BB%93/</url>
@@ -22,9 +51,9 @@
             
             <tag> Python </tag>
             
-            <tag> Sublime </tag>
-            
             <tag> Latex </tag>
+            
+            <tag> Sublime </tag>
             
         </tags>
       
