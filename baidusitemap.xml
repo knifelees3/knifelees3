@@ -1,10 +1,22 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
-    <loc>https://knifelees3.github.io/2019/04/06/C_%E6%95%99%E7%A8%8B_PlotSummaryByMATLAB/</loc>
+    <loc>https://knifelees3.github.io/2019/06/26/C_%E6%95%99%E7%A8%8B_Linux%E8%BF%9C%E7%A8%8B%E6%A1%8C%E9%9D%A2%E8%BF%9E%E6%8E%A5/</loc>
+    <lastmod>2019-12-30</lastmod>
+  </url>  <url>
+    <loc>https://knifelees3.github.io/2019/04/06/C_%E6%95%99%E7%A8%8B_MATLAB_Classical_Plot_Examples/</loc>
+    <lastmod>2019-12-30</lastmod>
+  </url>  <url>
+    <loc>https://knifelees3.github.io/2019/07/23/A_En_PythonPlotStudy1_SemiCircle_OscilatorApprox/</loc>
     <lastmod>2019-12-30</lastmod>
   </url>  <url>
     <loc>https://knifelees3.github.io/2019/12/30/A_En_PythonPlotStudy4_RotatedContour3dPlots/</loc>
+    <lastmod>2019-12-30</lastmod>
+  </url>  <url>
+    <loc>https://knifelees3.github.io/2019/04/25/C_%E6%95%99%E7%A8%8B_Python%E6%95%B0%E6%8D%AE%E7%9A%84%E4%BF%9D%E5%AD%98%E6%96%87%E4%BB%B6%E7%B1%BB%E5%9E%8B/</loc>
+    <lastmod>2019-12-30</lastmod>
+  </url>  <url>
+    <loc>https://knifelees3.github.io/2019/12/16/C_%E6%95%99%E7%A8%8B_Linux%E6%9C%8D%E5%8A%A1%E5%99%A8%E7%AE%A1%E7%90%86%E5%B8%B8%E8%A7%81%E5%91%BD%E4%BB%A4/</loc>
     <lastmod>2019-12-30</lastmod>
   </url>  <url>
     <loc>https://knifelees3.github.io/2019/12/30/A_En_PythonPlotStudy5_Contour3dPlots/</loc>
@@ -25,9 +37,6 @@
     <loc>https://knifelees3.github.io/2019/12/25/A_En_Useful_Git_Command/</loc>
     <lastmod>2019-12-29</lastmod>
   </url>  <url>
-    <loc>https://knifelees3.github.io/2019/12/16/C_%E6%95%99%E7%A8%8B_Linux%E6%9C%8D%E5%8A%A1%E5%99%A8%E7%AE%A1%E7%90%86%E5%B8%B8%E8%A7%81%E5%91%BD%E4%BB%A4/</loc>
-    <lastmod>2019-12-29</lastmod>
-  </url>  <url>
     <loc>https://knifelees3.github.io/2019/11/27/C_%E6%95%99%E7%A8%8B_SS%E9%AD%94%E6%B3%95%E4%B8%8A%E7%BD%91%E7%9A%84%E5%8A%9E%E6%B3%95/</loc>
     <lastmod>2019-12-29</lastmod>
   </url>  <url>
@@ -36,9 +45,6 @@
   </url>  <url>
     <loc>https://knifelees3.github.io/2019/02/28/B_%E9%9A%8F%E7%AC%94_%E8%AE%B0%E5%BD%95%E5%85%B3%E4%BA%8E%E7%BD%91%E7%AB%99%E7%9A%84%E7%82%B9%E6%BB%B4/</loc>
     <lastmod>2019-12-26</lastmod>
-  </url>  <url>
-    <loc>https://knifelees3.github.io/2019/07/23/A_En_PythonPlotStudy1_SemiCircle_OscilatorApprox/</loc>
-    <lastmod>2019-12-25</lastmod>
   </url>  <url>
     <loc>https://knifelees3.github.io/2019/08/04/A_En_PythonPlotStudy2_ThreeOrthogonalVectors/</loc>
     <lastmod>2019-12-25</lastmod>
@@ -70,28 +76,16 @@
     <loc>https://knifelees3.github.io/2019/03/03/C_%E6%95%99%E7%A8%8B_MATLAB-parfor-progress/</loc>
     <lastmod>2019-12-19</lastmod>
   </url>  <url>
-    <loc>https://knifelees3.github.io/2019/12/02/C_%E6%95%99%E7%A8%8B_MATLAB-Code-Frequenctly-Used/</loc>
-    <lastmod>2019-12-19</lastmod>
-  </url>  <url>
     <loc>https://knifelees3.github.io/2019/12/01/C_%E6%95%99%E7%A8%8B_MATLAB%E8%BF%9C%E7%A8%8B%E6%A1%8C%E9%9D%A2%E6%97%A0%E6%B3%95%E4%BD%BF%E7%94%A8%E7%9A%84%E9%97%AE%E9%A2%98/</loc>
     <lastmod>2019-12-02</lastmod>
   </url>  <url>
     <loc>https://knifelees3.github.io/2019/07/02/C_%E6%95%99%E7%A8%8B_%E7%94%A8RevTex%E6%8A%95%E7%A8%BFAPS%E7%9A%84%E8%AE%B0%E5%BD%95/</loc>
     <lastmod>2019-10-08</lastmod>
   </url>  <url>
-    <loc>https://knifelees3.github.io/2019/04/25/C_%E6%95%99%E7%A8%8B_Python%E6%95%B0%E6%8D%AE%E7%9A%84%E4%BF%9D%E5%AD%98%E6%96%87%E4%BB%B6%E7%B1%BB%E5%9E%8B/</loc>
-    <lastmod>2019-10-08</lastmod>
-  </url>  <url>
-    <loc>https://knifelees3.github.io/2019/03/03/C_%E6%95%99%E7%A8%8B_Ubuntu%E5%B8%B8%E8%A7%81%E6%9C%89%E7%94%A8%E5%91%BD%E4%BB%A4/</loc>
-    <lastmod>2019-08-04</lastmod>
-  </url>  <url>
     <loc>https://knifelees3.github.io/2019/03/02/C_%E6%95%99%E7%A8%8B_Linux%E8%AE%BE%E7%BD%AE%E5%AE%9A%E6%97%B6%E8%BF%90%E8%A1%8C%E8%84%9A%E6%9C%AC/</loc>
     <lastmod>2019-07-30</lastmod>
   </url>  <url>
     <loc>https://knifelees3.github.io/2019/03/06/C_%E6%95%99%E7%A8%8B_gnuplot%E7%BB%98%E5%88%B6gif%E5%8A%A8%E5%9B%BE/</loc>
     <lastmod>2019-07-08</lastmod>
-  </url>  <url>
-    <loc>https://knifelees3.github.io/2019/06/26/C_%E6%95%99%E7%A8%8B_Linux%E8%BF%9C%E7%A8%8B%E6%A1%8C%E9%9D%A2%E8%BF%9E%E6%8E%A5/</loc>
-    <lastmod>2019-07-05</lastmod>
   </url>
 </urlset>
