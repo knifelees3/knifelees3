@@ -2,7 +2,16 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
     <loc>https://knifelees3.github.io/2019/12/30/A_En_PythonPlotStudy4_RotatedContour3dPlots/</loc>
-    <lastmod>2019-12-29</lastmod>
+    <lastmod>2019-12-30</lastmod>
+  </url>  <url>
+    <loc>https://knifelees3.github.io/2019/12/30/A_En_PythonPlotStudy5_Contour3dPlots/</loc>
+    <lastmod>2019-12-30</lastmod>
+  </url>  <url>
+    <loc>https://knifelees3.github.io/2019/11/18/A_En_Useful_Python_Web/</loc>
+    <lastmod>2019-12-30</lastmod>
+  </url>  <url>
+    <loc>https://knifelees3.github.io/2019/12/02/C_%E6%95%99%E7%A8%8B_Windows-Python-%E7%8E%AF%E5%A2%83%E9%85%8D%E7%BD%AE/</loc>
+    <lastmod>2019-12-30</lastmod>
   </url>  <url>
     <loc>https://knifelees3.github.io/2019/12/28/C-%E6%95%99%E7%A8%8B-Sublime%E7%9A%84%E5%AE%89%E8%A3%85%E5%8F%8A%E4%BD%BF%E7%94%A8%E7%A9%B6%E6%9E%81%E6%80%BB%E7%BB%93/</loc>
     <lastmod>2019-12-29</lastmod>
@@ -40,9 +49,6 @@
     <loc>https://knifelees3.github.io/2019/04/07/A_En_MATLAB-File-Operation-Summary/</loc>
     <lastmod>2019-12-24</lastmod>
   </url>  <url>
-    <loc>https://knifelees3.github.io/2019/11/18/A_En_Useful_Python_Web/</loc>
-    <lastmod>2019-12-24</lastmod>
-  </url>  <url>
     <loc>https://knifelees3.github.io/2019/03/14/D_%E6%94%B6%E9%9B%86_Windows%E5%90%84%E7%B1%BB%E4%BC%98%E8%B4%A8%E8%BD%AF%E4%BB%B6%E6%B1%87%E6%80%BB/</loc>
     <lastmod>2019-12-24</lastmod>
   </url>  <url>
@@ -76,9 +82,6 @@
     <loc>https://knifelees3.github.io/2019/03/03/C_%E6%95%99%E7%A8%8B_Ubuntu%E5%B8%B8%E8%A7%81%E6%9C%89%E7%94%A8%E5%91%BD%E4%BB%A4/</loc>
     <lastmod>2019-08-04</lastmod>
   </url>  <url>
-    <loc>https://knifelees3.github.io/2019/12/02/C_%E6%95%99%E7%A8%8B_Windows-Python-%E7%8E%AF%E5%A2%83%E9%85%8D%E7%BD%AE/</loc>
-    <lastmod>2019-08-03</lastmod>
-  </url>  <url>
     <loc>https://knifelees3.github.io/2019/03/02/C_%E6%95%99%E7%A8%8B_Linux%E8%AE%BE%E7%BD%AE%E5%AE%9A%E6%97%B6%E8%BF%90%E8%A1%8C%E8%84%9A%E6%9C%AC/</loc>
     <lastmod>2019-07-30</lastmod>
   </url>  <url>
@@ -87,8 +90,5 @@
   </url>  <url>
     <loc>https://knifelees3.github.io/2019/06/26/C_%E6%95%99%E7%A8%8B_Linux%E8%BF%9C%E7%A8%8B%E6%A1%8C%E9%9D%A2%E8%BF%9E%E6%8E%A5/</loc>
     <lastmod>2019-07-05</lastmod>
-  </url>  <url>
-    <loc>https://knifelees3.github.io/2019/04/06/C_%E6%95%99%E7%A8%8B_PlotSummaryByMATLAB/</loc>
-    <lastmod>2019-07-04</lastmod>
   </url>
 </urlset>
