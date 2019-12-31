@@ -2,6 +2,20 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>https://knifelees3.github.io/2019/04/17/A_En_MATLAB_ParallelComputing/</loc>
+    
+    <lastmod>2019-12-31T01:21:48.611Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://knifelees3.github.io/2019/04/17/A_En_Python_ParallelComputing/</loc>
+    
+    <lastmod>2019-12-31T01:21:33.531Z</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>https://knifelees3.github.io/2019/12/30/A_En_MATLAB_PlotSummary2_3dContourPlots/</loc>
     
     <lastmod>2019-12-31T01:12:25.984Z</lastmod>
@@ -12,13 +26,6 @@
     <loc>https://knifelees3.github.io/2019/04/06/A_En_MATLAB_PlotSummary1_1dLinePlots/</loc>
     
     <lastmod>2019-12-31T01:11:57.090Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>https://knifelees3.github.io/2019/12/31/A_En_MATLAB_ParallelComputing/</loc>
-    
-    <lastmod>2019-12-31T01:05:15.749Z</lastmod>
     
   </url>
   
@@ -173,13 +180,6 @@
     <loc>https://knifelees3.github.io/about/index.html</loc>
     
     <lastmod>2019-12-20T01:25:26.000Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>https://knifelees3.github.io/2019/04/17/A_En_Python_ParallelComputingSummary/</loc>
-    
-    <lastmod>2019-12-19T16:47:53.000Z</lastmod>
     
   </url>
   

@@ -1,13 +1,16 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
+    <loc>https://knifelees3.github.io/2019/04/17/A_En_MATLAB_ParallelComputing/</loc>
+    <lastmod>2019-12-31</lastmod>
+  </url>  <url>
+    <loc>https://knifelees3.github.io/2019/04/17/A_En_Python_ParallelComputing/</loc>
+    <lastmod>2019-12-31</lastmod>
+  </url>  <url>
     <loc>https://knifelees3.github.io/2019/12/30/A_En_MATLAB_PlotSummary2_3dContourPlots/</loc>
     <lastmod>2019-12-31</lastmod>
   </url>  <url>
     <loc>https://knifelees3.github.io/2019/04/06/A_En_MATLAB_PlotSummary1_1dLinePlots/</loc>
-    <lastmod>2019-12-31</lastmod>
-  </url>  <url>
-    <loc>https://knifelees3.github.io/2019/12/31/A_En_MATLAB_ParallelComputing/</loc>
     <lastmod>2019-12-31</lastmod>
   </url>  <url>
     <loc>https://knifelees3.github.io/2019/06/26/C_%E6%95%99%E7%A8%8B_Ubuntu_%E8%BF%9C%E7%A8%8B%E6%A1%8C%E9%9D%A2%E8%BF%9E%E6%8E%A5/</loc>
@@ -72,9 +75,6 @@
   </url>  <url>
     <loc>https://knifelees3.github.io/2019/03/01/C_%E6%95%99%E7%A8%8B_%E7%94%A8Hexo%E6%90%AD%E5%BB%BA%E4%B8%AA%E4%BA%BA%E5%8D%9A%E5%AE%A2/</loc>
     <lastmod>2019-12-20</lastmod>
-  </url>  <url>
-    <loc>https://knifelees3.github.io/2019/04/17/A_En_Python_ParallelComputingSummary/</loc>
-    <lastmod>2019-12-19</lastmod>
   </url>  <url>
     <loc>https://knifelees3.github.io/2019/07/06/A_En_How_To_Use_COMSOL_LiveLink_With_MATLAB/</loc>
     <lastmod>2019-12-19</lastmod>
