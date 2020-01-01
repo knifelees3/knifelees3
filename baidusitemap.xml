@@ -1,13 +1,22 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
+    <loc>https://knifelees3.github.io/2019/08/04/A_En_Python_PlotStudy2_ThreeOrthogonalVectors/</loc>
+    <lastmod>2020-01-01</lastmod>
+  </url>  <url>
+    <loc>https://knifelees3.github.io/2019/07/23/A_En_Python_PlotStudy1_SemiCircle_OscilatorApprox/</loc>
+    <lastmod>2020-01-01</lastmod>
+  </url>  <url>
+    <loc>https://knifelees3.github.io/2019/12/25/A_En_Git_CommandSummary/</loc>
+    <lastmod>2020-01-01</lastmod>
+  </url>  <url>
+    <loc>https://knifelees3.github.io/2019/02/28/B_%E9%9A%8F%E7%AC%94_%E8%AE%B0%E5%BD%95%E5%85%B3%E4%BA%8E%E7%BD%91%E7%AB%99%E7%9A%84%E7%82%B9%E6%BB%B4/</loc>
+    <lastmod>2020-01-01</lastmod>
+  </url>  <url>
     <loc>https://knifelees3.github.io/2019/12/21/C_%E6%95%99%E7%A8%8B_inkscape%E5%AE%89%E8%A3%85%E6%8F%92%E4%BB%B6textext%E5%87%BA%E9%94%99%E7%9A%84%E8%A7%A3%E5%86%B3%E5%8A%9E%E6%B3%95/</loc>
     <lastmod>2020-01-01</lastmod>
   </url>  <url>
     <loc>https://knifelees3.github.io/2019/03/14/D_%E6%94%B6%E9%9B%86_Windows_%E5%90%84%E7%B1%BB%E4%BC%98%E8%B4%A8%E8%BD%AF%E4%BB%B6%E6%B1%87%E6%80%BB/</loc>
-    <lastmod>2020-01-01</lastmod>
-  </url>  <url>
-    <loc>https://knifelees3.github.io/2019/02/28/B_%E9%9A%8F%E7%AC%94_%E8%AE%B0%E5%BD%95%E5%85%B3%E4%BA%8E%E7%BD%91%E7%AB%99%E7%9A%84%E7%82%B9%E6%BB%B4/</loc>
     <lastmod>2020-01-01</lastmod>
   </url>  <url>
     <loc>https://knifelees3.github.io/2019/07/02/C_%E6%95%99%E7%A8%8B_%E7%94%A8RevTex%E6%8A%95%E7%A8%BFAPS%E7%9A%84%E8%AE%B0%E5%BD%95/</loc>
@@ -49,9 +58,6 @@
     <loc>https://knifelees3.github.io/2019/10/17/A_En_How_To_Delete_Ubuntu_In_Windows/</loc>
     <lastmod>2020-01-01</lastmod>
   </url>  <url>
-    <loc>https://knifelees3.github.io/2019/12/25/A_En_Git_CommandSummary/</loc>
-    <lastmod>2020-01-01</lastmod>
-  </url>  <url>
     <loc>https://knifelees3.github.io/2019/03/03/C_%E6%95%99%E7%A8%8B_MATLAB_ParforProgress/</loc>
     <lastmod>2020-01-01</lastmod>
   </url>  <url>
@@ -70,9 +76,6 @@
     <loc>https://knifelees3.github.io/2019/04/06/A_En_MATLAB_PlotSummary1_1dLinePlots/</loc>
     <lastmod>2020-01-01</lastmod>
   </url>  <url>
-    <loc>https://knifelees3.github.io/2019/07/23/A_En_Python_PlotStudy1_SemiCircle_OscilatorApprox/</loc>
-    <lastmod>2020-01-01</lastmod>
-  </url>  <url>
     <loc>https://knifelees3.github.io/2019/12/28/C-%E6%95%99%E7%A8%8B_Sublime_%E5%AE%89%E8%A3%85%E5%8F%8A%E4%BD%BF%E7%94%A8%E7%A9%B6%E6%9E%81%E6%80%BB%E7%BB%93/</loc>
     <lastmod>2020-01-01</lastmod>
   </url>  <url>
@@ -83,9 +86,6 @@
     <lastmod>2020-01-01</lastmod>
   </url>  <url>
     <loc>https://knifelees3.github.io/2019/12/25/A_En_Python_PlotStudy3_RotatedFlower/</loc>
-    <lastmod>2020-01-01</lastmod>
-  </url>  <url>
-    <loc>https://knifelees3.github.io/2019/08/04/A_En_Python_PlotStudy2_ThreeOrthogonalVectors/</loc>
     <lastmod>2020-01-01</lastmod>
   </url>  <url>
     <loc>https://knifelees3.github.io/2019/03/06/C_%E6%95%99%E7%A8%8B_gnuplot%E7%BB%98%E5%88%B6gif%E5%8A%A8%E5%9B%BE/</loc>
