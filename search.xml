@@ -4,6 +4,33 @@
   
     
     <entry>
+      <title>从COMSOL的log文件读取运算时间和内存并绘图</title>
+      <link href="/2020/02/21/C_%E6%95%99%E7%A8%8B-%E4%BB%8ECOMSOL%E7%9A%84log%E6%96%87%E4%BB%B6%E8%AF%BB%E5%8F%96%E8%BF%90%E7%AE%97%E6%97%B6%E9%97%B4%E5%92%8C%E5%86%85%E5%AD%98/"/>
+      <url>/2020/02/21/C_%E6%95%99%E7%A8%8B-%E4%BB%8ECOMSOL%E7%9A%84log%E6%96%87%E4%BB%B6%E8%AF%BB%E5%8F%96%E8%BF%90%E7%AE%97%E6%97%B6%E9%97%B4%E5%92%8C%E5%86%85%E5%AD%98/</url>
+      
+        <content type="html"><![CDATA[<h1 id="目的"><a href="#目的" class="headerlink" title="目的"></a>目的</h1><p>目前对于python处理文字有了一些心得，刚好最近在用COMSOL做数值计算，需要参数扫描。我想分析每次计算COMSOL需要的计算内存和运算时间，防止计算内存爆掉了。</p><h1 id="具体操作"><a href="#具体操作" class="headerlink" title="具体操作"></a>具体操作</h1><p>COMSOL log文件信息详细记录了每一次扫描的一些进程，一般开头是这样的</p><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span></pre></td><td class="code"><pre><span class="line">*******************************************</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">2</span></pre></td><td class="code"><pre><span class="line">***COMSOL 5.4.0.225 progress output file***</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">3</span></pre></td><td class="code"><pre><span class="line">*******************************************</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">4</span></pre></td><td class="code"><pre><span class="line">Thu Feb 20 21:36:07 CST 2020</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">5</span></pre></td><td class="code"><pre><span class="line">&lt;---- Compile Equations: Wavelength Domain &#123;st1&#125; <span class="keyword">in</span> Study 1 &#123;std1&#125;/Solution 1</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">6</span></pre></td><td class="code"><pre><span class="line">      (sol1) &#123;sol1&#125; ------------------------------------------------------------</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">7</span></pre></td><td class="code"><pre><span class="line">Started at Feb 20, 2020 9:36:13 PM.</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">8</span></pre></td><td class="code"><pre><span class="line">Running on 4 x Intel(R) Xeon(R) Platinum 8163 CPU at 2.50 GHz.</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">9</span></pre></td><td class="code"><pre><span class="line">Using 4 sockets with 25 cores <span class="keyword">in</span> total on 4CPU.</span></pre></td></tr></table></figure><p>运算完毕之后，会有这样的字样</p><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span></pre></td><td class="code"><pre><span class="line">Memory: 106911/106911 151517/151517</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">2</span></pre></td><td class="code"><pre><span class="line">Iter      SolEst     Damping    Stepsize <span class="comment">#Res #Jac #Sol   LinErr   LinRes</span></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">3</span></pre></td><td class="code"><pre><span class="line">---------- Current Progress: 100 % - Solving linear system</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">4</span></pre></td><td class="code"><pre><span class="line">Memory: 115456/117206 149829/151541</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">5</span></pre></td><td class="code"><pre><span class="line">   1        0.79   1.0000000        0.79    1    1    1  2.2e-11  6.9e-12</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">6</span></pre></td><td class="code"><pre><span class="line">Solution time: 815 s. (13 minutes, 35 seconds)</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">7</span></pre></td><td class="code"><pre><span class="line">Physical memory: 122.42 GB</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">8</span></pre></td><td class="code"><pre><span class="line">Virtual memory: 156.74 GB</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">9</span></pre></td><td class="code"><pre><span class="line">Ended at Feb 20, 2020 9:50:10 PM.</span></pre></td></tr></table></figure><p>我需要的就是快计算完毕后的这些字段的信息，<code>Physical memory: 122.42 GB</code>,<code>Solution time: 815 s. (13 minutes, 35 seconds)</code>,<br>其实只需要依次读取log文件的每一行，判断是否有我需要的字段，如果有就将对应的字段提取出来。具体代码如下</p><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> numpy <span class="keyword">as</span> np</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">2</span></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> matplotlib.pyplot <span class="keyword">as</span> plt</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">3</span></pre></td><td class="code"><pre><span class="line"></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">4</span></pre></td><td class="code"><pre><span class="line"></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">5</span></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">changetext</span><span class="params">(filename)</span>:</span></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">6</span></pre></td><td class="code"><pre><span class="line">    <span class="keyword">with</span> open(filename, <span class="string">'r'</span>, encoding=<span class="string">'utf-8'</span>) <span class="keyword">as</span> f:</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">7</span></pre></td><td class="code"><pre><span class="line">        lines_memo = []  <span class="comment"># 创建了一个空列表，里面没有元素</span></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">8</span></pre></td><td class="code"><pre><span class="line">        lines_time = []  <span class="comment"># 创建了一个空列表，里面没有元素</span></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">9</span></pre></td><td class="code"><pre><span class="line">        <span class="keyword">for</span> line <span class="keyword">in</span> f.readlines():</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">10</span></pre></td><td class="code"><pre><span class="line">            <span class="keyword">if</span> <span class="string">'Physical memory'</span> <span class="keyword">in</span> line:</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">11</span></pre></td><td class="code"><pre><span class="line">                memo = line[<span class="number">17</span>:<span class="number">-4</span>] <span class="comment"># 只读取有用字段</span></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">12</span></pre></td><td class="code"><pre><span class="line">                lines_memo.append(memo)</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">13</span></pre></td><td class="code"><pre><span class="line">            <span class="keyword">if</span> <span class="string">'Solution time'</span> <span class="keyword">in</span> line:</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">14</span></pre></td><td class="code"><pre><span class="line">                memo = line[<span class="number">15</span>:<span class="number">19</span>] <span class="comment"># 只读取有用字段</span></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">15</span></pre></td><td class="code"><pre><span class="line">                lines_time.append(memo)</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">16</span></pre></td><td class="code"><pre><span class="line"></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">17</span></pre></td><td class="code"><pre><span class="line">    <span class="keyword">return</span> lines_memo, lines_time</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">18</span></pre></td><td class="code"><pre><span class="line"></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">19</span></pre></td><td class="code"><pre><span class="line"></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">20</span></pre></td><td class="code"><pre><span class="line"><span class="keyword">if</span> __name__ == <span class="string">"__main__"</span>:</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">21</span></pre></td><td class="code"><pre><span class="line">    <span class="comment"># 服务器一共有三个文件</span></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">22</span></pre></td><td class="code"><pre><span class="line">    dst_dir_1 = <span class="string">'../Log-File/20200220/comsol_progress_11.txt'</span></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">23</span></pre></td><td class="code"><pre><span class="line">    dst_dir_2 = <span class="string">'../Log-File/20200220/comsol_progress_21.txt'</span></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">24</span></pre></td><td class="code"><pre><span class="line">    dst_dir_3 = <span class="string">'../Log-File/20200220/comsol_progress_31.txt'</span></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">25</span></pre></td><td class="code"><pre><span class="line"></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">26</span></pre></td><td class="code"><pre><span class="line">    lines_memo_1, lines_time_1 = changetext(dst_dir_1)</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">27</span></pre></td><td class="code"><pre><span class="line">    lines_memo_2, lines_time_2 = changetext(dst_dir_2)</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">28</span></pre></td><td class="code"><pre><span class="line">    lines_memo_3, lines_time_3 = changetext(dst_dir_3)</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">29</span></pre></td><td class="code"><pre><span class="line">    print(len(lines_time_1))</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">30</span></pre></td><td class="code"><pre><span class="line">    print(len(lines_time_2))</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">31</span></pre></td><td class="code"><pre><span class="line">    print(len(lines_time_3))</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">32</span></pre></td><td class="code"><pre><span class="line"></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">33</span></pre></td><td class="code"><pre><span class="line">    num_1 = int((len(lines_time_1)<span class="number">-1</span>)/<span class="number">2</span>)</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">34</span></pre></td><td class="code"><pre><span class="line">    num_2 = int((len(lines_time_2)<span class="number">-1</span>)/<span class="number">2</span>)</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">35</span></pre></td><td class="code"><pre><span class="line">    num_3 = int((len(lines_time_3)<span class="number">-1</span>)/<span class="number">2</span>)</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">36</span></pre></td><td class="code"><pre><span class="line"></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">37</span></pre></td><td class="code"><pre><span class="line">    x_1 = np.linspace(<span class="number">1</span>, num_1, num_1)</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">38</span></pre></td><td class="code"><pre><span class="line">    x_2 = np.linspace(<span class="number">1</span>, num_2, num_2)</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">39</span></pre></td><td class="code"><pre><span class="line">    x_3 = np.linspace(<span class="number">1</span>, num_3, num_3)</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">40</span></pre></td><td class="code"><pre><span class="line"></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">41</span></pre></td><td class="code"><pre><span class="line">    memo_mat_1 = np.zeros(num_1)</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">42</span></pre></td><td class="code"><pre><span class="line">    time_mat_1 = np.zeros(num_1)</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">43</span></pre></td><td class="code"><pre><span class="line"></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">44</span></pre></td><td class="code"><pre><span class="line">    memo_mat_2 = np.zeros(num_2)</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">45</span></pre></td><td class="code"><pre><span class="line">    time_mat_2 = np.zeros(num_2)</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">46</span></pre></td><td class="code"><pre><span class="line"></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">47</span></pre></td><td class="code"><pre><span class="line">    memo_mat_3 = np.zeros(num_3)</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">48</span></pre></td><td class="code"><pre><span class="line">    time_mat_3 = np.zeros(num_3)</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">49</span></pre></td><td class="code"><pre><span class="line"></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">50</span></pre></td><td class="code"><pre><span class="line">    <span class="keyword">for</span> l <span class="keyword">in</span> range(num_1):</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">51</span></pre></td><td class="code"><pre><span class="line">        memo_mat_1[l] = float(lines_memo_1[<span class="number">3</span>*(l)+<span class="number">2</span>])</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">52</span></pre></td><td class="code"><pre><span class="line">        time_mat_1[l] = float(lines_time_1[<span class="number">2</span>*(l)+<span class="number">1</span>])</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">53</span></pre></td><td class="code"><pre><span class="line">    <span class="keyword">for</span> l <span class="keyword">in</span> range(num_2):</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">54</span></pre></td><td class="code"><pre><span class="line">        memo_mat_2[l] = float(lines_memo_2[<span class="number">3</span>*(l)+<span class="number">2</span>])</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">55</span></pre></td><td class="code"><pre><span class="line">        time_mat_2[l] = float(lines_time_2[<span class="number">2</span>*(l)+<span class="number">1</span>])</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">56</span></pre></td><td class="code"><pre><span class="line">    <span class="keyword">for</span> l <span class="keyword">in</span> range(num_3):</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">57</span></pre></td><td class="code"><pre><span class="line">        memo_mat_3[l] = float(lines_memo_3[<span class="number">3</span>*(l)+<span class="number">2</span>])</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">58</span></pre></td><td class="code"><pre><span class="line">        time_mat_3[l] = float(lines_time_3[<span class="number">2</span>*(l)+<span class="number">1</span>])</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">59</span></pre></td><td class="code"><pre><span class="line">    <span class="comment"># 绘图部分</span></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">60</span></pre></td><td class="code"><pre><span class="line">    fig1 = plt.figure(figsize=(<span class="number">6.4</span>*<span class="number">2</span>, <span class="number">4.8</span>))</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">61</span></pre></td><td class="code"><pre><span class="line">    plt.subplot(<span class="number">121</span>)</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">62</span></pre></td><td class="code"><pre><span class="line">    plt.plot(x_1, memo_mat_1, label=<span class="string">'4CPU 1'</span>)</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">63</span></pre></td><td class="code"><pre><span class="line">    plt.plot(x_2, memo_mat_2, label=<span class="string">'4CPU 2'</span>)</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">64</span></pre></td><td class="code"><pre><span class="line">    plt.plot(x_3, memo_mat_3, label=<span class="string">'Dell 1'</span>)</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">65</span></pre></td><td class="code"><pre><span class="line">    plt.xlabel(<span class="string">'Loop Counts'</span>)</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">66</span></pre></td><td class="code"><pre><span class="line">    plt.ylabel(<span class="string">'Physical Memory (GB)'</span>)</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">67</span></pre></td><td class="code"><pre><span class="line">    plt.legend(loc=<span class="string">'best'</span>)</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">68</span></pre></td><td class="code"><pre><span class="line"></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">69</span></pre></td><td class="code"><pre><span class="line">    plt.subplot(<span class="number">122</span>)</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">70</span></pre></td><td class="code"><pre><span class="line">    plt.plot(x_1, time_mat_1, label=<span class="string">'4CPU 1'</span>)</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">71</span></pre></td><td class="code"><pre><span class="line">    plt.plot(x_2, time_mat_2, label=<span class="string">'4CPU 2'</span>)</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">72</span></pre></td><td class="code"><pre><span class="line">    plt.plot(x_3, time_mat_3, label=<span class="string">'Dell 1'</span>)</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">73</span></pre></td><td class="code"><pre><span class="line">    plt.xlabel(<span class="string">'Loop Counts'</span>)</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">74</span></pre></td><td class="code"><pre><span class="line">    plt.ylabel(<span class="string">'Simulation Time (s)'</span>)</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">75</span></pre></td><td class="code"><pre><span class="line"></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">76</span></pre></td><td class="code"><pre><span class="line">    plt.legend(loc=<span class="string">'best'</span>)</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">77</span></pre></td><td class="code"><pre><span class="line"></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">78</span></pre></td><td class="code"><pre><span class="line">    plt.show()</span></pre></td></tr></table></figure><h1 id="结果"><a href="#结果" class="headerlink" title="结果"></a>结果</h1><p>绘制出来的图如下</p><p><img alt="实际的运算内存、所需时间与循环次数的关系" data-src="https://raw.githubusercontent.com/knifelees3/my_pictures/master/picgoup/20200221-simulation-time-memory.png" class="lazyload"></p><p>可以看见，随着循环次数的增加，运算所需内存从120GB几乎是线性增加到了200GB。所以这种MATLAB Livelink的方法不太好的地方就是内存占用会不断增加。</p><h1 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h1><p>本次是python编程的一个具体应用，还是一个很简单的例子，没有用到正则表达式。下次希望可以用正则表达式匹配来实现一些功能。</p>]]></content>
+      
+      
+      <categories>
+          
+          <category> 技术 </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> Python </tag>
+            
+            <tag> COMSOL </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>用python对文件进行特定行操作</title>
       <link href="/2020/02/16/C_%E6%95%99%E7%A8%8B-Python%E5%AF%B9%E6%96%87%E4%BB%B6%E7%9A%84%E7%89%B9%E5%AE%9A%E8%A1%8C%E8%BF%9B%E8%A1%8C%E6%93%8D%E4%BD%9C/"/>
       <url>/2020/02/16/C_%E6%95%99%E7%A8%8B-Python%E5%AF%B9%E6%96%87%E4%BB%B6%E7%9A%84%E7%89%B9%E5%AE%9A%E8%A1%8C%E8%BF%9B%E8%A1%8C%E6%93%8D%E4%BD%9C/</url>
@@ -422,9 +449,9 @@
       
         <tags>
             
-            <tag> ScientificPlot </tag>
-            
             <tag> MATLAB </tag>
+            
+            <tag> ScientificPlot </tag>
             
         </tags>
       
@@ -888,35 +915,6 @@
     
     
     <entry>
-      <title>MATLAB Parallel Computing Summary</title>
-      <link href="/2019/04/17/A_En_MATLAB_ParallelComputing/"/>
-      <url>/2019/04/17/A_En_MATLAB_ParallelComputing/</url>
-      
-        <content type="html"><![CDATA[<h1 id="Simple-Introduction"><a href="#Simple-Introduction" class="headerlink" title="Simple Introduction"></a>Simple Introduction</h1><p>In MATLAB we just need to use ‘parfor’ to realize parallel computing. Here is a simple example</p><figure class="highlight matlab"><table><tr><td class="gutter"><pre><span class="line">1</span></pre></td><td class="code"><pre><span class="line">poolnum=<span class="number">10</span>; <span class="comment">% numbers of kernels</span></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">2</span></pre></td><td class="code"><pre><span class="line">kernum=parpool(poolnum)</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">3</span></pre></td><td class="code"><pre><span class="line"><span class="keyword">parfor</span> l=<span class="number">1</span>:numloop</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">4</span></pre></td><td class="code"><pre><span class="line"><span class="comment">%do something here</span></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">5</span></pre></td><td class="code"><pre><span class="line"><span class="keyword">end</span></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">6</span></pre></td><td class="code"><pre><span class="line">delete(kernum)</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">7</span></pre></td><td class="code"><pre><span class="line"><span class="comment">%the delete step is very important because in cluster we may use  more than a dozen cores.If we stop the program directly without closing the parallel pool, the cluster may crash or take a long time to become normal.</span></span></pre></td></tr></table></figure><p>There are many constrains on the “parfor” loop, for example, the expression “A(:,l)=B” may not be used in “parfor” loop. Here is only a very simple summary about how to use “parfor”.</p>]]></content>
-      
-      
-      <categories>
-          
-          <category> 技术 </category>
-          
-          <category> EnglishNotes </category>
-          
-      </categories>
-      
-      
-        <tags>
-            
-            <tag> Python </tag>
-            
-            <tag> MATLAB </tag>
-            
-        </tags>
-      
-    </entry>
-    
-    
-    
-    <entry>
       <title>Python Parallel Computing Summary</title>
       <link href="/2019/04/17/A_En_Python_ParallelComputing/"/>
       <url>/2019/04/17/A_En_Python_ParallelComputing/</url>
@@ -935,9 +933,38 @@
       
         <tags>
             
+            <tag> MATLAB </tag>
+            
             <tag> Python </tag>
             
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>MATLAB Parallel Computing Summary</title>
+      <link href="/2019/04/17/A_En_MATLAB_ParallelComputing/"/>
+      <url>/2019/04/17/A_En_MATLAB_ParallelComputing/</url>
+      
+        <content type="html"><![CDATA[<h1 id="Simple-Introduction"><a href="#Simple-Introduction" class="headerlink" title="Simple Introduction"></a>Simple Introduction</h1><p>In MATLAB we just need to use ‘parfor’ to realize parallel computing. Here is a simple example</p><figure class="highlight matlab"><table><tr><td class="gutter"><pre><span class="line">1</span></pre></td><td class="code"><pre><span class="line">poolnum=<span class="number">10</span>; <span class="comment">% numbers of kernels</span></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">2</span></pre></td><td class="code"><pre><span class="line">kernum=parpool(poolnum)</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">3</span></pre></td><td class="code"><pre><span class="line"><span class="keyword">parfor</span> l=<span class="number">1</span>:numloop</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">4</span></pre></td><td class="code"><pre><span class="line"><span class="comment">%do something here</span></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">5</span></pre></td><td class="code"><pre><span class="line"><span class="keyword">end</span></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">6</span></pre></td><td class="code"><pre><span class="line">delete(kernum)</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">7</span></pre></td><td class="code"><pre><span class="line"><span class="comment">%the delete step is very important because in cluster we may use  more than a dozen cores.If we stop the program directly without closing the parallel pool, the cluster may crash or take a long time to become normal.</span></span></pre></td></tr></table></figure><p>There are many constrains on the “parfor” loop, for example, the expression “A(:,l)=B” may not be used in “parfor” loop. Here is only a very simple summary about how to use “parfor”.</p>]]></content>
+      
+      
+      <categories>
+          
+          <category> 技术 </category>
+          
+          <category> EnglishNotes </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
             <tag> MATLAB </tag>
+            
+            <tag> Python </tag>
             
         </tags>
       
@@ -991,9 +1018,9 @@
       
         <tags>
             
-            <tag> ScientificPlot </tag>
-            
             <tag> MATLAB </tag>
+            
+            <tag> ScientificPlot </tag>
             
         </tags>
       
@@ -1150,6 +1177,31 @@
         <tags>
             
             <tag> 生活记录 </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>Latex技巧-常见特殊字符</title>
+      <link href="/2019/02/16/C_%E6%95%99%E7%A8%8B-Latex%E6%8A%80%E5%B7%A7-%E5%B8%B8%E8%A7%81%E7%89%B9%E6%AE%8A%E5%AD%97%E7%AC%A6/"/>
+      <url>/2019/02/16/C_%E6%95%99%E7%A8%8B-Latex%E6%8A%80%E5%B7%A7-%E5%B8%B8%E8%A7%81%E7%89%B9%E6%AE%8A%E5%AD%97%E7%AC%A6/</url>
+      
+        <content type="html"><![CDATA[<h1 id="介绍"><a href="#介绍" class="headerlink" title="介绍"></a>介绍</h1><p>Latex是我写一些非常系统化的笔记以及投稿会用到的编译系统，里面的一些基本命令还是很容易记住的，但是有一些特殊字符不是那么容易记住，还有一些其它语言如德文如何使用？我想在这李全部记录下来，免得每次都去翻很长的那个pdf文档</p><h1 id="希腊字母-Greek-Letters"><a href="#希腊字母-Greek-Letters" class="headerlink" title="希腊字母 (Greek Letters)"></a>希腊字母 (Greek Letters)</h1><table><thead><tr><th align="center">symbols</th><th align="center">Script</th><th align="center">symbols</th><th align="center">script</th></tr></thead><tbody><tr><td align="center">$A$ and  $\alpha$</td><td align="center"><code>A and \alpha</code></td><td align="center">N,$\nu$</td><td align="center"><code>N and \nu</code></td></tr><tr><td align="center">$B$ and $\beta$</td><td align="center"><code>B and \beta</code></td><td align="center">$\Xi$ and $\xi$</td><td align="center"><code>\Xi and \xi</code></td></tr><tr><td align="center">$\Gamma$ and $\gamma$</td><td align="center"><code>\Gamma and \gamma</code></td><td align="center">$O$ and $o$</td><td align="center"><code>O and o</code></td></tr><tr><td align="center">$\Delta$ and $\delta$</td><td align="center"><code>\Delta and \delta</code></td><td align="center">$\Pi$ ,$\pi$ and $\varpi$</td><td align="center"><code>\Pi ,\pi and \varpi</code></td></tr><tr><td align="center">E,$\epsilon$ and $\varepsilon$</td><td align="center"><code>E,\epsilon and \varepsilon</code></td><td align="center">$P$, $\rho$ and $\varrho$</td><td align="center"><code>P, \rho and \varrho</code></td></tr></tbody></table><h1 id="定界符-（Delimiter）"><a href="#定界符-（Delimiter）" class="headerlink" title="定界符 （Delimiter）"></a>定界符 （Delimiter）</h1><table><thead><tr><th align="center">symbols</th><th align="center">Script</th><th align="center">symbols</th><th align="center">script</th></tr></thead><tbody><tr><td align="center">$\mid$</td><td align="center"><code>\mid</code></td><td align="center">$/$</td><td align="center"><code>/</code></td></tr><tr><td align="center">${$</td><td align="center">{</td><td align="center">$\langle$</td><td align="center"><code>\langle</code></td></tr><tr><td align="center">$\uparrow$</td><td align="center"><code>\uparrow</code></td><td align="center">$\lceil$</td><td align="center"><code>\lceil</code></td></tr><tr><td align="center">$\downarrow$</td><td align="center"><code>\downarrow</code></td><td align="center">$\lfloor$</td><td align="center"><code>\lfloor</code></td></tr><tr><td align="center">$|$</td><td align="center">`</td><td align="center">`</td><td align="center">$\backslash$</td></tr><tr><td align="center">$}$</td><td align="center"><code>\}</code></td><td align="center">$\rceil$</td><td align="center"><code>\recil</code></td></tr><tr><td align="center">$\Uparrow$</td><td align="center"><code>\Uparrow</code></td><td align="center">$\rfloor$</td><td align="center"><code>\rfloor</code></td></tr><tr><td align="center">$\Downarrow$</td><td align="center"><code>\Downarrow</code></td><td align="center">$\rangle$</td><td align="center"><code>\rangle</code></td></tr></tbody></table>]]></content>
+      
+      
+      <categories>
+          
+          <category> 技术 </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> Latex </tag>
             
         </tags>
       
