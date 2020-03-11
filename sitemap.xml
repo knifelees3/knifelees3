@@ -2,9 +2,44 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>https://knifelees3.github.io/2020/03/11/A_En_Python-Deep-Learinging-I-Recognize-Handwritten-Digits/</loc>
+    
+    <lastmod>2020-03-11T15:54:08.496Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://knifelees3.github.io/2020/01/05/D_%E6%94%B6%E9%9B%86_%E5%90%84%E7%A7%8D%E6%9C%89%E7%94%A8%E7%9A%84%E7%BD%91%E7%AB%99%E6%B1%87%E6%80%BB/</loc>
+    
+    <lastmod>2020-03-04T05:11:34.104Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://knifelees3.github.io/2020/02/26/F_%E6%95%B0%E5%AD%A6-%E7%94%B1%E6%9C%AC%E5%BE%81%E5%80%BC%E8%AE%A1%E7%AE%97%E6%9C%AC%E5%BE%81%E7%9F%A2%E9%87%8F/</loc>
+    
+    <lastmod>2020-03-04T05:06:31.816Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://knifelees3.github.io/2019/03/01/C_%E6%95%99%E7%A8%8B_%E7%94%A8Hexo%E6%90%AD%E5%BB%BA%E4%B8%AA%E4%BA%BA%E5%8D%9A%E5%AE%A2/</loc>
+    
+    <lastmod>2020-03-03T07:25:10.992Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://knifelees3.github.io/2019/07/02/C_%E6%95%99%E7%A8%8B_%E7%94%A8RevTex%E6%8A%95%E7%A8%BFAPS%E7%9A%84%E8%AE%B0%E5%BD%95/</loc>
+    
+    <lastmod>2020-03-03T07:23:57.867Z</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>https://knifelees3.github.io/2020/03/02/C_%E6%95%99%E7%A8%8B-Typora%E4%BD%BF%E7%94%A8%E6%8A%80%E5%B7%A7/</loc>
     
-    <lastmod>2020-03-02T08:51:36.562Z</lastmod>
+    <lastmod>2020-03-02T12:01:24.943Z</lastmod>
     
   </url>
   
@@ -23,30 +58,9 @@
   </url>
   
   <url>
-    <loc>https://knifelees3.github.io/2019/03/01/C_%E6%95%99%E7%A8%8B_%E7%94%A8Hexo%E6%90%AD%E5%BB%BA%E4%B8%AA%E4%BA%BA%E5%8D%9A%E5%AE%A2/</loc>
-    
-    <lastmod>2020-02-26T13:04:04.458Z</lastmod>
-    
-  </url>
-  
-  <url>
     <loc>https://knifelees3.github.io/2019/02/28/B_%E9%9A%8F%E7%AC%94_%E8%AE%B0%E5%BD%95%E5%85%B3%E4%BA%8E%E7%BD%91%E7%AB%99%E7%9A%84%E7%82%B9%E6%BB%B4/</loc>
     
     <lastmod>2020-02-26T12:47:00.312Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>https://knifelees3.github.io/2020/02/26/F_%E6%95%B0%E5%AD%A6-%E7%94%B1%E6%9C%AC%E5%BE%81%E5%80%BC%E8%AE%A1%E7%AE%97%E6%9C%AC%E5%BE%81%E7%9F%A2%E9%87%8F/</loc>
-    
-    <lastmod>2020-02-26T12:43:46.275Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>https://knifelees3.github.io/2019/07/02/C_%E6%95%99%E7%A8%8B_%E7%94%A8RevTex%E6%8A%95%E7%A8%BFAPS%E7%9A%84%E8%AE%B0%E5%BD%95/</loc>
-    
-    <lastmod>2020-02-24T15:27:32.927Z</lastmod>
     
   </url>
   
@@ -138,13 +152,6 @@
     <loc>https://knifelees3.github.io/2019/04/25/C_%E6%95%99%E7%A8%8B_Python_%E6%95%B0%E6%8D%AE%E7%9A%84%E4%BF%9D%E5%AD%98%E6%96%87%E4%BB%B6%E7%B1%BB%E5%9E%8B/</loc>
     
     <lastmod>2020-01-18T15:05:10.682Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>https://knifelees3.github.io/2020/01/05/D_%E6%94%B6%E9%9B%86_%E5%90%84%E7%A7%8D%E6%9C%89%E7%94%A8%E7%9A%84%E7%BD%91%E7%AB%99%E6%B1%87%E6%80%BB/</loc>
-    
-    <lastmod>2020-01-17T08:55:18.589Z</lastmod>
     
   </url>
   
