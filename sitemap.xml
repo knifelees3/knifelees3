@@ -2,6 +2,13 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>https://knifelees3.github.io/about/index.html</loc>
+    
+    <lastmod>2020-03-14T08:15:15.102Z</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>https://knifelees3.github.io/2019/12/16/C_%E6%95%99%E7%A8%8B_Ubuntu_%E6%9C%8D%E5%8A%A1%E5%99%A8%E7%AE%A1%E7%90%86%E5%B8%B8%E8%A7%81%E5%91%BD%E4%BB%A4/</loc>
     
     <lastmod>2020-03-14T07:03:18.035Z</lastmod>
@@ -12,13 +19,6 @@
     <loc>https://knifelees3.github.io/2020/03/11/A_En_Python-Deep-Learinging-I-Recognize-Handwritten-Digits/</loc>
     
     <lastmod>2020-03-12T03:52:24.758Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>https://knifelees3.github.io/2020/03/14/C_%E6%95%99%E7%A8%8B-%E5%A6%82%E4%BD%95%E5%87%86%E5%A4%87%E4%B8%80%E7%AF%87%E6%96%87%E7%AB%A0/</loc>
-    
-    <lastmod>2020-03-06T05:19:11.348Z</lastmod>
     
   </url>
   
@@ -264,13 +264,6 @@
     <loc>https://knifelees3.github.io/2019/12/21/C_%E6%95%99%E7%A8%8B_inkscape%E5%AE%89%E8%A3%85%E6%8F%92%E4%BB%B6textext%E5%87%BA%E9%94%99%E7%9A%84%E8%A7%A3%E5%86%B3%E5%8A%9E%E6%B3%95/</loc>
     
     <lastmod>2020-01-02T06:31:36.512Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>https://knifelees3.github.io/about/index.html</loc>
-    
-    <lastmod>2020-01-02T03:50:07.487Z</lastmod>
     
   </url>
   
