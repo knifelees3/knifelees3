@@ -1,0 +1,197 @@
+<!DOCTYPE html><html lang="en" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"><title>Ubuntu安装COMSOL,MATLAB以及FDTD Solutions | KnifeLee's Personal Blog</title><meta name="description" content="Ubuntu安装COMSOL,MATLAB以及FDTD Solutions"><meta name="keywords" content="Ubuntu"><meta name="author" content="Knifelee"><meta name="copyright" content="Knifelee"><meta name="format-detection" content="telephone=no"><link rel="shortcut icon" href="/img/favicon.ico"><link rel="preconnect" href="//cdn.jsdelivr.net"><meta name="twitter:card" content="summary_large_image"><meta name="twitter:title" content="Ubuntu安装COMSOL,MATLAB以及FDTD Solutions"><meta name="twitter:description" content="Ubuntu安装COMSOL,MATLAB以及FDTD Solutions"><meta name="twitter:image" content="https://raw.githubusercontent.com/knifelees3/my_pictures/master/icons/UbuntuICON.png"><meta property="og:type" content="article"><meta property="og:title" content="Ubuntu安装COMSOL,MATLAB以及FDTD Solutions"><meta property="og:url" content="https://knifelees3.github.io/2020/07/21/C_%E6%95%99%E7%A8%8B_Ubuntu_%E5%AE%89%E8%A3%85COMSOL_MATLAB_FDTD%20Solutions/"><meta property="og:site_name" content="KnifeLee's Personal Blog"><meta property="og:description" content="Ubuntu安装COMSOL,MATLAB以及FDTD Solutions"><meta property="og:image" content="https://raw.githubusercontent.com/knifelees3/my_pictures/master/icons/UbuntuICON.png"><meta http-equiv="Cache-Control" content="no-transform"><meta http-equiv="Cache-Control" content="no-siteapp"><script src="https://cdn.jsdelivr.net/npm/js-cookie/dist/js.cookie.min.js"></script><script>const autoChangeMode = 'false'
+var t = Cookies.get("theme");
+if (autoChangeMode == '1'){
+const isDarkMode = window.matchMedia("(prefers-color-scheme: dark)").matches
+const isLightMode = window.matchMedia("(prefers-color-scheme: light)").matches
+const isNotSpecified = window.matchMedia("(prefers-color-scheme: no-preference)").matches
+const hasNoSupport = !isDarkMode && !isLightMode && !isNotSpecified
+
+if (t === undefined){
+  if (isLightMode) activateLightMode()
+  else if (isDarkMode) activateDarkMode()
+  else if (isNotSpecified || hasNoSupport){
+    console.log('You specified no preference for a color scheme or your browser does not support it. I Schedule dark mode during night time.')
+    now = new Date();
+    hour = now.getHours();
+    isNight = hour < 6 || hour >= 18
+    isNight ? activateDarkMode() : activateLightMode()
+}
+} else if (t == 'light') activateLightMode()
+else activateDarkMode()
+
+
+} else if (autoChangeMode == '2'){
+  now = new Date();
+  hour = now.getHours();
+  isNight = hour < 6 || hour >= 18
+  if(t === undefined) isNight? activateDarkMode() : activateLightMode()
+  else if (t === 'light') activateLightMode()
+  else activateDarkMode() 
+} else {
+  if ( t == 'dark' ) activateDarkMode()
+  else if ( t == 'light') activateLightMode()
+}
+
+function activateDarkMode(){
+  document.documentElement.setAttribute('data-theme', 'dark')
+  if (document.querySelector('meta[name="theme-color"]') !== null){
+    document.querySelector('meta[name="theme-color"]').setAttribute('content','#000')
+  }
+}
+function activateLightMode(){
+  document.documentElement.setAttribute('data-theme', 'light')
+  if (document.querySelector('meta[name="theme-color"]') !== null){
+  document.querySelector('meta[name="theme-color"]').setAttribute('content','#fff')
+  }
+}</script><link rel="stylesheet" href="/css/index.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/font-awesome@latest/css/font-awesome.min.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@latest/dist/jquery.fancybox.min.css"><link rel="canonical" href="https://knifelees3.github.io/2020/07/21/C_%E6%95%99%E7%A8%8B_Ubuntu_%E5%AE%89%E8%A3%85COMSOL_MATLAB_FDTD%20Solutions/"><link rel="next" title="Ubuntu安装Lumerical FDTD Solutions" href="/https:/knifelees3.github.io/2020/07/21/C_%E6%95%99%E7%A8%8B_Ubuntu%E5%AE%89%E8%A3%85LumericalFDTDSolutions/"><link rel="dns-prefetch" href="https://hm.baidu.com"><script>var _hmt = _hmt || [];
+(function() {
+  var hm = document.createElement("script");
+  hm.src = "https://hm.baidu.com/hm.js?7c4710045c846acddf6f6813e3d1fa3e";
+  var s = document.getElementsByTagName("script")[0]; 
+  s.parentNode.insertBefore(hm, s);
+})();
+</script><link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Titillium+Web"><script>var GLOBAL_CONFIG = { 
+  root: '/',
+  algolia: undefined,
+  localSearch: {"path":"search.xml","languages":{"hits_empty":"We didn't find any results for the search: ${query}"}},
+  translate: {"defaultEncoding":2,"translateDelay":0,"cookieDomain":"https://xxx/","msgToTraditionalChinese":"繁","msgToSimplifiedChinese":"简"},
+  highlight_copy: 'true',
+  highlight_lang: 'false',
+  highlight_shrink: 'false',
+  copy: {
+    success: 'Copy successfully',
+    error: 'Copy error',
+    noSupport: 'The browser does not support'
+  },
+  bookmark: {
+    title: 'Snackbar.bookmark.title',
+    message_prev: 'Press',
+    message_next: 'to bookmark this page'
+  },
+  runtime_unit: 'days',
+  copyright: undefined,
+  copy_copyright_js: false,
+  ClickShowText: {"text":"富强,民主,文明,和谐,自由,平等,公正,法治,爱国,敬业,诚信,友善","fontSize":"15px"},
+  medium_zoom: 'false',
+  Snackbar: undefined
+  
+}</script></head><body><div id="header"> <div id="page-header"><span class="pull_left" id="blog_name"><a class="blog_title" id="site-name" href="/">KnifeLee's Personal Blog</a></span><i class="fa fa-bars fa-fw toggle-menu pull_right close" aria-hidden="true"></i><span class="pull_right menus"><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fa fa-home"></i><span> Home</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fa fa-archive"></i><span> Archives</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fa fa-tags"></i><span> Tags</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fa fa-folder-open"></i><span> Categories</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fa fa-heart"></i><span> About</span></a></div></div></span><span class="pull_right" id="search_button"><a class="site-page social-icon search"><i class="fa fa-search fa-fw"></i><span> Search</span></a></span></div></div><div id="mobile-sidebar"><div id="menu_mask"></div><div id="mobile-sidebar-menus"><div class="mobile_author_icon"><img class="lazyload avatar_img" src="/img/avatar.jpg" onerror="onerror=null;src='/img/friend_404.gif'"></div><div class="mobile_post_data"><div class="mobile_data_item is_center"><div class="mobile_data_link"><a href="/archives/"><div class="headline">Articles</div><div class="length_num">64</div></a></div></div><div class="mobile_data_item is_center">      <div class="mobile_data_link"><a href="/tags/"><div class="headline">Tags</div><div class="length_num">31</div></a></div></div><div class="mobile_data_item is_center">     <div class="mobile_data_link"><a href="/categories/"><div class="headline">Categories</div><div class="length_num">6</div></a></div></div></div><hr><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fa fa-home"></i><span> Home</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fa fa-archive"></i><span> Archives</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fa fa-tags"></i><span> Tags</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fa fa-folder-open"></i><span> Categories</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fa fa-heart"></i><span> About</span></a></div></div></div><div id="mobile-sidebar-toc"><div class="toc_mobile_headline">Catalog</div><ol class="toc_mobile_items"><li class="toc_mobile_items-item toc_mobile_items-level-3"><a class="toc_mobile_items-link" href="#语法参考"><span class="toc_mobile_items-number">1.</span> <span class="toc_mobile_items-text">语法参考</span></a></li></ol></li><li class="toc_mobile_items-item toc_mobile_items-level-2"><a class="toc_mobile_items-link" href="#常用软件列表"><span class="toc_mobile_items-number"></span> <span class="toc_mobile_items-text">常用软件列表</span></a></li><li class="toc_mobile_items-item toc_mobile_items-level-2"><a class="toc_mobile_items-link" href="#安装Lumerical-Fdtd-Solutions-2016a"><span class="toc_mobile_items-number"></span> <span class="toc_mobile_items-text">安装Lumerical Fdtd Solutions 2016a</span></a><ol class="toc_mobile_items-child"><li class="toc_mobile_items-item toc_mobile_items-level-3"><a class="toc_mobile_items-link" href="#A-转换包rpm包为deb格式"><span class="toc_mobile_items-number">1.</span> <span class="toc_mobile_items-text">A.转换包rpm包为deb格式</span></a></li><li class="toc_mobile_items-item toc_mobile_items-level-3"><a class="toc_mobile_items-link" href="#B-逐个安装Lumerical的包"><span class="toc_mobile_items-number">2.</span> <span class="toc_mobile_items-text">B. 逐个安装Lumerical的包</span></a></li><li class="toc_mobile_items-item toc_mobile_items-level-3"><a class="toc_mobile_items-link" href="#C-确保Lumerical-flex-license-manager工作正常"><span class="toc_mobile_items-number">3.</span> <span class="toc_mobile_items-text">C. 确保Lumerical flex license manager工作正常</span></a></li><li class="toc_mobile_items-item toc_mobile_items-level-3"><a class="toc_mobile_items-link" href="#D-复制文件覆盖"><span class="toc_mobile_items-number">4.</span> <span class="toc_mobile_items-text">D. 复制文件覆盖</span></a></li><li class="toc_mobile_items-item toc_mobile_items-level-3"><a class="toc_mobile_items-link" href="#E-开机启动设置"><span class="toc_mobile_items-number">5.</span> <span class="toc_mobile_items-text">E :开机启动设置</span></a></li></ol></li><li class="toc_mobile_items-item toc_mobile_items-level-2"><a class="toc_mobile_items-link" href="#安装MATLAB"><span class="toc_mobile_items-number"></span> <span class="toc_mobile_items-text">安装MATLAB</span></a><ol class="toc_mobile_items-child"><li class="toc_mobile_items-item toc_mobile_items-level-3"><a class="toc_mobile_items-link" href="#sudo权限挂载并开始安装"><span class="toc_mobile_items-number">1.</span> <span class="toc_mobile_items-text">sudo权限挂载并开始安装</span></a></li><li class="toc_mobile_items-item toc_mobile_items-level-3"><a class="toc_mobile_items-link" href="#复制文件激活覆盖"><span class="toc_mobile_items-number">2.</span> <span class="toc_mobile_items-text">复制文件激活覆盖</span></a></li></ol></li><li class="toc_mobile_items-item toc_mobile_items-level-2"><a class="toc_mobile_items-link" href="#安装COMSOL"><span class="toc_mobile_items-number"></span> <span class="toc_mobile_items-text">安装COMSOL</span></a></li><li class="toc_mobile_items-item toc_mobile_items-level-2"><a class="toc_mobile_items-link" href="#做对应的桌面快捷方式"><span class="toc_mobile_items-number"></span> <span class="toc_mobile_items-text">做对应的桌面快捷方式</span></a></li><li class="toc_mobile_items-item toc_mobile_items-level-2"><a class="toc_mobile_items-link" href="#添加到环境变量"><span class="toc_mobile_items-number"></span> <span class="toc_mobile_items-text">添加到环境变量</span></a><ol class="toc_mobile_items-child"><li class="toc_mobile_items-item toc_mobile_items-level-3"><a class="toc_mobile_items-link" href="#A-用于当前用户："><span class="toc_mobile_items-number">1.</span> <span class="toc_mobile_items-text">A.用于当前用户：</span></a></li><li class="toc_mobile_items-item toc_mobile_items-level-3"><a class="toc_mobile_items-link" href="#B-用于所有用户："><span class="toc_mobile_items-number">2.</span> <span class="toc_mobile_items-text">B.用于所有用户：</span></a></li></ol></li><li class="toc_mobile_items-item toc_mobile_items-level-2"><a class="toc_mobile_items-link" href="#安装多个版本软件"><span class="toc_mobile_items-number"></span> <span class="toc_mobile_items-text">安装多个版本软件</span></a></div></div><div id="body-wrap"><i class="fa fa-arrow-right" id="toggle-sidebar" aria-hidden="true">     </i><div class="auto_open" id="sidebar"><div class="sidebar-toc"><div class="sidebar-toc__title">Catalog</div><div class="sidebar-toc__progress"><span class="progress-notice">You've read</span><span class="progress-num">0</span><span class="progress-percentage">%</span><div class="sidebar-toc__progress-bar">     </div></div><div class="sidebar-toc__content"><ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#语法参考"><span class="toc-number">1.</span> <span class="toc-text">语法参考</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#常用软件列表"><span class="toc-number"></span> <span class="toc-text">常用软件列表</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#安装Lumerical-Fdtd-Solutions-2016a"><span class="toc-number"></span> <span class="toc-text">安装Lumerical Fdtd Solutions 2016a</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#A-转换包rpm包为deb格式"><span class="toc-number">1.</span> <span class="toc-text">A.转换包rpm包为deb格式</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#B-逐个安装Lumerical的包"><span class="toc-number">2.</span> <span class="toc-text">B. 逐个安装Lumerical的包</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#C-确保Lumerical-flex-license-manager工作正常"><span class="toc-number">3.</span> <span class="toc-text">C. 确保Lumerical flex license manager工作正常</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#D-复制文件覆盖"><span class="toc-number">4.</span> <span class="toc-text">D. 复制文件覆盖</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#E-开机启动设置"><span class="toc-number">5.</span> <span class="toc-text">E :开机启动设置</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#安装MATLAB"><span class="toc-number"></span> <span class="toc-text">安装MATLAB</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#sudo权限挂载并开始安装"><span class="toc-number">1.</span> <span class="toc-text">sudo权限挂载并开始安装</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#复制文件激活覆盖"><span class="toc-number">2.</span> <span class="toc-text">复制文件激活覆盖</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#安装COMSOL"><span class="toc-number"></span> <span class="toc-text">安装COMSOL</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#做对应的桌面快捷方式"><span class="toc-number"></span> <span class="toc-text">做对应的桌面快捷方式</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#添加到环境变量"><span class="toc-number"></span> <span class="toc-text">添加到环境变量</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#A-用于当前用户："><span class="toc-number">1.</span> <span class="toc-text">A.用于当前用户：</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#B-用于所有用户："><span class="toc-number">2.</span> <span class="toc-text">B.用于所有用户：</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#安装多个版本软件"><span class="toc-number"></span> <span class="toc-text">安装多个版本软件</span></a></div></div></div><div id="content-outer"><div id="top-container" style="background-image: url(https://raw.githubusercontent.com/knifelees3/my_pictures/master/icons/UbuntuICON.png)"><div id="post-info"><div id="post-title"><div class="posttitle">Ubuntu安装COMSOL,MATLAB以及FDTD Solutions</div></div><div id="post-meta"><time class="post-meta__date"><i class="fa fa-calendar" aria-hidden="true"></i> Created 2020-07-21<span class="post-meta__separator">|</span><i class="fa fa-history" aria-hidden="true"></i> Updated 2020-01-17</time><span class="post-meta__separator mobile_hidden">|</span><span class="mobile_hidden"><i class="fa fa-inbox post-meta__icon" aria-hidden="true"></i><a class="post-meta__categories" href="/categories/%E6%8A%80%E6%9C%AF/">技术</a></span><div class="post-meta-wordcount"><i class="fa fa-file-word-o post-meta__icon" aria-hidden="true"></i><span>Word count: </span><span class="word-count">2.1k</span><span class="post-meta__separator">|</span><i class="fa fa-clock-o post-meta__icon" aria-hidden="true"></i><span>Reading time: 7 min</span><span class="post-meta__separator">|</span><i class="fa fa-eye post-meta__icon" aria-hidden="true">       </i><span>Post View: </span><span id="busuanzi_value_page_pv"></span></div></div></div></div><div class="layout layout_post" id="content-inner">   <article id="post"><div class="article-container" id="post-content"><h3 id="语法参考"><a href="#语法参考" class="headerlink" title="语法参考"></a>语法参考</h3><p><a href="https://www.jianshu.com/p/b03a8d7b1719" target="_blank" rel="noopener">https://www.jianshu.com/p/b03a8d7b1719</a></p>
+<h2 id="常用软件列表"><a href="#常用软件列表" class="headerlink" title="常用软件列表"></a>常用软件列表</h2><p>作为光学研究方向的研究生，不可避免的需要进行光学仿真计算，我目前常用的光学仿真以及数值计算软件有如下：</p>
+<ul>
+<li>COMSOL5.1/5.4</li>
+<li>MATLAB 2018a</li>
+<li>Lumerical Fdtd Solutions 2016a</li>
+</ul>
+<p>接下来将分别介绍对应的安装方法。</p>
+<h2 id="安装Lumerical-Fdtd-Solutions-2016a"><a href="#安装Lumerical-Fdtd-Solutions-2016a" class="headerlink" title="安装Lumerical Fdtd Solutions 2016a"></a>安装Lumerical Fdtd Solutions 2016a</h2><h3 id="A-转换包rpm包为deb格式"><a href="#A-转换包rpm包为deb格式" class="headerlink" title="A.转换包rpm包为deb格式"></a>A.转换包rpm包为deb格式</h3><p>Lumerical官网对于linux的包只有rpm文件，即是为redhat等系统准备的，对于Debian/Ubuntu系统，需要将rpm转为deb包，工具为alien，安装方式为</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span></pre></td><td class="code"><pre><span class="line">sudo apt-get update</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">2</span></pre></td><td class="code"><pre><span class="line">sudo apt-get install alien</span></pre></td></tr></table></figure>
+<p>转换方式为，cd到对应的rpm包所在目录后输入</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span></pre></td><td class="code"><pre><span class="line">sudo alien ./*/rpm</span></pre></td></tr></table></figure>
+<p>就会生成对应的deb包，这种方法一般不推荐，因为在装换的时候可能会遇到各种各样的小问题（有时候会报错），但是没有其他更好的办法了。</p>
+<h3 id="B-逐个安装Lumerical的包"><a href="#B-逐个安装Lumerical的包" class="headerlink" title="B. 逐个安装Lumerical的包"></a>B. 逐个安装Lumerical的包</h3><p>逐个安装对应的软件Mode solutions ,Fdtd-solutions等一共四个（顺序无所谓），然后最后安装Lumerical_FlexLM-1.6.700，都只需要：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span></pre></td><td class="code"><pre><span class="line">sudo dpkg -i *.deb</span></pre></td></tr></table></figure>
+<p>至此软件已经全部安装完毕，接下来要做的就是破解激活。</p>
+<h3 id="C-确保Lumerical-flex-license-manager工作正常"><a href="#C-确保Lumerical-flex-license-manager工作正常" class="headerlink" title="C. 确保Lumerical flex license manager工作正常"></a>C. 确保Lumerical flex license manager工作正常</h3><p>尝试启动Lumerical flex license manager</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span></pre></td><td class="code"><pre><span class="line">sudo /etc/init.d/lumlmadmin start</span></pre></td></tr></table></figure>
+<p>这时候如果成功，再次尝试关闭：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span></pre></td><td class="code"><pre><span class="line">sudo /etc/init.d/lumlmadmin stop</span></pre></td></tr></table></figure>
+<p>如果以上两步都出现：<em>ok</em> 字样，那就说明该软件已经成功了，剩下的就是激活了。但是我实际操作的时候，遇到了如下问题：</p>
+<ul>
+<li>启动的时候报错：缺少库文件：libxmlsec1.io.1(还缺少另外一个文件，具体是啥忘记了)，这时候Google之后终于找到答案<br><a href="https://packages.ubuntu.com/trusty/amd64/libxmlsec1-openssl/filelist" target="_blank" rel="noopener">https://packages.ubuntu.com/trusty/amd64/libxmlsec1-openssl/filelist</a><br>解决办法即直接在网站上面下载对应的包安装。即去网站将所需要的库下载即可。</li>
+<li>如果上面启动时候不报错，但是关闭还是报错：没有什么pid.log什么的，具体是啥忘记了，总之就是还没有真正启动lumerical flex license manager，这个地方花了我好久的时间，最终也是在Google上面找到的答案：<br><a href="https://kx.lumerical.com/t/unable-to-start-license-manager-on-debian-ubuntu-linux/2692/8" target="_blank" rel="noopener">https://kx.lumerical.com/t/unable-to-start-license-manager-on-debian-ubuntu-linux/2692/8</a><br>这里面讲需要安装一个叫lsb的东西，具体原因我也不是很懂，因为我自己的电脑安装完全没有问题，安装好之后就可以启动lumerical flex license manager。</li>
+</ul>
+<h3 id="D-复制文件覆盖"><a href="#D-复制文件覆盖" class="headerlink" title="D. 复制文件覆盖"></a>D. 复制文件覆盖</h3><p>关闭lumerical flex license manager，然后将安装文件夹里面的破解文件复制到对应的目录覆盖即可。再重启lumerical flex license manager：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span></pre></td><td class="code"><pre><span class="line">sudo /etc/init.d/lumlmadmin start</span></pre></td></tr></table></figure>
+<p>这时候就可以再安装文件的/opt/lumerical/bin目录里面启动fdtd-solutions了。</p>
+<h3 id="E-开机启动设置"><a href="#E-开机启动设置" class="headerlink" title="E :开机启动设置"></a>E :开机启动设置</h3><p>还有一个问题是这个Manager不会自动开机启动，所以需要用的时候需要手动开启，怎么设置开机启动可以看另外一篇 <a href="https://knifelees3.github.io/2019/03/02/Linux%E8%AE%BE%E7%BD%AE%E5%AE%9A%E6%97%B6%E8%BF%90%E8%A1%8C%E8%84%9A%E6%9C%AC/#more">笔记</a></p>
+<h2 id="安装MATLAB"><a href="#安装MATLAB" class="headerlink" title="安装MATLAB"></a>安装MATLAB</h2><h3 id="sudo权限挂载并开始安装"><a href="#sudo权限挂载并开始安装" class="headerlink" title="sudo权限挂载并开始安装"></a>sudo权限挂载并开始安装</h3><p>接下来是安装MATLAB,我是在北邮BT下载的最新版本：MATLAB2018a,这个软件装起来比较简单，<br>文件夹一共有两个盘：xxxxdvd1.iso,xxxxdvd2.iso,首先挂载iso文件1,可以在根目录下新建一个专门用来挂载的文件夹：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span></pre></td><td class="code"><pre><span class="line">sudo mkdir /mnt/temp/</span></pre></td></tr></table></figure>
+<p>挂载文件到新建的目录</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span></pre></td><td class="code"><pre><span class="line">sudo mount -o loop ./*dvd1.iso /mnt/temp</span></pre></td></tr></table></figure>
+<p>用sudo权限安装,直接运行里面的安装文件，</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span></pre></td><td class="code"><pre><span class="line">sudo /mnt/temp/install</span></pre></td></tr></table></figure>
+<p>开始安装之后选择我有序列号，将Crack文件里面的standalone下面的序列号粘贴进去，开始安装，安装到一半的时候提示插入第二个iso文件，这时候再次将dvd2.iso挂载，</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span></pre></td><td class="code"><pre><span class="line">sudo mount -o loop ./*dvd2.iso /mnt/temp</span></pre></td></tr></table></figure>
+<p>然后点击确定就可以继续安装了，安装好之后记得卸载挂载的MATLAB iso文件，命令为</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span></pre></td><td class="code"><pre><span class="line">sudo umount /mnt/temp/</span></pre></td></tr></table></figure>
+<h3 id="复制文件激活覆盖"><a href="#复制文件激活覆盖" class="headerlink" title="复制文件激活覆盖"></a>复制文件激活覆盖</h3><p>安装完成之后打开matlab</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span></pre></td><td class="code"><pre><span class="line">sudo /usr/<span class="built_in">local</span>/MATLAB/matlab2018a/bin/matlab</span></pre></td></tr></table></figure>
+<p>提示激活，选择本地激活，然后选中Crack文件里面的Standlone.lic文件。<br>最后将Crack文件里面的文件覆盖到对应的安装文件夹即可.<br>打开MATLAB可能会报错、闪退等，一般都是缺少一些库或者安装包，或者驱动有问题，不同系统、服务器问题不一样，需要google。<br>我遇到的问题：打开MATLAB可能会遇到问题，命令行里面一排红字，关于显卡的，具体是啥忘记了，打开COMSOL也会对3D什么的报错，这都是由于我们的新系统显卡驱动没有装好的缘故，解决办法：<br>打开软件源，选择Additional Drivers,选择里面推荐的Nvidia驱动安装即可。重启生效。有时候会出现重启无法开机的情况，这是由于安装的推荐的显卡驱动不对，这时候需要卸载掉已安装的驱动，重新安装其他版本（我自己的电脑最开始就是这个原因一直死机，换了好几个驱动才找到合适的）。</p>
+<h2 id="安装COMSOL"><a href="#安装COMSOL" class="headerlink" title="安装COMSOL"></a>安装COMSOL</h2><p>安装最简单的就是COMSOL了，和前面挂载MATLAB一样，挂载iso文件到temp文件夹，运行里面的setup文件</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span></pre></td><td class="code"><pre><span class="line">sudo mount -o loop ./*.iso /mnt/temp</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">2</span></pre></td><td class="code"><pre><span class="line">sudo /mnt/temp/setup</span></pre></td></tr></table></figure>
+<p>安装时候选择破解文件夹里面对应的lic文件，然后安装。<br>最重要的一步，安装COMSOL livelink with MATLAB,选择MATLAB所在文件夹，</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span></pre></td><td class="code"><pre><span class="line">/usr/<span class="built_in">local</span>/MATLAB/matlab2018a/</span></pre></td></tr></table></figure>
+<p>测试是否安装成功，只需要在命令行输入：comsol,如果可以打开即安装成功，然后输入：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span></pre></td><td class="code"><pre><span class="line">comsol mphserver matlab</span></pre></td></tr></table></figure>
+<p>如果可以启动matlab，那么就代表成功了。而且第一次打开需要输入用户名即密码，随便输入即可。</p>
+<h2 id="做对应的桌面快捷方式"><a href="#做对应的桌面快捷方式" class="headerlink" title="做对应的桌面快捷方式"></a>做对应的桌面快捷方式</h2><p>安装好软件之后一般不会自动在桌面形成对应的快捷方式，需要手动的添加快捷方式，添加方式为，在桌面编辑对应的文件（以MATLAB为例）</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span></pre></td><td class="code"><pre><span class="line">sudo gedit ./Mtalab.Desktop</span></pre></td></tr></table></figure>
+<p>然后添加下面的命令</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span></pre></td><td class="code"><pre><span class="line">[Desktop Entry]</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">2</span></pre></td><td class="code"><pre><span class="line">Name=Matlab 2018a</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">3</span></pre></td><td class="code"><pre><span class="line">Exec=/usr/<span class="built_in">local</span>/MATLAB/R2018a/bin/matlab -desktop %启动文件所在位置</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">4</span></pre></td><td class="code"><pre><span class="line">Icon=/usr/<span class="built_in">local</span>/MATLAB/R2018a/bin/matlab.png %图标所在位置</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">5</span></pre></td><td class="code"><pre><span class="line">Type=Application</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">6</span></pre></td><td class="code"><pre><span class="line">Name[zh_CN]=Matlab_2018ab</span></pre></td></tr></table></figure>
+<p>保存之后修改权限：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span></pre></td><td class="code"><pre><span class="line">sudo chmod +x ./Matlab.Desktop</span></pre></td></tr></table></figure>
+<p>即可点击打开了。</p>
+<h2 id="添加到环境变量"><a href="#添加到环境变量" class="headerlink" title="添加到环境变量"></a>添加到环境变量</h2><p>为了可以在命令行使用，还需要将安装的软件执行文件添加到环境变量。给某个用户和给所有用户添加环境变量是不一样的。</p>
+<h3 id="A-用于当前用户："><a href="#A-用于当前用户：" class="headerlink" title="A.用于当前用户："></a>A.用于当前用户：</h3><p>在对应用户主目录下有一个 .bashrc 隐藏文件，可以在此文件中加入 PATH 的设置如下：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span></pre></td><td class="code"><pre><span class="line">vi ~/.bashrc</span></pre></td></tr></table></figure>
+<p>加入：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span></pre></td><td class="code"><pre><span class="line"><span class="built_in">export</span> PATH=/usr/<span class="built_in">local</span>/MATLAB/R2018a/bin/:<span class="variable">$PATH</span></span></pre></td></tr></table></figure>
+<p>其中<code>/usr/local/MATLAB/R2018a/bin/</code> 是我的MATLAB路径，需要根据实际的软件路径更改。 如果要加入多个路径，只要：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span></pre></td><td class="code"><pre><span class="line"><span class="built_in">export</span> PATH=&lt;你要加入的路径1&gt;:&lt;你要加入的路径2&gt;: ...... :<span class="variable">$PATH</span></span></pre></td></tr></table></figure>
+<p>当中每个路径要以冒号分隔。这样每次登录都会生效，此时还需要注销再登录或者使用</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span></pre></td><td class="code"><pre><span class="line"><span class="built_in">source</span> ~/.bashrc</span></pre></td></tr></table></figure>
+<p>使得更改生效</p>
+<h3 id="B-用于所有用户："><a href="#B-用于所有用户：" class="headerlink" title="B.用于所有用户："></a>B.用于所有用户：</h3><p>如果需要环境变量更改对所有用户有效，那么需要更改“/etc/profile”文件，该方法需要具有管理员权限。</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span></pre></td><td class="code"><pre><span class="line">sudo vi /etc/profile</span></pre></td></tr></table></figure>
+<p>在其中加入：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span></pre></td><td class="code"><pre><span class="line"><span class="built_in">export</span> PATH=&lt;你要加入的路径&gt;:<span class="variable">$PATH</span></span></pre></td></tr></table></figure>
+<p>终端输入：echo $PATH 可以查看环境变量此时还需要注销再登录或者使用</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span></pre></td><td class="code"><pre><span class="line"><span class="built_in">source</span> /etc/profile</span></pre></td></tr></table></figure>
+<p>使得更改生效。</p>
+<h2 id="安装多个版本软件"><a href="#安装多个版本软件" class="headerlink" title="安装多个版本软件"></a>安装多个版本软件</h2><p>有时候我们可能需要安装COMSOL或者MATLAB的多个版本，多个版本软件的安装目录默认是不冲突的，如MATLAB在“/usr/local/MATLAB”下会有“R2018a”或者“R2018b”来区分，COMSOL在“/usr/local/”下有“comsol51”和“comsol54”加以区分。当我们将安装路径加入环境变量之后，由于启动的文件名相同，比如都是“comsol”，为了区别出到底是想启动COMSOL的哪个版本。我们可以将文件名做更改，比如将comsol5.4版本的bin目录下的comsol文件改名为comsol54:</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span></pre></td><td class="code"><pre><span class="line">sudo mv /usr/<span class="built_in">local</span>/comsol54/multiphysics/bin/comsol /usr/<span class="built_in">local</span>/comsol54/multiphysics/bin/comsol54</span></pre></td></tr></table></figure>
+<p>这样我们在命令行输入“comsol54”就可以指定启动COMSOL5.4版本了。其他软件的做法也类似。</p>
+</div></article><div class="post-copyright"><div class="post-copyright__author"><span class="post-copyright-meta">Author: </span><span class="post-copyright-info"><a href="mailto:undefined" target="_blank" rel="noopener">Knifelee</a></span></div><div class="post-copyright__type"><span class="post-copyright-meta">Link: </span><span class="post-copyright-info"><a href="/https:/knifelees3.github.io/2020/07/21/C_%E6%95%99%E7%A8%8B_Ubuntu_%E5%AE%89%E8%A3%85COMSOL_MATLAB_FDTD%20Solutions/">https://knifelees3.github.io/2020/07/21/C_%E6%95%99%E7%A8%8B_Ubuntu_%E5%AE%89%E8%A3%85COMSOL_MATLAB_FDTD%20Solutions/</a></span></div><div class="post-copyright__notice"><span class="post-copyright-meta">Copyright Notice: </span><span class="post-copyright-info">All articles in this blog are licensed under <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank" rel="noopener">CC BY-NC-SA 4.0</a> unless stating additionally.</span></div></div><div class="tag_share"><div class="post-meta__tag-list"><a class="post-meta__tags" href="/tags/Ubuntu/">Ubuntu    </a></div><div class="post_share"><div class="social-share" data-image="https://raw.githubusercontent.com/knifelees3/my_pictures/master/icons/UbuntuICON.png" data-sites="facebook,twitter,wechat,weibo,qq"></div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/social-share.js@1.0.16/dist/css/share.min.css"><script src="https://cdn.jsdelivr.net/npm/social-share.js@1.0.16/dist/js/social-share.min.js"></script></div></div><div class="post-reward"><a class="reward-button"><i class="fa fa-qrcode"></i> Donate<div class="reward-main"><ul class="reward-all"><li class="reward-item"><img class="lazyload post-qr-code__img" src="/img/wechat.jpg"><div class="post-qr-code__desc">微信</div></li><li class="reward-item"><img class="lazyload post-qr-code__img" src="/img/alipay.jpg"><div class="post-qr-code__desc">支付寶</div></li></ul></div></a></div><nav class="pagination_post" id="pagination"><div class="next-post pull-full"><a href="/2020/07/21/C_%E6%95%99%E7%A8%8B_Ubuntu%E5%AE%89%E8%A3%85LumericalFDTDSolutions/"><img class="next_cover lazyload" data-src="https://raw.githubusercontent.com/knifelees3/my_pictures/master/icons/FDTDICON.ico" onerror="onerror=null;src='/img/404.jpg'"><div class="label">Next Post</div><div class="next_info"><span>Ubuntu安装Lumerical FDTD Solutions</span></div></a></div></nav><div class="relatedPosts"><div class="relatedPosts_headline"><i class="fa fa-fw fa-thumbs-up" aria-hidden="true"></i><span> Recommend</span></div><div class="relatedPosts_list"><div class="relatedPosts_item"><a href="/2019/10/17/A_En_How_To_Delete_Ubuntu_In_Windows/" title="How to uninstall ubuntu with windows/ubuntu dual system"><img class="relatedPosts_cover lazyload"data-src="https://raw.githubusercontent.com/knifelees3/my_pictures/master/icons/UbuntuICON.png"><div class="relatedPosts_title">How to uninstall ubuntu with windows/ubuntu dual system</div></a></div><div class="relatedPosts_item"><a href="/2019/03/02/C_教程_Ubuntu_设置定时运行脚本/" title="Linux设置定时运行脚本以及软件开机自动启动"><img class="relatedPosts_cover lazyload"data-src="https://raw.githubusercontent.com/knifelees3/my_pictures/master/icons/UbuntuICON.png"><div class="relatedPosts_title">Linux设置定时运行脚本以及软件开机自动启动</div></a></div><div class="relatedPosts_item"><a href="/2019/06/26/C_教程_Ubuntu_远程桌面连接/" title="Linux设置远程桌面连接"><img class="relatedPosts_cover lazyload"data-src="https://raw.githubusercontent.com/knifelees3/my_pictures/master/icons/UbuntuICON.png"><div class="relatedPosts_title">Linux设置远程桌面连接</div></a></div><div class="relatedPosts_item"><a href="/2020/07/21/C_教程_Ubuntu安装LumericalFDTDSolutions/" title="Ubuntu安装Lumerical FDTD Solutions"><img class="relatedPosts_cover lazyload"data-src="https://raw.githubusercontent.com/knifelees3/my_pictures/master/icons/FDTDICON.ico"><div class="relatedPosts_title">Ubuntu安装Lumerical FDTD Solutions</div></a></div><div class="relatedPosts_item"><a href="/2019/12/16/C_教程_Ubuntu_服务器管理常见命令/" title="Linux服务器常见命令"><img class="relatedPosts_cover lazyload"data-src="https://raw.githubusercontent.com/knifelees3/my_pictures/master/icons/UbuntuICON.png服务器"><div class="relatedPosts_title">Linux服务器常见命令</div></a></div></div><div class="clear_both"></div></div><hr><div id="post-comment"><div class="comment_headling"><i class="fa fa-comments fa-fw" aria-hidden="true"></i><span> Comment</span></div><div class="vcomment" id="vcomment"></div><script src="https://cdn.jsdelivr.net/npm/valine/dist/Valine.min.js"></script><script>var notify = true == true ? true : false;
+var verify = false == true ? true : false;
+var GUEST_INFO = ['nick','mail','link'];
+var guest_info = 'nick,mail,link'.split(',').filter(function(item){
+  return GUEST_INFO.indexOf(item) > -1
+});
+guest_info = guest_info.length == 0 ? GUEST_INFO :guest_info;
+
+window.valine = new Valine({
+  el:'#vcomment',
+  notify:notify,
+  verify:verify,
+  appId:'jR8sBuhmF2OQvpAqh8LWCbt1-gzGzoHsz',
+  appKey:'2C5ChxH3zGFNoQ8rO7u9I2Lb',
+  placeholder:'you can leave your comment here ~',
+  avatar:'monsterid',
+  guest_info:guest_info,
+  pageSize:'10',
+  lang:'en',
+  recordIP: true
+});</script></div></div></div><footer id="footer" data-type="color"><div id="footer-wrap"><div class="copyright">&copy;2018 - 2020 By Knifelee</div><div class="framework-info"><span>Driven </span><a href="http://hexo.io" target="_blank" rel="noopener"><span>Hexo</span></a><span class="footer-separator">|</span><span>Theme </span><a href="https://github.com/jerryc127/hexo-theme-butterfly" target="_blank" rel="noopener"><span>Butterfly</span></a></div><div class="footer_custom_text">Any question please email to me: knifelees3@hotmail.com</div></div></footer></div><section class="rightside" id="rightside"><div id="rightside-config-hide"><i class="fa fa-book" id="readmode" title="Read Mode"></i><i class="fa fa-plus" id="font_plus" title="Increase font size"></i><i class="fa fa-minus" id="font_minus" title="Decrease font size"></i><a class="translate_chn_to_cht" id="translateLink" href="javascript:translatePage();" title="Traditional Chinese and Simplified Chinese Conversion" target="_self">繁</a><i class="darkmode fa fa-moon-o" id="darkmode" title="Dark Mode"></i></div><div id="rightside-config-show"><div id="rightside_config" title="Setting"><i class="fa fa-cog" aria-hidden="true"></i></div><a id="to_comment" href="#post-comment" title="Scroll to comment"><i class="scroll_to_comment fa fa-comments">  </i></a><i class="fa fa-list-ul close" id="mobile-toc-button" title="Table of Contents" aria-hidden="true"></i><i class="fa fa-arrow-up" id="go-up" title="Back to top" aria-hidden="true"></i></div></section><script src="https://cdn.jsdelivr.net/npm/jquery@latest/dist/jquery.min.js"></script><script src="/js/utils.js"></script><script src="/js/main.js"></script><script src="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@latest/dist/jquery.fancybox.min.js"></script><script type="text/x-mathjax-config">MathJax.Hub.Config({
+  tex2jax: {
+    inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
+    processEscapes: true,
+    skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+  },
+  CommonHTML: {
+    linebreaks: { automatic: true, width: "90% container" }
+  },
+  "HTML-CSS": { 
+    linebreaks: { automatic: true, width: "90% container" }
+  },
+  "SVG": { 
+    linebreaks: { automatic: true, width: "90% container" }
+  }
+});
+</script><script type="text/x-mathjax-config">MathJax.Hub.Queue(function() {
+  var all = MathJax.Hub.getAllJax(), i;
+  for (i=0; i < all.length; i += 1) {
+    all[i].SourceElement().parentNode.className += ' has-jax';
+  }
+});
+</script><script src="https://cdn.jsdelivr.net/npm/mathjax/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script><script async src="/js/search/local-search.js"></script><script src="/js/baidupush.js"> </script><script src="/js/tw_cn.js"></script><script>translateInitilization()
+</script><script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script><script src="https://cdn.jsdelivr.net/npm/instant.page@latest/instantpage.min.js" type="module"></script><script src="https://cdn.jsdelivr.net/npm/lazysizes@latest/lazysizes.min.js" async=""></script><script src="/js/third-party/ClickShowText.js"></script><div class="search-dialog" id="local-search"><div class="search-dialog__title" id="local-search-title">Local search</div><div id="local-input-panel"><div id="local-search-input"><div class="local-search-box"><input class="local-search-box--input" placeholder="Search for Posts"></div></div></div><hr><div id="local-search-results"><div id="local-hits"></div><div id="local-stats"><div class="local-search-stats__hr" id="hr"><span>Powered by</span> <a href="https://github.com/wzpan/hexo-generator-search" target="_blank" rel="noopener" style="color:#49B1F5;">hexo-generator-search</a></div></div></div><span class="search-close-button"><i class="fa fa-times"></i></span></div><div class="search-mask"></div></body></html>
