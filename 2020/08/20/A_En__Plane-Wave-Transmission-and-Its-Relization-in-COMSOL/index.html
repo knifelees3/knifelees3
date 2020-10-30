@@ -1,0 +1,416 @@
+<!DOCTYPE html><html lang="en" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"><title>Plane wave's transmission in a substate structure and its theoretical realization in COMSOL | KnifeLee's Personal Blog</title><meta name="description" content="Plane wave's transmission in a substate structure and its theoretical realization in COMSOL"><meta name="keywords" content="COMSOL,Simulation,Physics"><meta name="author" content="Knifelee"><meta name="copyright" content="Knifelee"><meta name="format-detection" content="telephone=no"><link rel="shortcut icon" href="/img/favicon.ico"><link rel="preconnect" href="//cdn.jsdelivr.net"><meta name="twitter:card" content="summary_large_image"><meta name="twitter:title" content="Plane wave's transmission in a substate structure and its theoretical realization in COMSOL"><meta name="twitter:description" content="Plane wave's transmission in a substate structure and its theoretical realization in COMSOL"><meta name="twitter:image" content="https://raw.githubusercontent.com/knifelees3/my_pictures/master/picgoup/20200220133639360_19041.png"><meta property="og:type" content="article"><meta property="og:title" content="Plane wave's transmission in a substate structure and its theoretical realization in COMSOL"><meta property="og:url" content="https://knifelees3.github.io/2020/08/20/A_En__Plane-Wave-Transmission-and-Its-Relization-in-COMSOL/"><meta property="og:site_name" content="KnifeLee's Personal Blog"><meta property="og:description" content="Plane wave's transmission in a substate structure and its theoretical realization in COMSOL"><meta property="og:image" content="https://raw.githubusercontent.com/knifelees3/my_pictures/master/picgoup/20200220133639360_19041.png"><meta http-equiv="Cache-Control" content="no-transform"><meta http-equiv="Cache-Control" content="no-siteapp"><script src="https://cdn.jsdelivr.net/npm/js-cookie/dist/js.cookie.min.js"></script><script>const autoChangeMode = 'false'
+var t = Cookies.get("theme");
+if (autoChangeMode == '1'){
+const isDarkMode = window.matchMedia("(prefers-color-scheme: dark)").matches
+const isLightMode = window.matchMedia("(prefers-color-scheme: light)").matches
+const isNotSpecified = window.matchMedia("(prefers-color-scheme: no-preference)").matches
+const hasNoSupport = !isDarkMode && !isLightMode && !isNotSpecified
+
+if (t === undefined){
+  if (isLightMode) activateLightMode()
+  else if (isDarkMode) activateDarkMode()
+  else if (isNotSpecified || hasNoSupport){
+    console.log('You specified no preference for a color scheme or your browser does not support it. I Schedule dark mode during night time.')
+    now = new Date();
+    hour = now.getHours();
+    isNight = hour < 6 || hour >= 18
+    isNight ? activateDarkMode() : activateLightMode()
+}
+} else if (t == 'light') activateLightMode()
+else activateDarkMode()
+
+
+} else if (autoChangeMode == '2'){
+  now = new Date();
+  hour = now.getHours();
+  isNight = hour < 6 || hour >= 18
+  if(t === undefined) isNight? activateDarkMode() : activateLightMode()
+  else if (t === 'light') activateLightMode()
+  else activateDarkMode() 
+} else {
+  if ( t == 'dark' ) activateDarkMode()
+  else if ( t == 'light') activateLightMode()
+}
+
+function activateDarkMode(){
+  document.documentElement.setAttribute('data-theme', 'dark')
+  if (document.querySelector('meta[name="theme-color"]') !== null){
+    document.querySelector('meta[name="theme-color"]').setAttribute('content','#000')
+  }
+}
+function activateLightMode(){
+  document.documentElement.setAttribute('data-theme', 'light')
+  if (document.querySelector('meta[name="theme-color"]') !== null){
+  document.querySelector('meta[name="theme-color"]').setAttribute('content','#fff')
+  }
+}</script><link rel="stylesheet" href="/css/index.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/font-awesome@latest/css/font-awesome.min.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@latest/dist/jquery.fancybox.min.css"><link rel="canonical" href="https://knifelees3.github.io/2020/08/20/A_En__Plane-Wave-Transmission-and-Its-Relization-in-COMSOL/"><link rel="prev" title="Mathematica如何用来写Python并且二者之间进行数据转换" href="/https:/knifelees3.github.io/2020/10/15/C_%E6%95%99%E7%A8%8B_Mathematica%E5%A6%82%E4%BD%95%E7%94%A8%E6%9D%A5%E5%86%99Python/"><link rel="next" title="Direction in port-Plane wave input via port in COMSOL" href="/https:/knifelees3.github.io/2020/08/20/A_En_PlaneWaveInputDirectionsViaPort/"><link rel="dns-prefetch" href="https://hm.baidu.com"><script>var _hmt = _hmt || [];
+(function() {
+  var hm = document.createElement("script");
+  hm.src = "https://hm.baidu.com/hm.js?7c4710045c846acddf6f6813e3d1fa3e";
+  var s = document.getElementsByTagName("script")[0]; 
+  s.parentNode.insertBefore(hm, s);
+})();
+</script><link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Titillium+Web"><script>var GLOBAL_CONFIG = { 
+  root: '/',
+  algolia: undefined,
+  localSearch: {"path":"search.xml","languages":{"hits_empty":"We didn't find any results for the search: ${query}"}},
+  translate: {"defaultEncoding":2,"translateDelay":0,"cookieDomain":"https://xxx/","msgToTraditionalChinese":"繁","msgToSimplifiedChinese":"简"},
+  highlight_copy: 'true',
+  highlight_lang: 'false',
+  highlight_shrink: 'false',
+  copy: {
+    success: 'Copy successfully',
+    error: 'Copy error',
+    noSupport: 'The browser does not support'
+  },
+  bookmark: {
+    title: 'Snackbar.bookmark.title',
+    message_prev: 'Press',
+    message_next: 'to bookmark this page'
+  },
+  runtime_unit: 'days',
+  copyright: undefined,
+  copy_copyright_js: false,
+  ClickShowText: {"text":"富强,民主,文明,和谐,自由,平等,公正,法治,爱国,敬业,诚信,友善","fontSize":"15px"},
+  medium_zoom: 'false',
+  Snackbar: undefined
+  
+}</script></head><body><div id="header"> <div id="page-header"><span class="pull_left" id="blog_name"><a class="blog_title" id="site-name" href="/">KnifeLee's Personal Blog</a></span><i class="fa fa-bars fa-fw toggle-menu pull_right close" aria-hidden="true"></i><span class="pull_right menus"><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fa fa-home"></i><span> Home</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fa fa-archive"></i><span> Archives</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fa fa-tags"></i><span> Tags</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fa fa-folder-open"></i><span> Categories</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fa fa-heart"></i><span> About</span></a></div></div></span><span class="pull_right" id="search_button"><a class="site-page social-icon search"><i class="fa fa-search fa-fw"></i><span> Search</span></a></span></div></div><div id="mobile-sidebar"><div id="menu_mask"></div><div id="mobile-sidebar-menus"><div class="mobile_author_icon"><img class="lazyload avatar_img" src="/img/avatar.jpg" onerror="onerror=null;src='/img/friend_404.gif'"></div><div class="mobile_post_data"><div class="mobile_data_item is_center"><div class="mobile_data_link"><a href="/archives/"><div class="headline">Articles</div><div class="length_num">68</div></a></div></div><div class="mobile_data_item is_center">      <div class="mobile_data_link"><a href="/tags/"><div class="headline">Tags</div><div class="length_num">31</div></a></div></div><div class="mobile_data_item is_center">     <div class="mobile_data_link"><a href="/categories/"><div class="headline">Categories</div><div class="length_num">6</div></a></div></div></div><hr><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fa fa-home"></i><span> Home</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fa fa-archive"></i><span> Archives</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fa fa-tags"></i><span> Tags</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fa fa-folder-open"></i><span> Categories</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fa fa-heart"></i><span> About</span></a></div></div></div><div id="mobile-sidebar-toc"><div class="toc_mobile_headline">Catalog</div><ol class="toc_mobile_items"><li class="toc_mobile_items-item toc_mobile_items-level-1"><a class="toc_mobile_items-link" href="#Plane-wave’s-transmission-in-a-substate-structure-and-its-theoretical-realization-in-COMSOL"><span class="toc_mobile_items-number">1.</span> <span class="toc_mobile_items-text">Plane wave’s transmission in a substate structure and its theoretical realization in COMSOL</span></a><ol class="toc_mobile_items-child"><li class="toc_mobile_items-item toc_mobile_items-level-2"><a class="toc_mobile_items-link" href="#Introduction"><span class="toc_mobile_items-number">1.1.</span> <span class="toc_mobile_items-text">Introduction</span></a></li><li class="toc_mobile_items-item toc_mobile_items-level-2"><a class="toc_mobile_items-link" href="#Theoretical-derivations"><span class="toc_mobile_items-number">1.2.</span> <span class="toc_mobile_items-text">Theoretical derivations</span></a><ol class="toc_mobile_items-child"><li class="toc_mobile_items-item toc_mobile_items-level-3"><a class="toc_mobile_items-link" href="#Boundary-conditions-and-properties-of-plane-wave"><span class="toc_mobile_items-number">1.2.1.</span> <span class="toc_mobile_items-text">Boundary conditions and properties of plane wave</span></a></li><li class="toc_mobile_items-item toc_mobile_items-level-3"><a class="toc_mobile_items-link" href="#S-Polarization"><span class="toc_mobile_items-number">1.2.2.</span> <span class="toc_mobile_items-text">S Polarization</span></a></li><li class="toc_mobile_items-item toc_mobile_items-level-3"><a class="toc_mobile_items-link" href="#P-Polarization"><span class="toc_mobile_items-number">1.2.3.</span> <span class="toc_mobile_items-text">P Polarization</span></a></li><li class="toc_mobile_items-item toc_mobile_items-level-3"><a class="toc_mobile_items-link" href="#Special-case-non-Magnetic-material"><span class="toc_mobile_items-number">1.2.4.</span> <span class="toc_mobile_items-text">Special case: non-Magnetic material</span></a></li><li class="toc_mobile_items-item toc_mobile_items-level-3"><a class="toc_mobile_items-link" href="#Special-case-normal-incidence"><span class="toc_mobile_items-number">1.2.5.</span> <span class="toc_mobile_items-text">Special case-normal incidence</span></a></li><li class="toc_mobile_items-item toc_mobile_items-level-3"><a class="toc_mobile_items-link" href="#Special-case-total-reflection"><span class="toc_mobile_items-number">1.2.6.</span> <span class="toc_mobile_items-text">Special case: total reflection</span></a></li></ol></li><li class="toc_mobile_items-item toc_mobile_items-level-2"><a class="toc_mobile_items-link" href="#COMSOL-implementation"><span class="toc_mobile_items-number">1.3.</span> <span class="toc_mobile_items-text">COMSOL implementation</span></a><ol class="toc_mobile_items-child"><li class="toc_mobile_items-item toc_mobile_items-level-3"><a class="toc_mobile_items-link" href="#Scatter-on-Substrate-Example-analysis"><span class="toc_mobile_items-number">1.3.1.</span> <span class="toc_mobile_items-text">Scatter on Substrate Example analysis</span></a></li><li class="toc_mobile_items-item toc_mobile_items-level-3"><a class="toc_mobile_items-link" href="#Plane-wave-vertical-incidence-setting"><span class="toc_mobile_items-number">1.3.2.</span> <span class="toc_mobile_items-text">Plane wave vertical incidence setting</span></a></li><li class="toc_mobile_items-item toc_mobile_items-level-3"><a class="toc_mobile_items-link" href="#P-polarized-plane-waves-are-incident-obliquely-along-the-positive-x-axis"><span class="toc_mobile_items-number">1.3.3.</span> <span class="toc_mobile_items-text">P-polarized plane waves are incident obliquely along the positive x-axis</span></a><ol class="toc_mobile_items-child"><li class="toc_mobile_items-item toc_mobile_items-level-4"><a class="toc_mobile_items-link" href="#Analytical-expression"><span class="toc_mobile_items-number">1.3.3.1.</span> <span class="toc_mobile_items-text">Analytical expression</span></a></li><li class="toc_mobile_items-item toc_mobile_items-level-4"><a class="toc_mobile_items-link" href="#COMSOL-Settings-Summary"><span class="toc_mobile_items-number">1.3.3.2.</span> <span class="toc_mobile_items-text">COMSOL Settings Summary</span></a></li></ol></li></ol></li></ol></li></ol></div></div><div id="body-wrap"><i class="fa fa-arrow-right" id="toggle-sidebar" aria-hidden="true">     </i><div class="auto_open" id="sidebar"><div class="sidebar-toc"><div class="sidebar-toc__title">Catalog</div><div class="sidebar-toc__progress"><span class="progress-notice">You've read</span><span class="progress-num">0</span><span class="progress-percentage">%</span><div class="sidebar-toc__progress-bar">     </div></div><div class="sidebar-toc__content"><ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#Plane-wave’s-transmission-in-a-substate-structure-and-its-theoretical-realization-in-COMSOL"><span class="toc-number">1.</span> <span class="toc-text">Plane wave’s transmission in a substate structure and its theoretical realization in COMSOL</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#Introduction"><span class="toc-number">1.1.</span> <span class="toc-text">Introduction</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Theoretical-derivations"><span class="toc-number">1.2.</span> <span class="toc-text">Theoretical derivations</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Boundary-conditions-and-properties-of-plane-wave"><span class="toc-number">1.2.1.</span> <span class="toc-text">Boundary conditions and properties of plane wave</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#S-Polarization"><span class="toc-number">1.2.2.</span> <span class="toc-text">S Polarization</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#P-Polarization"><span class="toc-number">1.2.3.</span> <span class="toc-text">P Polarization</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Special-case-non-Magnetic-material"><span class="toc-number">1.2.4.</span> <span class="toc-text">Special case: non-Magnetic material</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Special-case-normal-incidence"><span class="toc-number">1.2.5.</span> <span class="toc-text">Special case-normal incidence</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Special-case-total-reflection"><span class="toc-number">1.2.6.</span> <span class="toc-text">Special case: total reflection</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#COMSOL-implementation"><span class="toc-number">1.3.</span> <span class="toc-text">COMSOL implementation</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Scatter-on-Substrate-Example-analysis"><span class="toc-number">1.3.1.</span> <span class="toc-text">Scatter on Substrate Example analysis</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Plane-wave-vertical-incidence-setting"><span class="toc-number">1.3.2.</span> <span class="toc-text">Plane wave vertical incidence setting</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#P-polarized-plane-waves-are-incident-obliquely-along-the-positive-x-axis"><span class="toc-number">1.3.3.</span> <span class="toc-text">P-polarized plane waves are incident obliquely along the positive x-axis</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#Analytical-expression"><span class="toc-number">1.3.3.1.</span> <span class="toc-text">Analytical expression</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#COMSOL-Settings-Summary"><span class="toc-number">1.3.3.2.</span> <span class="toc-text">COMSOL Settings Summary</span></a></li></ol></li></ol></li></ol></li></ol></div></div></div><div id="content-outer"><div id="top-container" style="background-image: url(https://raw.githubusercontent.com/knifelees3/my_pictures/master/picgoup/20200220133639360_19041.png)"><div id="post-info"><div id="post-title"><div class="posttitle">Plane wave's transmission in a substate structure and its theoretical realization in COMSOL</div></div><div id="post-meta"><time class="post-meta__date"><i class="fa fa-calendar" aria-hidden="true"></i> Created 2020-08-20<span class="post-meta__separator">|</span><i class="fa fa-history" aria-hidden="true"></i> Updated 2020-10-09</time><span class="post-meta__separator mobile_hidden">|</span><span class="mobile_hidden"><i class="fa fa-inbox post-meta__icon" aria-hidden="true"></i><a class="post-meta__categories" href="/categories/%E6%8A%80%E6%9C%AF/">技术</a></span><div class="post-meta-wordcount"><i class="fa fa-file-word-o post-meta__icon" aria-hidden="true"></i><span>Word count: </span><span class="word-count">3.9k</span><span class="post-meta__separator">|</span><i class="fa fa-clock-o post-meta__icon" aria-hidden="true"></i><span>Reading time: 24 min</span><span class="post-meta__separator">|</span><i class="fa fa-eye post-meta__icon" aria-hidden="true">       </i><span>Post View: </span><span id="busuanzi_value_page_pv"></span></div></div></div></div><div class="layout layout_post" id="content-inner">   <article id="post"><div class="article-container" id="post-content"><h1 id="Plane-wave’s-transmission-in-a-substate-structure-and-its-theoretical-realization-in-COMSOL"><a href="#Plane-wave’s-transmission-in-a-substate-structure-and-its-theoretical-realization-in-COMSOL" class="headerlink" title="Plane wave’s transmission in a substate structure and its theoretical realization in COMSOL"></a>Plane wave’s transmission in a substate structure and its theoretical realization in COMSOL</h1><p>Date:<br>Create at: 2020 02 20<br>Update at: 2020 08 20</p>
+<h2 id="Introduction"><a href="#Introduction" class="headerlink" title="Introduction"></a>Introduction</h2><p>In quantum nano optics, we often encounter this kind of problem:</p>
+<p><strong>Simulating the scattering of light by a nano objects on substrate.</strong></p>
+<p>The best way to simulate this kind of problem is the background field method since the enhancement of the light can be easily obtained. I use COMSOL to simulate this kind of problem and the simulation would be much faster if the background field is set via theoretical expression. The numerical implementation can be found in another notes</p>
+<p><a href="https://knifelees3.github.io/2020/08/20/A_En_PlaneWaveInputDirectionsViaPort/#Explanation-of-the-incident-angle">A_En_PlaneWaveInputDirectionsViaPort/#Explanation-of-the-incident-angle.md</a></p>
+<p>This note will firstly derive the theoretical expressions of the transmission properties and then introduce its implementation in COMSOL.</p>
+<h2 id="Theoretical-derivations"><a href="#Theoretical-derivations" class="headerlink" title="Theoretical derivations"></a>Theoretical derivations</h2><p>The Chinese version of this derivations  can be found in</p>
+<p><a href="https://knifelees3.github.io/2020/02/26/E_%E7%89%A9%E7%90%86-%E5%B9%B3%E9%9D%A2%E6%B3%A2%E5%9C%A8%E5%8F%8C%E5%B1%82%E4%BB%8B%E8%B4%A8%E7%9A%84%E4%BC%A0%E6%92%AD%E5%AD%A6%E6%80%A7%E8%B4%A8/">E_物理-平面波在双层介质的传播学性质.md</a></p>
+<p> I will derive the transmission and reflection of plane waves in a two medium interface.</p>
+<h3 id="Boundary-conditions-and-properties-of-plane-wave"><a href="#Boundary-conditions-and-properties-of-plane-wave" class="headerlink" title="Boundary conditions and properties of plane wave"></a>Boundary conditions and properties of plane wave</h3><p>For any plane wave, when it is transmitted and reflected on the surface of the medium, due to the difference between its polarization direction and the direction of the incident surface, it can be discussed in two cases</p>
+<ul>
+<li>S polarization, the electric field is perpendicular to the incident plane, as shown in the left picture below</li>
+<li>P polarization, the electric field is parallel to the incident surface, as shown in the right picture below</li>
+</ul>
+<p>Pay attention to the positive direction of the figure below. Because of different definitions, the final expression will have a difference in sign. All my next derivations are based on the following figure.</p>
+<p><img alt="不同偏振平面波入射示意图" data-src="https://raw.githubusercontent.com/knifelees3/my_pictures/master/picgoup/20200220133639360_19041.png" class="lazyload"></p>
+<p>That is to say, any plane wave $\boldsymbol{E}$ can be written as a combination of S polarization and P polarization</p>
+<script type="math/tex; mode=display">
+\boldsymbol{E}=\boldsymbol{E}^{s}+\boldsymbol{E}^{p}</script><p>We assume that a plane wave is incident from medium 1 to medium 2. We stipulate that the direction of $\boldsymbol{n}$ is from medium 2 to medium 1. The electric and magnetic fields need to meet the corresponding boundary conditions</p>
+<script type="math/tex; mode=display">
+\boldsymbol{n}\times (\boldsymbol{E}_{1}-\boldsymbol{E}_{2})=0</script><script type="math/tex; mode=display">
+\boldsymbol{n}\cdot (\boldsymbol{D}_{1}-\boldsymbol{D}_{2})=\sigma</script><script type="math/tex; mode=display">
+\boldsymbol{n}\times (\boldsymbol{H}_{1}-\boldsymbol{H}_{2})=\boldsymbol{K}</script><script type="math/tex; mode=display">
+\boldsymbol{n}\cdot (\boldsymbol{B}_{1}-\boldsymbol{B}_{2})=0</script><p>According to the definition shown in the figure above, we can decompose the field and wave vector separately. Whether it is P polarization or S polarization, the wave vector can be written as</p>
+<script type="math/tex; mode=display">
+\boldsymbol{k}_{1}=(k_x,k_y,k_{z1})</script><script type="math/tex; mode=display">
+\boldsymbol{k}_{2}=(k_x,k_y,k_{z2})</script><p>The horizontal wave vector $(k_x,k_y)$ is continuous, and a horizontal wave number can be defined</p>
+<script type="math/tex; mode=display">
+k_{t}=\sqrt{k_{x}^2+k_{y}^2}=k_{1}\sin{\theta_{1}}</script><p>In order to obtain the reflection and transmission properties of the geomagnetic field, we need to analyze it according to the boundary conditions. We define the incident electric field in medium 1 as</p>
+<script type="math/tex; mode=display">
+\boldsymbol{E}_{1}=\boldsymbol{E}_{1}^{\prime}e^{i\boldsymbol{k}\boldsymbol{r}-i\omega t}</script><p>In addition, what needs to be emphasized is the definition of refractive index and the definition of speed. The propagation speed of a plane wave in a medium is</p>
+<script type="math/tex; mode=display">
+\nu=\sqrt{\frac{1}{\varepsilon\mu}}=c/n</script><p>That is, the refractive index can be expressed as</p>
+<script type="math/tex; mode=display">
+n=\sqrt{\varepsilon\mu}\cdot c</script><p>For a plane wave, the relationship between its electric field and magnetic field is</p>
+<script type="math/tex; mode=display">
+E=B\nu=B\sqrt{\frac{1}{\varepsilon\mu}}</script><p>The power density of a plane wave can be expressed as</p>
+<script type="math/tex; mode=display">
+S=E\times H=E\cdot B/\mu=E^2\sqrt{\frac{\varepsilon}{\mu}}</script><p>The average power density can be expressed as</p>
+<script type="math/tex; mode=display">
+\langle S \rangle=\frac{1}{2}\text{Re}\{E\times H^{*}\}=\frac{1}{2}\sqrt{\frac{\varepsilon}{\mu}}|E|^2</script><h3 id="S-Polarization"><a href="#S-Polarization" class="headerlink" title="S Polarization"></a>S Polarization</h3><p>For S polarization, first, the tangential component of the electric field $\boldsymbol{E}$ is continuous</p>
+<script type="math/tex; mode=display">
+E_{1}+E_{1r}=E_{2}=E_{1t}</script><p>Then the tangential component of the magnetic field $H$ is continuous</p>
+<script type="math/tex; mode=display">
+-\frac{B_{1}}{\mu_{1}}\cos(\theta_{1})+\frac{B_{1r}}{\mu_{1}}\cos(\theta_{1})=-\frac{B_{2}}{\mu_{2}}\cos(\theta_{2})=-\frac{B_{1t}}{\mu_{2}}\cos(\theta_{2})</script><p>According to the relationship between electric field and magnetic field $E=B\nu=Bc/n$, (note that $n=c/\sqrt{\varepsilon\mu}$) we can convert the relationship between the magnetic field into the relationship between the electric field</p>
+<script type="math/tex; mode=display">
+-\frac{E_{1}}{\mu_{1}\nu_{1}}\cos(\theta_{1})+\frac{E_{1r}}{\mu_{1}\nu_{1}}\cos(\theta_{1})=-\frac{E_{2}}{\mu_{2}\nu_{2}}\cos(\theta_{2})=-\frac{E_{1t}}{\mu_{1}\nu_{2}}\cos(\theta_{2})</script><script type="math/tex; mode=display">
+-\frac{E_{1}n_{1}}{\mu_{1}}\cos(\theta_{1})+\frac{E_{1r}n_{1}}{\mu_{1}}\cos(\theta_{1})=-\frac{E_{2}n_{2}}{\mu_{2}}\cos(\theta_{2})=-\frac{E_{1t}n_{2}}{\mu_{1}}\cos(\theta_{2})</script><p>Comprehensively available, the last relationship between $E_{1},E_{1r},E_{1t}$</p>
+<script type="math/tex; mode=display">
+\frac{E_{r}^{s}}{E_{1}^{s}}=\frac{\frac{n_{1}}{\mu_{1}}\cos(\theta_{1})-\frac{n_{2}}{\mu_{2}}\cos(\theta_{2})}{\frac{n_{1}}{\mu_{1}}\cos(\theta_{1})+\frac{n_{2}}{\mu_{2}}\cos(\theta_{2})}</script><script type="math/tex; mode=display">
+\frac{E_{t}^{s}}{E_{1}^{s}}=\frac{2\frac{n_{1}}{\mu_{1}}\cos(\theta_{1})}{\frac{n_{1}}{\mu_{1}}\cos(\theta_{1})+\frac{n_{2}}{\mu_{2}}\cos(\theta_{2})}</script><p>The above expression can be further transformed into the form of wave vector representation, because $k_{z1}=k_{1}\sin(\theta_{1}),k_{z2}=k_{2}\sin(\ theta_{2})$, therefore</p>
+<script type="math/tex; mode=display">
+\frac{E_{r}^{s}}{E_{1}^{s}}=\frac{\mu_{2}k_{z1}-\mu_{1}k_{z2}}{\mu_{2}k_{z1}+\mu_{1}k_{z2}}</script><script type="math/tex; mode=display">
+\frac{E_{t}^{s}}{E_{1}^{s}}=\frac{2\mu_{2}k_{z1}}{\mu_{2}k_{z1}+\mu_{1}k_{z2}}</script><h3 id="P-Polarization"><a href="#P-Polarization" class="headerlink" title="P Polarization"></a>P Polarization</h3><p>For P polarization, the tangential electric field is continuous, that is</p>
+<script type="math/tex; mode=display">
+-E_{1}\cos(\theta_{1})+E_{1r}\cos(\theta_{1})=-E_{2}\cos(\theta_{2})=-E_{1t}\cos(\theta_{2})</script><p>Then the magnetic field is tangentially continuous</p>
+<script type="math/tex; mode=display">
+-H_{1}-H_{1r}=-H_{2}=-H_{1t}</script><p>Further conversion</p>
+<script type="math/tex; mode=display">
+\frac{E_{1}}{\nu_{1}\mu_{1}}+\frac{E_{1r}}{\nu_{1}\mu_{1}}=\frac{E_{2}}{\nu_{2}\mu_{2}}=\frac{E_{1t}}{\nu_{2}\mu_{2}}</script><script type="math/tex; mode=display">
+n_{1}E_{1}/\mu_{1}+n_{1}E_{1r}/\mu_{1}=n_{2}E_{2}/\mu_{2}=n_{2}E_{1t}/\mu_{2}</script><p>Comprehensively available, the last relationship between $E_{1},E_{1r},E_{1t}$</p>
+<script type="math/tex; mode=display">
+\frac{E_{r}^{p}}{E_{1}^{p}}=\frac{\frac{n_{2}}{\mu_{2}}\cos(\theta_{1})-\frac{n_{1}}{\mu_{1}}\cos(\theta_{2})}{\frac{n_{2}}{\mu_{2}}\cos(\theta_{1})+\frac{n_{1}}{\mu_{1}}\cos(\theta_{2})}=</script><script type="math/tex; mode=display">
+\frac{E_{t}^{p}}{E_{1}^{p}}=\frac{2\frac{n_{1}}{\mu_{1}}\cos(\theta_{1})}{\frac{n_{2}}{\mu_{2}}\cos(\theta_{1})+\frac{n_{1}}{\mu_{1}}\cos(\theta_{2})}</script><p>The above expression can be further transformed into the form of wave vector representation, because $k_{z1}=k_{1}\sin(\theta_{1}),k_{z2}=k_{2}\sin(\theta_ {2})$, and $k_{1}=k_{0}n_{1},k_{2}=k_{0}n_{2}$, so</p>
+<script type="math/tex; mode=display">
+\begin{aligned}
+\frac{E_{r}^{p}}{E_{1}^{p}}&=\frac{\frac{n_{2}}{\mu_{2}}\cos(\theta_{1})-\frac{n_{1}}{\mu_{1}}\cos(\theta_{2})}{\frac{n_{2}}{\mu_{2}}\cos(\theta_{1})+\frac{n_{1}}{\mu_{1}}\cos(\theta_{2})}\\
+&=\frac{\frac{n_{2}}{\mu_{2}n_{1}}k_{z1}-\frac{n_{1}}{\mu_{1}n_{2}}k_{z2}}{\frac{n_{2}}{\mu_{2}n_{1}}k_{z1}+\frac{n_{1}}{\mu_{1}n_{2}}k_{z2}}\\
+&=\frac{n_{2}^2\mu_{1}k_{z1}-n_{1}^2\mu_{2}k_{z2}}{n_{2}^2\mu_{1}k_{z1}+n_{1}^2\mu_{2}k_{z2}}\\
+&=\frac{\varepsilon_{2} k_{z1}-\varepsilon_{1}k_{z2}}{\varepsilon_{2} k_{z1}+\varepsilon_{1}k_{z2}}\\
+\end{aligned}</script><p>Following the same transformation, we can get</p>
+<script type="math/tex; mode=display">
+\begin{aligned}
+\frac{E_{t}^{p}}{E_{1}^{p}}&=\frac{2\frac{n_{1}}{\mu_{1}}\cos(\theta_{1})}{\frac{n_{2}}{\mu_{2}}\cos(\theta_{1})+\frac{n_{1}}{\mu_{1}}\cos(\theta_{2})}\\
+&=\frac{2\varepsilon_{2} k_{z1}}{\varepsilon_{2} k_{z1}+\varepsilon_{1}k_{z2}}\frac{n_{1}\mu_{2}}{n_{2}\mu_{1}}\\
+&=\frac{2\varepsilon_{2} k_{z1}}{\varepsilon_{2} k_{z1}+\varepsilon_{1}k_{z2}}\sqrt{\frac{\mu_{2}\varepsilon_{1}}{\mu_{1}\varepsilon_{2}}}
+\end{aligned}</script><p>This result is consistent with the book <em>Principle of Nano Optics</em>. As a result, this derivation made me more familiar with the so-called Ferrell formula. It should be noted that our derivations are based on specific graphs, and different graphs will have different symbols.</p>
+<blockquote>
+<p>Nonetheless, be aware that the literature is not standardized, and all possible sign variations have been labeled the Fresnel Equations. To avoid confusion they must be related to the specific field directions from which they were derived.</p>
+</blockquote>
+<h3 id="Special-case-non-Magnetic-material"><a href="#Special-case-non-Magnetic-material" class="headerlink" title="Special case: non-Magnetic material"></a>Special case: non-Magnetic material</h3><p>In reality, the magnetism of most materials can be ignored. We think that $\mu_{1}=\mu_{2}$, so</p>
+<script type="math/tex; mode=display">
+\frac{E_{r}^{s}}{E_{1}^{s}}=\frac{\frac{n_{1}}{\mu_{1}}\cos(\theta_{1})-\frac{n_{2}}{\mu_{2}}\cos(\theta_{2})}{\frac{n_{1}}{\mu_{1}}\cos(\theta_{1})+\frac{n_{2}}{\mu_{2}}\cos(\theta_{2})}=\frac{n_{1}\cos(\theta_{1})-n_{2}\cos(\theta_{2})}{n_{1}\cos(\theta_{1})+n_{2}\cos(\theta_{2})}=-\frac{\sin(\theta_{1}-\theta_{2})}{\sin (\theta_{1}+\theta_{2})}</script><script type="math/tex; mode=display">
+\frac{E_{t}^{s}}{E_{1}^{s}}=\frac{2\frac{n_{1}}{\mu_{1}}\cos(\theta_{1})}{\frac{n_{1}}{\mu_{1}}\cos(\theta_{1})+\frac{n_{2}}{\mu_{2}}\cos(\theta_{2})}=\frac{2n_{1}\cos(\theta_{1})}{n_{1}\cos(\theta_{1})+n_{2}\cos(\theta_{2})}=+\frac{2\sin(\theta_{2})\cos(\theta_{1})}{\sin (\theta_{1}+\theta_{2})}</script><script type="math/tex; mode=display">
+\frac{E_{r}^{p}}{E_{1}^{p}}=\frac{\frac{n_{2}}{\mu_{2}}\cos(\theta_{1})-\frac{n_{1}}{\mu_{1}}\cos(\theta_{2})}{\frac{n_{2}}{\mu_{2}}\cos(\theta_{1})+\frac{n_{1}}{\mu_{1}}\cos(\theta_{2})}=\frac{n_{2}\cos(\theta_{1})-n_{1}\cos(\theta_{2})}{n_{2}\cos(\theta_{1})+n_{1}\cos(\theta_{2})}=+\frac{\tan(\theta_{1}-\theta_{2})}{\tan (\theta_{1}+\theta_{2})}</script><script type="math/tex; mode=display">
+\frac{E_{t}^{p}}{E_{1}^{p}}=\frac{2\frac{n_{1}}{\mu_{1}}\cos(\theta_{1})}{\frac{n_{2}}{\mu_{2}}\cos(\theta_{1})+\frac{n_{1}}{\mu_{1}}\cos(\theta_{2})}=\frac{2n_{1}\cos(\theta_{1})}{n_{2}\cos(\theta_{1})+n_{1}\cos(\theta_{2})}=+\frac{2\sin(\theta_{2})\cos(\theta_{1})}{\sin (\theta_{1}+\theta_{2})\sin (\theta_{1}-\theta_{2})}</script><h3 id="Special-case-normal-incidence"><a href="#Special-case-normal-incidence" class="headerlink" title="Special case-normal incidence"></a>Special case-normal incidence</h3><p>S and P polarization will be the same at normal incidence. For the sake of simplicity, we think that $\mu_{1}=\mu_{2}$, we can verify that the normal incidence is $\theta_{1}=\theta_{2 }=0$, at this time</p>
+<script type="math/tex; mode=display">
+\frac{E_{r}^{s}}{E_{1}^{s}}=\frac{\frac{n_{1}}{\mu_{1}}\cos(\theta_{1})-\frac{n_{2}}{\mu_{2}}\cos(\theta_{2})}{\frac{n_{1}}{\mu_{1}}\cos(\theta_{1})+\frac{n_{2}}{\mu_{2}}\cos(\theta_{2})}=\frac{n_{1}-n_{2}}{n_{1}+n_{2}}</script><script type="math/tex; mode=display">
+\frac{E_{t}^{s}}{E_{1}^{s}}=\frac{2\frac{n_{1}}{\mu_{1}}\cos(\theta_{1})}{\frac{n_{1}}{\mu_{1}}\cos(\theta_{1})+\frac{n_{2}}{\mu_{2}}\cos(\theta_{2})}=\frac{2n_{1}}{n_{1}+n_{2}}</script><script type="math/tex; mode=display">
+\begin{aligned}
+\frac{E_{r}^{p}}{E_{1}^{p}}&=\frac{\frac{n_{2}}{\mu_{2}}\cos(\theta_{1})-\frac{n_{1}}{\mu_{1}}\cos(\theta_{2})}{\frac{n_{2}}{\mu_{2}}\cos(\theta_{1})+\frac{n_{1}}{\mu_{1}}\cos(\theta_{2})}\\
+&=\frac{n_{2}-n_{1}}{n_{2}+n_{1}}
+\end{aligned}</script><script type="math/tex; mode=display">
+\begin{aligned}
+\frac{E_{t}^{p}}{E_{1}^{p}}&=\frac{2\frac{n_{1}}{\mu_{1}}\cos(\theta_{1})}{\frac{n_{2}}{\mu_{2}}\cos(\theta_{1})+\frac{n_{1}}{\mu_{1}}\cos(\theta_{2})}\\
+&=\frac{2n_{1}}{n_{2}+n_{1}}
+\end{aligned}</script><p>We find that the reflection of s-polarization and p-polarization happens to have a negative sign, which is different from the definition of the positive direction of the electric field with s- and p-polarization.</p>
+<ul>
+<li>For s polarization, it should be $E+E_{r}^{s}$</li>
+<li>For p polarization should be $E-E_{r}^{s}$</li>
+</ul>
+<h3 id="Special-case-total-reflection"><a href="#Special-case-total-reflection" class="headerlink" title="Special case: total reflection"></a>Special case: total reflection</h3><p>According to the Fresnel formula,</p>
+<script type="math/tex; mode=display">
+\sin(\theta_{2})n_{2}=\sin(\theta_{1})n_{1}\implies \sin(\theta_{2})=\frac{\sin(\theta_{1})n_{1}}{n_{2}}</script><p>Considering $n_{1}&gt;n_{2}$, at this time $\theta_{1}&lt;\theta_{2}$, increasing the incident angle continuously, there will be an angle that makes the transmission angle equal to 90 degrees, which is generally It is called the critical angle, $\theta_{c}=\arcsin(\frac{n_{1}}{n_{2}})$. If you continue to increase the angle, the wave passing through the interface will decay exponentially along the z direction.</p>
+<blockquote>
+<p>although there must be a transmitted wave, it cannot, on the average, carry energy across the boundary.</p>
+</blockquote>
+<p>Let’s analyze the specific physical process of light and then total reflection. The previous transmission and reflection coefficients are further expressed as</p>
+<script type="math/tex; mode=display">
+r^{s}=\frac{\cos\theta_{1}-\sqrt{(\frac{n_{2}^2}{n_{1}^2}-\sin^2\theta_{1})}}{\cos\theta_{1}+\sqrt{(\frac{n_{2}^2}{n_{1}^2}-\sin^2\theta_{1})}}</script><script type="math/tex; mode=display">
+r^{s}=\frac{\frac{n_{2}^2}{n_{1}^2}\cos\theta_{1}-\sqrt{(\frac{n_{2}}{n_{1}}-\sin^2\theta_{1})}}{\frac{n_{2}^2}{n_{1}^2}\cos\theta_{1}+\sqrt{(\frac{n_{2}}{n_{1}}-\sin^2\theta_{1})}}</script><p>In $\theta_{1}\ge\theta_{c}$, there is an imaginary number in the radical. In this case, the numerator and denominator of the reflection coefficient is just a complex conjugate difference, but the square of the modulus is equal to 1. That is, all the energy is actually reflected at this time. Of course, this does not mean that there is no energy passing through the interface, but it is attenuated in a short distance after passing through. We can write the transmitted wave as</p>
+<script type="math/tex; mode=display">
+\boldsymbol{\vec{E}_{2}}=\boldsymbol{\vec{E}_{02}}e^{i\boldsymbol{k}_{2}\cdot \boldsymbol{r}-i\omega t}</script><p>Among them, $\boldsymbol{k}_{2}\cdot \boldsymbol{r}=k_{2x}x+k_{2z}z=k_{2}\sin\theta_{2}+k_{2}\cos \theta_{2}$, according to Fresnel’s law</p>
+<script type="math/tex; mode=display">
+k_{2}\cos\theta_{2}=\pm k_{2}\sqrt{1-\frac{\sin^2\theta_{1}}{n_{2}^2/n_{1}^2}}=\pm ik_{2}\sqrt{\frac{\sin^2\theta_{1}}{n_{2}^2/n_{1}^2}-1}=\pm i\beta_{z}</script><p>而</p>
+<script type="math/tex; mode=display">
+k_{2x}=\frac{k_{2}}{n_{2}/n_{1}}\sin\theta_{1}</script><p>That is, the final field can be expressed as</p>
+<script type="math/tex; mode=display">
+\boldsymbol{\vec{E}_{2}}=\boldsymbol{\vec{E}_{02}}e^{\pm \beta_{z}z}e^{ik_{x}x\sin\theta_{1}n_{1}/n_{2}-i\omega t}</script><p>Among them, for the sign of $\pm$, the final field must be attenuated, that is, $-$.</p>
+<h2 id="COMSOL-implementation"><a href="#COMSOL-implementation" class="headerlink" title="COMSOL implementation"></a>COMSOL implementation</h2><p>The previous is the basic derivation, the analytical expression of the theory, this section will derive how to set it in COMSOL. When setting up COMSOL, you need to pay attention to the following points</p>
+<ul>
+<li>The field in COMSOL is expressed as $e^{i\omega t-i\boldsymbol{k}\boldsymbol{r}}$, so when setting the field expression in space, the wave vector related to the exponential term must be taken as the complex conjugate . For example, we normally have an imaginary number $a=\sqrt{-1}=i$, but it should be taken as $a=\sqrt{-1}=-i$ when setting COMSOL expressions.</li>
+<li>In COMSOL, Ex, Ey, and Ez are set separately. Pay attention to the positive direction of the coordinate axis, and pay attention to the conversion from the previous schematic diagram to the specific COMSOL coordinates.</li>
+</ul>
+<h3 id="Scatter-on-Substrate-Example-analysis"><a href="#Scatter-on-Substrate-Example-analysis" class="headerlink" title="Scatter on Substrate Example analysis"></a>Scatter on Substrate Example analysis</h3><p>I think this example can be analyzed in more detail in the follow-up. Here I will briefly describe the information that this example can give us. This example was originally intended to allow us to save the trouble of theoretical setting and directly calculate the background field numerically. In the old version of COMSOL5.1, there is no evaluation angle and Azimuthal angle to define the incident angle. We can see the definition process from the example <strong>Scatter on Substrate</strong>, as shown in the following figure</p>
+<p><img alt data-src="https://raw.githubusercontent.com/knifelees3/my_pictures/master/picgoup/20200219233353919_15347.png" class="lazyload"></p>
+<p>A beam of horizontally polarized light strikes from above, so the incident wave is not necessarily a plane wave. The expression for its electric field is written as</p>
+<p><img alt data-src="https://raw.githubusercontent.com/knifelees3/my_pictures/master/picgoup/20200219234633713_10470.png" class="lazyload"></p>
+<p><img alt data-src="https://raw.githubusercontent.com/knifelees3/my_pictures/master/picgoup/20200219234653754_10657.png" class="lazyload"></p>
+<p><img alt data-src="https://raw.githubusercontent.com/knifelees3/my_pictures/master/picgoup/20200219234714704_25960.png" class="lazyload"></p>
+<p><img alt data-src="https://raw.githubusercontent.com/knifelees3/my_pictures/master/picgoup/20200219234744588_8538.png" class="lazyload"></p>
+<p>We can see from the above expression how to turn the analytical expression into an example in COMSOL. Because it is incident from top to bottom, that is, incident along the -z direction, so <code>kz</code> are all negative numbers. This example only sets a field in the port plane. In practice, what we need to set is the background field in the three-dimensional space, which will also participate in the z coordinate.</p>
+<h3 id="Plane-wave-vertical-incidence-setting"><a href="#Plane-wave-vertical-incidence-setting" class="headerlink" title="Plane wave vertical incidence setting"></a>Plane wave vertical incidence setting</h3><p>The second thing to talk about is the incidence of plane waves from bottom to top, with glass below and air above. This model is used to calculate that in Wang Zhiyuan’s experiment, light is incident vertically on the glass, and there are gold nanoparticles on the glass. The model has multiple calculation methods</p>
+<ul>
+<li>Calculate the background field numerically, and then use the numerical background field to solve the scattered field</li>
+<li>Write out the background field theoretically, and then numerically solve the scattered field</li>
+<li>Do not use background field and scattered field, direct plane wave incidence to solve the total field, but need to calculate whether there are two cases of gold nanoparticles.</li>
+</ul>
+<p>I finally chose the second one. The advantage is that the background field is analytically accurate. The disadvantage is that the background field needs to be calculated manually, various parameters need to be calculated, and a thorough understanding of the properties of reflection and transmission is required. The following are some settings when calculating.</p>
+<p><img alt data-src="https://raw.githubusercontent.com/knifelees3/my_pictures/master/picgoup/20200219235930384_25635.png" class="lazyload"></p>
+<p><img alt data-src="https://raw.githubusercontent.com/knifelees3/my_pictures/master/picgoup/20200220000004704_10913.png" class="lazyload"></p>
+<p><img alt data-src="https://raw.githubusercontent.com/knifelees3/my_pictures/master/picgoup/20200220000056937_4747.png" class="lazyload"></p>
+<p><img alt data-src="https://raw.githubusercontent.com/knifelees3/my_pictures/master/picgoup/20200220000116136_12496.png" class="lazyload"></p>
+<p>As you can see, I set it according to the s-polarized incident mode. Therefore, the incident and reflected fields of the Ex field are directly added. This is very important, because what I want to calculate next is the setting method of p-polarization.</p>
+<h3 id="P-polarized-plane-waves-are-incident-obliquely-along-the-positive-x-axis"><a href="#P-polarized-plane-waves-are-incident-obliquely-along-the-positive-x-axis" class="headerlink" title="P-polarized plane waves are incident obliquely along the positive x-axis"></a>P-polarized plane waves are incident obliquely along the positive x-axis</h3><h4 id="Analytical-expression"><a href="#Analytical-expression" class="headerlink" title="Analytical expression"></a>Analytical expression</h4><p>This is to calculate the oblique incidence. When we set it specifically, SiO2 is on the bottom, and the plane wave is incident from the bottom to the top, from the negative X direction to the positive direction, that is, the polarization is in the X-Z plane. Then correspondingly, the incident wave in this coordinate system should be written as,</p>
+<script type="math/tex; mode=display">
+\boldsymbol{E}_{1}=E_{01}(-\cos\theta_{1},0,\sin\theta_{1})\cdot e^{ik_{1x}x+ik_{1y}y+ik_{1z}z}</script><script type="math/tex; mode=display">
+\boldsymbol{E}_{1r}=E_{01r}(\cos\theta_{1},0,\sin\theta_{1})\cdot e^{ik_{1x}x+ik_{1y}y-ik_{1z}z}</script><script type="math/tex; mode=display">
+\boldsymbol{E}_{2}=E_{02}(-\cos\theta_{2},0,\sin\theta_{2})\cdot e^{ik_{2x}x+ik_{2y}y+ik_{2z}z}</script><p>Note that the $k_{z}$ of the reflected light should become a negative sign, and the relationship between the projected field and the reflected field is</p>
+<script type="math/tex; mode=display">
+E_{01r}=E_{01}r^{p},E_{02}=E_{01}t^{p}</script><p>In the glass layer, the total field is the superposition of the incident field and the reflected field, and the sign of different components needs to be considered when superposing.</p>
+<script type="math/tex; mode=display">
+\boldsymbol{E}_{sub}=\boldsymbol{E}_{1}+\boldsymbol{E}_{1r}=E_{01}\left[-\cos\theta_{1}(1-r^{p})e^{ik_{1x}x+ik_{1y}y+ik_{1z}z},0,\sin(\theta_{1})e^{ik_{1x}x+ik_{1y}y+ik_{1z}z}+\sin(\theta_{1})r^{p}e^{ik_{1x}x+ik_{1y}y-ik_{1z}z}\right]</script><p>In the glass layer, the total field is the superposition of the incident field and the reflected field, and the sign of different components needs to be considered when superposing.</p>
+<script type="math/tex; mode=display">
+\boldsymbol{E}_{air}=\boldsymbol{E}_{01}\cdot t(-\cos\theta_{2},0,\sin\theta_{2})\cdot e^{ik_{2x}x+ik_{2y}y+ik_{2z}z}</script><h4 id="COMSOL-Settings-Summary"><a href="#COMSOL-Settings-Summary" class="headerlink" title="COMSOL Settings Summary"></a>COMSOL Settings Summary</h4><p>I have encountered a lot of pitfalls in COMSOL settings. Here are the things to pay attention to.</p>
+<ol>
+<li>The phase expression used by COMSOL is $e^{i\omega t-ikx}$, so the first is a change in the expression.</li>
+<li>In addition to setting this item to a negative sign, special attention should be paid to the presence of imaginary numbers. For example, if the wave vector on the exponent has an imaginary part, add a negative sign to the imaginary number, such as $kz=1+i$. The imaginary part usually means loss, but it is an exponential increase in COMSOL. We need to take the corresponding complex conjugate.</li>
+<li>Since the transmission and reflection coefficients also contain $\cos\theta=k_z/k$, the complex conjugate must also be taken! ! !</li>
+<li>Because it is total reflection, the transmission angle is a complex number. Generally, for complex numbers, we have a method, $\sqrt{-1}=i$. When the sphere transmission angle is determined by the refractive index formula, <code>theta_2=asin(n_sub* sin(theta_1)/n_air))</code>, also need to go to an angle. If we take a complex conjugate for the default angle, that is, <code>theta_2=conjugate(asin(n_sub*sin(theta_1)/n_air)))</code>. The angle can be calculated in COMSOL, so the 2 above, 3 steps can be avoided. See the settings below for details.</li>
+</ol>
+<p>With the above derivation, let’s now set up COMSOL. The first is related variables</p>
+<div class="table-container">
+<table>
+<thead>
+<tr>
+<th style="text-align:center">parameters</th>
+<th style="text-align:center">Value</th>
+<th style="text-align:left">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">WL0</td>
+<td style="text-align:center">532e-9[nm]</td>
+<td style="text-align:left"></td>
+</tr>
+<tr>
+<td style="text-align:center">k0</td>
+<td style="text-align:center">2*pi/WL0</td>
+<td style="text-align:left"></td>
+</tr>
+<tr>
+<td style="text-align:center">n_sub</td>
+<td style="text-align:center">1.4607</td>
+<td style="text-align:left"></td>
+</tr>
+<tr>
+<td style="text-align:center">n_air</td>
+<td style="text-align:center">1</td>
+<td style="text-align:left"></td>
+</tr>
+<tr>
+<td style="text-align:center">k1</td>
+<td style="text-align:center">k0*n_sub</td>
+<td style="text-align:left"></td>
+</tr>
+<tr>
+<td style="text-align:center">k2</td>
+<td style="text-align:center">k0*n_air</td>
+<td style="text-align:left"></td>
+</tr>
+<tr>
+<td style="text-align:center">theta_1</td>
+<td style="text-align:center">50/180*pi</td>
+<td style="text-align:left"></td>
+</tr>
+<tr>
+<td style="text-align:center">theta_2</td>
+<td style="text-align:center">conjugate(asin(n_sub*sin(theta_1)/n_air))</td>
+<td style="text-align:left">The complex conjugate here comes from the exponential -ikr</td>
+</tr>
+<tr>
+<td style="text-align:center">r</td>
+<td style="text-align:center">(n_air*cos(theta_1)-n_sub*cos(theta_2))/(n_air*cos(theta_1)+n_sub*cos(theta_2))</td>
+<td style="text-align:left"></td>
+</tr>
+<tr>
+<td style="text-align:center">t</td>
+<td style="text-align:center">2*n_sub<em>cos(theta_1)/(n_air\</em>cos(theta_1)+n_sub*cos(theta_2))</td>
+<td style="text-align:left"></td>
+</tr>
+<tr>
+<td style="text-align:center">k1x</td>
+<td style="text-align:center">k1* sin(\theta_1)</td>
+<td style="text-align:left"></td>
+</tr>
+<tr>
+<td style="text-align:center">k1z</td>
+<td style="text-align:center">k1* cos(\theta_1)</td>
+<td style="text-align:left"></td>
+</tr>
+<tr>
+<td style="text-align:center">k2x</td>
+<td style="text-align:center">k2* sin(\theta_2)</td>
+<td style="text-align:left"></td>
+</tr>
+<tr>
+<td style="text-align:center">k2z</td>
+<td style="text-align:center">k2* cos(\theta_2)</td>
+<td style="text-align:left">For pure imaginary numbers, add a minus sign to indicate attenuation</td>
+</tr>
+</tbody>
+</table>
+</div>
+<p>Then there is the background field setting, in the glass layer</p>
+<div class="table-container">
+<table>
+<thead>
+<tr>
+<th style="text-align:center">Expression</th>
+<th style="text-align:left">Value</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">E0x</td>
+<td style="text-align:left">-cos(theta_1)*exp(-1j*(k1x*x+k1z*z))+r*cos(theta_1)*exp(-1j*(k1x*x-k1z*z))</td>
+</tr>
+<tr>
+<td style="text-align:center">E0y</td>
+<td style="text-align:left">0</td>
+</tr>
+<tr>
+<td style="text-align:center">E0z</td>
+<td style="text-align:left">sin(theta_1)*exp(-1j*(k1x*x+k1z*z))   + r*sin(theta_1)*exp(-1j*(k1x*x-k1z*z))</td>
+</tr>
+</tbody>
+</table>
+</div>
+<p>In air layer</p>
+<div class="table-container">
+<table>
+<thead>
+<tr>
+<th style="text-align:center">Expression</th>
+<th style="text-align:center">Value</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">E0x</td>
+<td style="text-align:center">-cos(theta_2)*t*exp(-1j*(k2x*x+k2z*z))</td>
+</tr>
+<tr>
+<td style="text-align:center">E0y</td>
+<td style="text-align:center">0</td>
+</tr>
+<tr>
+<td style="text-align:center">E0z</td>
+<td style="text-align:center">sin(theta_2)*t<em>exp(-1j\</em>(k2x*x+k2z*z))</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div></article><div class="post-copyright"><div class="post-copyright__author"><span class="post-copyright-meta">Author: </span><span class="post-copyright-info"><a href="mailto:undefined" target="_blank" rel="noopener">Knifelee</a></span></div><div class="post-copyright__type"><span class="post-copyright-meta">Link: </span><span class="post-copyright-info"><a href="/https:/knifelees3.github.io/2020/08/20/A_En__Plane-Wave-Transmission-and-Its-Relization-in-COMSOL/">https://knifelees3.github.io/2020/08/20/A_En__Plane-Wave-Transmission-and-Its-Relization-in-COMSOL/</a></span></div><div class="post-copyright__notice"><span class="post-copyright-meta">Copyright Notice: </span><span class="post-copyright-info">All articles in this blog are licensed under <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank" rel="noopener">CC BY-NC-SA 4.0</a> unless stating additionally.</span></div></div><div class="tag_share"><div class="post-meta__tag-list"><a class="post-meta__tags" href="/tags/COMSOL/">COMSOL    </a><a class="post-meta__tags" href="/tags/Simulation/">Simulation    </a><a class="post-meta__tags" href="/tags/Physics/">Physics    </a></div><div class="post_share"><div class="social-share" data-image="https://raw.githubusercontent.com/knifelees3/my_pictures/master/picgoup/20200220133639360_19041.png" data-sites="facebook,twitter,wechat,weibo,qq"></div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/social-share.js@1.0.16/dist/css/share.min.css"><script src="https://cdn.jsdelivr.net/npm/social-share.js@1.0.16/dist/js/social-share.min.js"></script></div></div><div class="post-reward"><a class="reward-button"><i class="fa fa-qrcode"></i> Donate<div class="reward-main"><ul class="reward-all"><li class="reward-item"><img class="lazyload post-qr-code__img" src="/img/wechat.jpg"><div class="post-qr-code__desc">微信</div></li><li class="reward-item"><img class="lazyload post-qr-code__img" src="/img/alipay.jpg"><div class="post-qr-code__desc">支付寶</div></li></ul></div></a></div><nav class="pagination_post" id="pagination"><div class="prev-post pull_left"><a href="/2020/10/15/C_%E6%95%99%E7%A8%8B_Mathematica%E5%A6%82%E4%BD%95%E7%94%A8%E6%9D%A5%E5%86%99Python/"><img class="prev_cover lazyload" data-src="https://www.wolfram.com/common/images/gl-logo-spikey.en.png" onerror="onerror=null;src='/img/404.jpg'"><div class="label">Previous Post</div><div class="prev_info"><span>Mathematica如何用来写Python并且二者之间进行数据转换</span></div></a></div><div class="next-post pull_right"><a href="/2020/08/20/A_En_PlaneWaveInputDirectionsViaPort/"><img class="next_cover lazyload" data-src="https://raw.githubusercontent.com/knifelees3/my_pictures/master/picgoup/InputDirections.png" onerror="onerror=null;src='/img/404.jpg'"><div class="label">Next Post</div><div class="next_info"><span>Direction in port-Plane wave input via port in COMSOL</span></div></a></div></nav><div class="relatedPosts"><div class="relatedPosts_headline"><i class="fa fa-fw fa-thumbs-up" aria-hidden="true"></i><span> Recommend</span></div><div class="relatedPosts_list"><div class="relatedPosts_item"><a href="/2020/08/20/A_En_PlaneWaveInputDirectionsViaPort/" title="Direction in port-Plane wave input via port in COMSOL"><img class="relatedPosts_cover lazyload"data-src="https://raw.githubusercontent.com/knifelees3/my_pictures/master/picgoup/InputDirections.png"><div class="relatedPosts_title">Direction in port-Plane wave input via port in COMSOL</div></a></div><div class="relatedPosts_item"><a href="/2020/07/06/A_En-COMSOL-Use-on-Server/" title="How to use COMSOL on server"><img class="relatedPosts_cover lazyload"data-src="https://raw.githubusercontent.com/knifelees3/my_pictures/master/icons/COMSOLICON.png"><div class="relatedPosts_title">How to use COMSOL on server</div></a></div><div class="relatedPosts_item"><a href="/2020/07/06/A_En-COMSOL-Installation/" title="Installation of COMSOL"><img class="relatedPosts_cover lazyload"data-src="https://raw.githubusercontent.com/knifelees3/my_pictures/master/icons/COMSOLICON.png"><div class="relatedPosts_title">Installation of COMSOL</div></a></div><div class="relatedPosts_item"><a href="/2019/07/06/A_En_How_To_Use_COMSOL_LiveLink_With_MATLAB/" title="How to use COMSOL, MATLAB and COMSOL livelink with MATLAB on Server"><img class="relatedPosts_cover lazyload"data-src="https://raw.githubusercontent.com/knifelees3/my_pictures/master/icons/COMSOLICON.png"><div class="relatedPosts_title">How to use COMSOL, MATLAB and COMSOL livelink with MATLAB on Server</div></a></div><div class="relatedPosts_item"><a href="/2020/07/06/A_En_Local-COMSOL-ProblemList&Solutions/" title="COMSOL Problem List and Solutions"><img class="relatedPosts_cover lazyload"data-src="https://raw.githubusercontent.com/knifelees3/my_pictures/master/icons/COMSOLICON.png"><div class="relatedPosts_title">COMSOL Problem List and Solutions</div></a></div><div class="relatedPosts_item"><a href="/2020/02/21/C_教程-从COMSOL的log文件读取运算时间和内存/" title="从COMSOL的log文件读取运算时间和内存并绘图"><img class="relatedPosts_cover lazyload"data-src="https://raw.githubusercontent.com/knifelees3/my_pictures/master/picgoup/20200221-simulation-time-memory.png"><div class="relatedPosts_title">从COMSOL的log文件读取运算时间和内存并绘图</div></a></div></div><div class="clear_both"></div></div><hr><div id="post-comment"><div class="comment_headling"><i class="fa fa-comments fa-fw" aria-hidden="true"></i><span> Comment</span></div><div class="vcomment" id="vcomment"></div><script src="https://cdn.jsdelivr.net/npm/valine/dist/Valine.min.js"></script><script>var notify = true == true ? true : false;
+var verify = false == true ? true : false;
+var GUEST_INFO = ['nick','mail','link'];
+var guest_info = 'nick,mail,link'.split(',').filter(function(item){
+  return GUEST_INFO.indexOf(item) > -1
+});
+guest_info = guest_info.length == 0 ? GUEST_INFO :guest_info;
+
+window.valine = new Valine({
+  el:'#vcomment',
+  notify:notify,
+  verify:verify,
+  appId:'jR8sBuhmF2OQvpAqh8LWCbt1-gzGzoHsz',
+  appKey:'2C5ChxH3zGFNoQ8rO7u9I2Lb',
+  placeholder:'you can leave your comment here ~',
+  avatar:'monsterid',
+  guest_info:guest_info,
+  pageSize:'10',
+  lang:'en',
+  recordIP: true
+});</script></div></div></div><footer id="footer" data-type="color"><div id="footer-wrap"><div class="copyright">&copy;2018 - 2020 By Knifelee</div><div class="framework-info"><span>Driven </span><a href="http://hexo.io" target="_blank" rel="noopener"><span>Hexo</span></a><span class="footer-separator">|</span><span>Theme </span><a href="https://github.com/jerryc127/hexo-theme-butterfly" target="_blank" rel="noopener"><span>Butterfly</span></a></div><div class="footer_custom_text">Any question please email to me: knifelees3@hotmail.com</div></div></footer></div><section class="rightside" id="rightside"><div id="rightside-config-hide"><i class="fa fa-book" id="readmode" title="Read Mode"></i><i class="fa fa-plus" id="font_plus" title="Increase font size"></i><i class="fa fa-minus" id="font_minus" title="Decrease font size"></i><a class="translate_chn_to_cht" id="translateLink" href="javascript:translatePage();" title="Traditional Chinese and Simplified Chinese Conversion" target="_self">繁</a><i class="darkmode fa fa-moon-o" id="darkmode" title="Dark Mode"></i></div><div id="rightside-config-show"><div id="rightside_config" title="Setting"><i class="fa fa-cog" aria-hidden="true"></i></div><a id="to_comment" href="#post-comment" title="Scroll to comment"><i class="scroll_to_comment fa fa-comments">  </i></a><i class="fa fa-list-ul close" id="mobile-toc-button" title="Table of Contents" aria-hidden="true"></i><i class="fa fa-arrow-up" id="go-up" title="Back to top" aria-hidden="true"></i></div></section><script src="https://cdn.jsdelivr.net/npm/jquery@latest/dist/jquery.min.js"></script><script src="/js/utils.js"></script><script src="/js/main.js"></script><script src="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@latest/dist/jquery.fancybox.min.js"></script><script type="text/x-mathjax-config">MathJax.Hub.Config({
+  tex2jax: {
+    inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
+    processEscapes: true,
+    skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+  },
+  CommonHTML: {
+    linebreaks: { automatic: true, width: "90% container" }
+  },
+  "HTML-CSS": { 
+    linebreaks: { automatic: true, width: "90% container" }
+  },
+  "SVG": { 
+    linebreaks: { automatic: true, width: "90% container" }
+  }
+});
+</script><script type="text/x-mathjax-config">MathJax.Hub.Queue(function() {
+  var all = MathJax.Hub.getAllJax(), i;
+  for (i=0; i < all.length; i += 1) {
+    all[i].SourceElement().parentNode.className += ' has-jax';
+  }
+});
+</script><script src="https://cdn.jsdelivr.net/npm/mathjax/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script><script async src="/js/search/local-search.js"></script><script src="/js/baidupush.js"> </script><script src="/js/tw_cn.js"></script><script>translateInitilization()
+</script><script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script><script src="https://cdn.jsdelivr.net/npm/instant.page@latest/instantpage.min.js" type="module"></script><script src="https://cdn.jsdelivr.net/npm/lazysizes@latest/lazysizes.min.js" async=""></script><script src="/js/third-party/ClickShowText.js"></script><div class="search-dialog" id="local-search"><div class="search-dialog__title" id="local-search-title">Local search</div><div id="local-input-panel"><div id="local-search-input"><div class="local-search-box"><input class="local-search-box--input" placeholder="Search for Posts"></div></div></div><hr><div id="local-search-results"><div id="local-hits"></div><div id="local-stats"><div class="local-search-stats__hr" id="hr"><span>Powered by</span> <a href="https://github.com/wzpan/hexo-generator-search" target="_blank" rel="noopener" style="color:#49B1F5;">hexo-generator-search</a></div></div></div><span class="search-close-button"><i class="fa fa-times"></i></span></div><div class="search-mask"></div></body></html>
